@@ -2,76 +2,145 @@
 
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
 
-\title{Development Plan\\\progname}
+\title{Development Plan\\ Digital Twin Forest}
 
-\author{\authname}
+\author{Team 8\\Jiacheng Wu, Yichen Jiang, Tingyu Shi, Bowen Zhang, Junhong Chen}
 
-\date{}
+\date{\today}
 
-\input{../Comments}
-\input{../Common}
+%\input{../Comments}
+%\input{../Common}
 
 \begin{document}
+ 
+\maketitle
 
 \begin{table}[hp]
+\centering
 \caption{Revision History} \label{TblRevisionHistory}
-\begin{tabularx}{\textwidth}{llX}
+\begin{tabularx}{\textwidth}{XXX}
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+Sept 17, 2022 & All team members & Revision 0\\
+
 \bottomrule
 \end{tabularx}
 \end{table}
-
-\newpage
-
-\maketitle
-
-\wss{Put your introductory blurb here.}
-
 \section{Team Meeting Plan}
+\begin{itemize}
+    \item Time\\ Every Thursday from 1:30 PM to 3:30 PM.
+    \item Location \\ If the team needs to work with Dr. Gonsamo's lab members, the meeting room
+    will be the lab of GSB 316. Otherwise, the meeting will be hosted in Thode.
+    \item Frequency \\ Weekly(multiple meetings will be holden within one week if necessary)
+    \item Contents of meeting\\
+    The contents of meetings include discussion, implementation, assigning works outside 
+    the meetings and reporting working progress. All the decisions and modifications
+    should be recorded and updated by the end of the day of meetings.
+    \item Roles\\ 
+    Bowen Zhang: Host all the meetings and gather participants' ideas.\\
+    Tingyu Shi: Record and document meeting contents.\\
+    Jiacheng Wu: Participant.\\
+    Yichen Jiang: Participant.\\
+    Junhong Chen: Participant.
+    \item Rules for agendas\\
+    An agenda is supposed to be made before every meeting. The following are rules for
+    meeting agendas:
+    \begin{itemize}
+    \item All team members are supposed to attend the meetings. If any member cannot attend the meeting, he/she needs to tell the other teammates at least one day before the meeting.
+    \item Topics must be determined before every meeting.
+    \item The length of meeting time shall be determined before the meeting.
+    \item There is only one chair/leader in the meeting.
+    \item Conflicts in the meeting shall be recorded and solved before the next meeting.
+    \item All members should communicate respectfully during the meeting.
+    \item All members shall be assigned a “take home” work after the meeting. The estimated time of the work of each member shall be close.
+    \item First topic will be reviewing the agenda.
+    \item Assess all team members’ contributions in every meetings.
+    \end{itemize}
+\end{itemize}
 
 \section{Team Communication Plan}
+Communication within our group will be completed through weekly in-person meetings, Microsoft Teams, emails, and informal daily communications. 
 
 \section{Team Member Roles}
+\begin{itemize}
+    \item Jiacheng Wu: Developer, UI designer, C Sharp expert
+    \item Yichen Jiang: Developer, Tester
+    \item Tingyu Shi: Developer, Latex Expert, Unity Expert
+    \item Bowen Zhang: Developer, Liaison, AR Expert, Group Leader
+    \item Junhong Chen: Developer, Git Expert
+\end{itemize}
 
 \section{Workflow Plan}
 
 \begin{itemize}
-	\item How will you be using git, including branches, pull request, etc.?
-	\item How will you be managing issues, including template issues, issue
-	classificaiton, etc.?
+	\item We will use Unity as majority for the modelling part. And we will use git to deliver, store, and synchronize the Unity packages. Specific division of workload should be discussed in the weekly meetings. And then each member pushes his or her own share of work into the git, which should include folders of assets, packages, project settings, user settings, and related license. We will use feature-branch for later testing, and merge all branches after all tests are passed. 
+	\item For the documentation required in the development, we will follow the template provided in git if the course. For required documentation, we will use overleaf and online meeting to realize real-time communication and synchronized collaboration. After the documents are finished, we push documents into git and sign every team member as a co-author. 
 \end{itemize}
 
 \section{Proof of Concept Demonstration Plan}
+\subsection{Risks:}
+\begin{itemize}
+    \item Mobile device may not provide sufficient computing capacities to test the models.\\\\ 
+        Solution: We might convert high polygon models to low polygon models when representing in the mobile device. 
+        
+    \item The trees might be too high to scan all aspects of the trees or result in a poor precision.\\\\
+        Solution: Employ drones to scan the pictures
+\end{itemize}
 
-What is the main risk, or risks, for the success of your project?  What will you
-demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?
-
+\subsection{POC Demonstration contents}
+\begin{itemize}
+    \item POC should include virtual representation of a limited amount
+    of trees with qualified FPS on mobile 
+    devices by using mobile devices with LiDAR like iPhone or iPad. 
+    This can prove that mobile devices can provide enough computation power for high-poly models.
+    \item POC should include trees higher than 5 meters to prove the second risk can be
+    overcome.
+\end{itemize}
 \section{Technology}
 
 \begin{itemize}
-\item Specific programming language
-\item Specific linter tool (if appropriate)
-\item Specific unit testing framework
-\item Investigation of code coverage measuring tools
-\item Specific plans for Continuous Integration (CI), or an explanation that CI
-  is not being done
-\item Specific performance measuring tools (like Valgrind), if
-  appropriate
-\item Libraries you will likely be using?
-\item Tools you will likely be using?
+\item programming language: The whole project will be implemented in C Sharp language.
+\item linter tool: The team will use Visual Studio 2019 as the main IDE, and the project will be compiled in Xcode to test on IOS devices.
+\item unit testing framework: VS2019 will be used for the unit test. The team will create a unit test project(.NET Framework) that contains MSTest unit tests.
+\item code coverage measuring tools: The JetBrains dotCover is a code coverage tool that integrates with VS2019. It can execute and run coverage analysis for unit tests in Visual Studio.
+\item CI plans: We will use continuous integration for any code changes that have been automated tested. For the specific workflow, we will distribute tasks to each team member to allow independent work. Once a task is finished, its developer will test it and introduce it into the current project. 
+\item performance measuring tools: Unity will be used to record the FPS of the final application. The AR object requires at least 30 FPS on mobile devices.
+\item Libraries: AR SDKs like ARFoundation and Vuforia will be used for the development of the application. The packages can be imported through Unity and get called in VS2019.
+\item Tools: iPad Pro LiDAR and multi angle smart phone scans with photogrammetry technique will be used for 3D scanning. Agisoft metashape and 3D Scanning App will be used to generate 3D models and photogrammetric data.
 \end{itemize}
 
 \section{Coding Standard}
+\subsection{Program File Names}
+The file names will be written in Pascal style and the titles will be descriptive.
+
+\subsection{C Sharp}
+The coding style of the C sharp language that the team will adopt is the \href{https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions}{Microsoft C\# Coding Conventions}. The variable names will be short but descriptive. All variables will be written in camel case. For example, the height of a tree should be written as $treeHeight$.
+
+\subsection{Unity File Names}
+Unity files such as images, videos, prefabs and scene files will be written in lowercase. The team will use $-$ to replace the spaces in file names for readability.   
 
 \section{Project Scheduling}
-
-\wss{How will the project be scheduled?}
-
+\begin{itemize}
+    \item Technology: Shared MS Excel Gantt Chart
+    \item Major Milestones: 
+    \begin{itemize}
+        \item SRS Rev0 (October 5)
+        \item Hazard Analysis 0 (October 19)
+        \item V\&V Plan Rev0 (November 2)
+        \item POC Demo (November 14-25)
+        \item Design Document Rev0 (January 18)
+        \item Demonstration Rev0 (February 6- 17)
+        \item V\&V Report Rev0  (March 8)
+        \item Final Demo (March 20 - 31)
+        \item Final Documentation (April 5)
+    \end{itemize}
+    \item Task Decomposition Plan:\\ This plan will be discussed with Dr. Gonsamo and his lab
+    members first. Then the team leader will allocate tasks according to team member roles. 
+    Our current plan is decomposing this project into three parts, which are measuring data, modeling
+    and coding.
+    \item Please check our project schedule \href{https://github.com/wuj187/DigitalTwinCAS/tree/main/docs/DevelopmentPlan/Project_Schedule}{here}.
+\end{itemize}
 \end{document}
