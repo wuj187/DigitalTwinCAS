@@ -33,8 +33,8 @@ Sept 17, 2022 & All team members & Revision 0\\
 \begin{itemize}
     \item Time\\ Every Thursday from 1:30 PM to 3:30 PM.
     \item Location \\ If the team needs to work with Dr. Gonsamo's lab members, the meeting room
-    will be the lab of GSB 316. Otherwise, the meeting will be hosted in Thode.
-    \item Frequency \\ Weekly(multiple meetings will be holden within one week if necessary)
+    will be the lab of room 316 of General Science Building. Otherwise, the meeting will be hosted in H.G. Thode Library.
+    \item Frequency \\ Weekly. (Multiple meetings will be held within one week if necessary.)
     \item Contents of meeting\\
     The contents of meetings include discussion, implementation, assigning works outside 
     the meetings and reporting working progress. All the decisions and modifications
@@ -67,7 +67,7 @@ Communication within our group will be completed through weekly in-person meetin
 \section{Team Member Roles}
 \begin{itemize}
     \item Jiacheng Wu: Developer, UI designer, C Sharp expert
-    \item Yichen Jiang: Developer, Tester
+    \item Yichen Jiang: Developer, Lead Tester
     \item Tingyu Shi: Developer, Latex Expert, Unity Expert
     \item Bowen Zhang: Developer, Liaison, AR Expert, Group Leader
     \item Junhong Chen: Developer, Git Expert
@@ -76,8 +76,8 @@ Communication within our group will be completed through weekly in-person meetin
 \section{Workflow Plan}
 
 \begin{itemize}
-	\item We will use Unity as majority for the modelling part. And we will use git to deliver, store, and synchronize the Unity packages. Specific division of workload should be discussed in the weekly meetings. And then each member pushes his or her own share of work into the git, which should include folders of assets, packages, project settings, user settings, and related license. We will use feature-branch for later testing, and merge all branches after all tests are passed. 
-	\item For the documentation required in the development, we will follow the template provided in git if the course. For required documentation, we will use overleaf and online meeting to realize real-time communication and synchronized collaboration. After the documents are finished, we push documents into git and sign every team member as a co-author. 
+	\item We will use Unity for majority of the modelling part. And we will use git to deliver, store, and synchronize the Unity packages. Specific division of workload should be discussed in the weekly meetings. And then each member pushes his or her own share of work into the git, which should include folders of assets, packages, project settings, user settings, and related license. We will use feature-branch for later testing, and merge all branches after all tests are passed. 
+	\item For the documentation required in the development, we will follow the template provided in git if the course. For required documentation, we will use overleaf and hold online meeting to realize real-time communication and synchronized collaboration. After the documents are finished, we push documents into git and sign every team member as a co-author. 
 \end{itemize}
 
 \section{Proof of Concept Demonstration Plan}
@@ -87,7 +87,7 @@ Communication within our group will be completed through weekly in-person meetin
         Solution: We might convert high polygon models to low polygon models when representing in the mobile device. 
         
     \item The trees might be too high to scan all aspects of the trees or result in a poor precision.\\\\
-        Solution: Employ drones to scan the pictures
+        Solution: Employ drones to scan the pictures.
 \end{itemize}
 
 \subsection{POC Demonstration contents}
@@ -104,9 +104,9 @@ Communication within our group will be completed through weekly in-person meetin
 \begin{itemize}
 \item programming language: The whole project will be implemented in C Sharp language.
 \item linter tool: The team will use Visual Studio 2019 as the main IDE, and the project will be compiled in Xcode to test on IOS devices.
-\item unit testing framework: VS2019 will be used for the unit test. The team will create a unit test project(.NET Framework) that contains MSTest unit tests.
+\item unit testing framework: VS2019 will be used for the unit test. The team will create a unit test project (.NET Framework) that contains MSTest unit tests.
 \item code coverage measuring tools: The JetBrains dotCover is a code coverage tool that integrates with VS2019. It can execute and run coverage analysis for unit tests in Visual Studio.
-\item CI plans: We will use continuous integration for any code changes that have been automated tested. For the specific workflow, we will distribute tasks to each team member to allow independent work. Once a task is finished, its developer will test it and introduce it into the current project. 
+\item CI plans: We will not use continuous integration in our project, because majority of our project will be finished in Unity. For each iteration or any change, we would choose to test the packages in Unity instead of using the automatic testing. We need to make sure the latest version of model can be loaded and represented in target mobile devices, so the automatic testing may not satisfy our requirements in this project.
 \item performance measuring tools: Unity will be used to record the FPS of the final application. The AR object requires at least 30 FPS on mobile devices.
 \item Libraries: AR SDKs like ARFoundation and Vuforia will be used for the development of the application. The packages can be imported through Unity and get called in VS2019.
 \item Tools: iPad Pro LiDAR and multi angle smart phone scans with photogrammetry technique will be used for 3D scanning. Agisoft metashape and 3D Scanning App will be used to generate 3D models and photogrammetric data.
