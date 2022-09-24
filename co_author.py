@@ -1,8 +1,5 @@
 from subprocess import run, CalledProcessError
 from sys import exit
-import re
-# Provide your own dict, format described below
-from authors import authors
 
 author1 = "Co-authored-by: [Bowen Zhang] <zhangb82@mcmaster.ca>\n"
 author2 = "Co-authored-by: [Jiacheng Wu] <wuj187@mcmaster.ca>\n"
@@ -15,13 +12,6 @@ def run_git_commit(message: str):
     message = message + "\n\n" + co_authors
     command = ["git", "commit", "-m", message]
     run(command)
-
-'''
-def build_commit_message(message: str, comma_separated_aliases: str) -> str:
-    """Formats the commit message with full co-author data"""
-    co_authors = get_full_co_author_data_from(comma_separated_aliases, authors)
-    return f"{message}\n\n{co_authors}"
-'''
 
 if __name__ == "__main__":
     try:
