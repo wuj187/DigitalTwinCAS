@@ -14,19 +14,6 @@ def run_git_commit(message: str):
     run(command)
 
 if __name__ == "__main__":
-    try:
-        message = input('Enter your commit message: \n')
-        run_git_commit(message)
-        exit(0)
-
-    except IndexError:
-        print("INVALID PARAMETERS")
-        exit(1)
-    except KeyError:
-        print("INVALID ALIAS")
-        exit(1)
-    except CalledProcessError:
-        print("GIT COMMAND FAILED")
-        exit(1)
-    except KeyboardInterrupt:
-        exit(1)
+    message = input('Enter your commit message: \n')
+    run_git_commit(message)
+    exit(0)
