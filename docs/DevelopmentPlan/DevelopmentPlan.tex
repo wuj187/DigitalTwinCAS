@@ -25,7 +25,7 @@
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
 Sept 17, 2022 & All team members & Revision 0\\
-
+Sept 26, 2022 & All team members & Modify technology\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -69,46 +69,49 @@ Communication within our group will be completed through weekly in-person meetin
     \item Jiacheng Wu: Developer, UI designer, C Sharp expert
     \item Yichen Jiang: Developer, Lead Tester
     \item Tingyu Shi: Developer, Latex Expert, Unity Expert
-    \item Bowen Zhang: Developer, Liaison, AR Expert, Group Leader
+    \item Bowen Zhang: Developer, Liaison, Group Leader
     \item Junhong Chen: Developer, Git Expert
 \end{itemize}
 
 \section{Workflow Plan}
 
 \begin{itemize}
-	\item We will use Unity for majority of the modelling part. And we will use git to deliver, store, and synchronize the Unity packages. Specific division of workload should be discussed in the weekly meetings. And then each member pushes his or her own share of work into the git, which should include folders of assets, packages, project settings, user settings, and related license. We will use feature-branch for later testing, and merge all branches after all tests are passed. 
-	\item For the documentation required in the development, we will follow the template provided in git if the course. For required documentation, we will use overleaf and hold online meeting to realize real-time communication and synchronized collaboration. After the documents are finished, we push documents into git and sign every team member as a co-author. 
+	\item We will use Unity for majority of the modelling part. And we will use git to deliver, store, and synchronize the Unity packages. Specific division of workload should be discussed in the weekly meetings. And then each member pushes his or her own share of work into the git, which should include folders of assets, packages, project settings, user settings, and related license. We will use co author methods to push.
+	\item For the documentation required in the development, we will follow the template provided in GitHub of the course. For any documentation, we will use overleaf and hold online meetings to realize real-time communication and synchronized collaboration. After the documents are finished, we push documents into git and sign every team member as a co-author. 
 \end{itemize}
 
 \section{Proof of Concept Demonstration Plan}
 \subsection{Risks:}
 \begin{itemize}
-    \item Mobile device may not provide sufficient computing capacities to test the models.\\\\ 
-        Solution: We might convert high polygon models to low polygon models when representing in the mobile device. 
+    %\item Mobile device may not provide sufficient computing capacities to test the models.\\\\ 
+        %Solution: We might convert high polygon models to low polygon models when representing in the mobile device. 
+    \item The accuracy of measurement and modelling strongly depends on the reality with different weather.
+        Solution: Choose the timing with better condition.
         
-    \item The trees might be too high to scan all aspects of the trees or result in a poor precision.\\\\
+    \item The ideal process of scanning and modelling would be scan an entire plot at once, while this process is limited by the scanning device we use, which would be mobile phones and ipads.     Solution: Scan single trees and splice the models in Unity.
+    
+    \item The trees might be too high to scan all aspects of the trees or result in a poor precision.
         Solution: Employ drones to scan the pictures.
 \end{itemize}
 
 \subsection{POC Demonstration contents}
 \begin{itemize}
     \item POC should include virtual representation of a limited amount
-    of trees with qualified FPS on mobile 
-    devices by using mobile devices with LiDAR like iPhone or iPad. 
-    This can prove that mobile devices can provide enough computation power for high-poly models.
-    \item POC should include trees higher than 5 meters to prove the second risk can be
-    overcome.
+    of trees with qualified devices like laptops scanned by mobile devices with LiDAR like iPhone or iPad. 
+    This can prove that modelling and a virtual representation of forest could be realized.
+    \item POC should include trees higher than 5 meters to provide a proof of adequate measurement and modelling. 
 \end{itemize}
 \section{Technology}
 
 \begin{itemize}
 \item programming language: The whole project will be implemented in C Sharp language.
-\item linter tool: The team will use Visual Studio 2019 as the main IDE, and the project will be compiled in Xcode to test on IOS devices.
+\item linter tool: The team will use Visual Studio 2019 as the main IDE.
 \item unit testing framework: VS2019 will be used for the unit test. The team will create a unit test project (.NET Framework) that contains MSTest unit tests.
 \item code coverage measuring tools: The JetBrains dotCover is a code coverage tool that integrates with VS2019. It can execute and run coverage analysis for unit tests in Visual Studio.
-\item CI plans: We will not use continuous integration in our project, because majority of our project will be finished in Unity. For each iteration or any change, we would choose to test the packages in Unity instead of using the automatic testing. We need to make sure the latest version of model can be loaded and represented in target mobile devices, so the automatic testing may not satisfy our requirements in this project.
-\item performance measuring tools: Unity will be used to record the FPS of the final application. The AR object requires at least 30 FPS on mobile devices.
-\item Libraries: AR SDKs like ARFoundation and Vuforia will be used for the development of the application. The packages can be imported through Unity and get called in VS2019.
+\item CI plans: We will not use continuous integration in our project, because majority of our project will be finished in Unity. For each iteration or any change, we would choose to test the packages in Unity instead of using the automatic testing. We need to make sure the latest version of model can be loaded and give a satisfying view of forest, so the automatic testing may not satisfy our requirements in this project.
+\item performance measuring tools: Unity will be used to record the number of frames per second of the final project. 
+%\item Libraries: AR SDKs like ARFoundation and Vuforia will be used for the development of the application. The packages can be imported through Unity and get called in VS2019.
+\item Libraries: We will import several Unity packages for modelling and post processing. Possible plug-ins may include unity terrain tools package and universal render pipeline.
 \item Tools: iPad Pro LiDAR and multi angle smart phone scans with photogrammetry technique will be used for 3D scanning. Agisoft metashape and 3D Scanning App will be used to generate 3D models and photogrammetric data.
 \end{itemize}
 
