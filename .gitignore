@@ -12,6 +12,8 @@
 *.cb2
 .*.lb
 
+__pycache__/
+
 ## Intermediate documents:
 *.dvi
 *.xdv
