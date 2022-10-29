@@ -81,7 +81,7 @@ and integration, visualization, advanced analysis including AI, automation, and 
 sharing and collaboration. This project can be beneficial for two groups of users.  The first
 group of users is forest owners. This project can help them to manage the forest. The 
 second group of users is meteorologists. This project can help them to 
-do research.
+do research. \textcolor{red}{Other Team: Expand about how to help meteorologists to do research.}
 \subsubsection{Goals of the Project}
 \begin{itemize}
     \item Implement the virtual forest, which corresponds to the target natural forest. The model of a single tree is obtained by LiDAR scanning on the field. The final project combines previous models and lab statistics to give a virtual view of the forest. 
@@ -271,7 +271,8 @@ The following is the context of use diagram:
 \end{center}
 \caption{Context Diagram}
 \end{figure}
-
+\noindent \textcolor{red}{Other Team: Differentiate the responsibilities/roles between coding teaming
+and modelling team}\\
 \noindent If the above picture is not clear, please download the picture \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS_Pictures/Context_Use.png}{\textcolor{red}{here}}. \\
 
 \noindent Forest data includes the following:
@@ -473,8 +474,15 @@ from the system\\
 \end{tabular}
 \caption{Functional Requirements Priority Table}
 \end{table}
- 
-	
+
+\textcolor{red}{
+The following are FR related comments from other team
+\begin{itemize}
+\item mention more about how the data the forest/data will be constructed, consumed or inputted
+into the system.
+\item 
+\end{itemize} 
+}
 
 %%%%%%%%%%%%% Functional Requirements End %%%%%%%%%%%
 
@@ -577,7 +585,13 @@ N/A
     
     \item The product shall not crash while running.\\
     \textbf{Rationale}: Stable running environment can make the product more reliable.\\
-    \textbf{Fit Criterion}: The system will not crash over twice out of 10 times.
+    \textbf{Fit Criterion}: The system will not crash over twice out of 10 times.\\
+    \textcolor{red}{Peer Review Comments: For example, PR4.2 states that the fit criteria is 'The
+     system will not crash over twice out of 10 times'.
+	But it does not state 10 times of what. 10 times of pressing the same button? 10 user sessions?
+	Is one user session of 100h equivalent to a user session of 1 minute?
+	What if a specific sequence of user commands or a specific feature always crashes the program, but
+	 the user only uses that sequence/feature 1 times out of 10? Would this be acceptable?}
 \end{enumerate}
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 \begin{enumerate}[PR5.1]
@@ -595,7 +609,11 @@ N/A
 \begin{enumerate}[PR7.1]
     \item New components shall be easily added to the product in the future version.\\
     \textbf{Rationale}: If the components can be added easily, we can update the content and modify the system more easily.\\
-    \textbf{Fit Criterion}: A programmer will not spend over one day adding a feature to the system.
+    \textbf{Fit Criterion}: A programmer will not spend over one day adding a feature to the system.\\
+    \textcolor{red}{Peer Review Comments: Another example is PR7.1, which has the fit criteria of 'A programmer will not spend over one day adding a feature to the system'.
+Are all new features comparable? For example, is changing the font of a button comparable to adding cloud service support for computations?
+What about the 'programmer'? Is the programmer a senior engineer who was one of the original creators of the program, or is it a new hire that has never touched the project before?
+All of these factors would influence the one day limit described in the fit criteria.}
 \end{enumerate}
 \subsubsection{Longevity Requirements}
 \begin{enumerate}[PR8.1]
@@ -725,6 +743,16 @@ N/A
     \textbf{Fit criterion}: An adult user should know how to use
     the product after looking through the instruction page.\\
 \end{enumerate}
+
+\textcolor{red}{
+The following are NFR related comments from other team
+\begin{itemize}
+\item More requirements about Look and Feel since this is a 3D based projects
+\item LF2.1, PR3.2, PR4.1, PR5.1 have the same fit criteria.
+\end{itemize} 
+}
+
+
 %%%%%%%%%%%%%%%%%%% Non-functional Requirements End %%%%%%%%%%%%
 
 
@@ -966,11 +994,15 @@ not related to functional requirements.
     \item Data could be changed. First, data magnitudes may change since users and the developing team.
     may update data. Secondly, data types may change since the developing team may add or 
     delete data.
-    \item The way to "update official data" may change.
+    \item The way to "update official data" may change. \textcolor{red}{Peer Review Comments: 
+    ambiguous}
     \item User interface may change since we may add or delete data.
     \item The contents in the virtual representation other than trees may change. For example,
     the developing team may add other elements to the virtual representation like grass, bushes, etc.
 \end{enumerate}
+
+\noindent \textcolor{red}{Peer Review Comments: Likely changes and unlikely changes should talk more
+ about FR and NFR rather than implementation details.}
 %%%%%%%%%%%%%%% Likely Changes End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%% Unlikely Changes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
