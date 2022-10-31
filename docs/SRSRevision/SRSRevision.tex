@@ -377,19 +377,19 @@ from the system\\
 \subsection{Functional Requirements}
 \textcolor{red}{All the rationale and fit criteria are not revised for FR.}
 \begin{enumerate}[FR1]
-	\item The product must \textcolor{red}{\st{display} provide an option to display} basic
+	\item The product shall \textcolor{red}{\st{display} provide an option to display} basic
 	 instructions. \textcolor{red}{\st{when users access to the product for the first time}}\\
 	\textbf{Rationale}: Users might not be familiar with our product especially when they use 
 	it for the first time.\\
 	\textbf{Fit Criterion}: A basic instruction 
 	option shows up on the user interface after the software is launched. 
 	
-	\item The product must \textcolor{red}{provide a way to} allow users \textcolor{red}{\st{to click a
-	 start button}} to start the virtual tour.\\
+	\item The product shall \textcolor{red}{provide a way to} allow users \textcolor{red}{\st{to click
+	 a start button}} to start the virtual tour.\\
 	\textbf{Rationale}: The user would need a clear signal to get started.\\
 	\textbf{Fit Criterion}: A 'start' button is displayed on the home page of the application.
 	
-	\item The product must load the forest model when users \textcolor{red}{\st{clicks start} give
+	\item The product shall load the forest model when users \textcolor{red}{\st{clicks start} give
 	the system inputs to start.}\\
 	\textbf{Rationale}: The clicking of 'start' indicates the user has been through the instruction and is ready to use our product. The product can now initialize the functions by loading the model.\\
 	\textbf{Fit Criterion}: Once the user select 'start', the data of the forest is loaded.
@@ -399,46 +399,45 @@ from the system\\
 	\textbf{Rationale}: The product should give feedback on the action of clicking 'start'. The loading might take seconds and a progress bar helps when the user's waiting. \\
 	\textbf{Fit Criterion}: A dynamic progress bar will be displayed when the forest is loading.
 	
-	\item The product must display a full view of the \textcolor{red}{overall} digital twin
+	\item The product shall display a full view of the \textcolor{red}{overall} digital twin
 	forest.\\
 	\textbf{Rationale}: Users might not be aware of the overall information and the overview of the forest that the product simulates.\\
 	\textbf{Fit Criterion}: 13 complete plots of the forest with highlighted borders will show up together when the user zooms out the interface.
     
-    \item The product must allow users to minimize the user interface\textcolor{red}{ (User 
+    \item The product shall allow users to minimize the user interface\textcolor{red}{ (User 
     interface includes windows that present forest data)}. \\
     \textbf{Rationale}: The user might want to pay more attention to the model instead of information related to it. Minimizing the user interface allows the user to do so. \\
 	\textbf{Fit Criterion}: The windows of the user interface will be minimized to the side of the screen once the user clicks the \textit{minimized} button on the user interface.
 	
-	\item The product must \textcolor{red}{be able to} display \textcolor{red}{\st{a menu to show
+	\item The product shall \textcolor{red}{be able to} display \textcolor{red}{\st{a menu to show
 	 specific data} forest plot data} when users \textcolor{red}{\st{clicks on each} select
 	 a specific forest} plot.\\
 	\textbf{Rationale}: After the user has located a specific plot, he or she should be able to access to related information. And the most intuitive and convenient method to do so would be clicking. \\
 	\textbf{Fit Criterion}: After the user clicks on a specific plot, windows containing information about that plot shall be displayed on both sides of the screen.
 	
-	\item The product must allow users to \textcolor{red}{\st{click} select} a specific tree in order
+	\item The product shall allow users to \textcolor{red}{\st{click} select} a specific tree in order
 	 to view related information\textcolor{red}{(Tree Parameters)}.\\
 	\textbf{Rationale}: It allows users to see the related information of a specific tree in detail.\\
 	\textbf{Fit Criterion}: After the user enters a specific plot and clicks on a specific tree. windows containing information about that kind of tree shall be displayed on both sides of the screen. 
 	
-	\item The product must display the \textcolor{red}{\st{overall} forest} data\textcolor{red}{(both 
+	\item The product shall display the \textcolor{red}{\st{overall} forest} data\textcolor{red}{(both 
 	overall forest data and forest plot data)} \textcolor{red}{\st{of the forest on both sides of the
 	 screen} without interrupting users viewing forest models}.\\
 	\textbf{Rationale}: The product should display the important data that our users might care about on the user interface while not letting the information interrupt the display of the model. Therefore, it should distribute the information on both sides.\\
 	\textbf{Fit Criterion}: When the full view of the forest is displayed, windows containing the overall information about the forest shall be shown on both sides of the screen. 
 	
-	\item The product must allow users to zoom in and out of the \textcolor{red}{\st{model} the 
+	\item The product shall allow users to zoom in and out of the \textcolor{red}{\st{model} the 
 	digital twin forest}.\\
 	\textbf{Rationale}: The user might need to zoom in to locate a specific plot or zoom out for a fuller view of the forest. \\
 	\textbf{Fit Criterion}: When the user scrolls forward the scroll wheel of the mouse, the map shall be zoomed in. When the user scrolls backward, the map shall be zoomed out. 
 	
-	\item The product must allow users to change the point of view. \\
+	\item The product shall allow users to change the point of view. \\
 	\textbf{Rationale}: The users might need to observe the forest from different perspectives.\\
 	\textbf{Fit Criterion}: The user's point of view shall change when the user moves the mouse and scrolls the scroll wheel.
 	
-	\item The product shall display the information on separate pages when the content does not fit on
-	 one page.\\
-	 \textcolor{red}{Revision: The system shall provide a way to present all the data when the 
-	 amount of data is huge.}\\
+	\item \textcolor{red}{\st{The product shall display the information on separate pages when the
+	 content does not fit on one page.} The product shall provide a way to present all the data when
+	  the amount of data is huge.}\\
 	\textbf{Rationale}: The amount of information might not fit on a single page. Instead of
 	 compromising the user interface and minimizing the font size, displaying the information on
 	  several pages would be a better choice.\\
@@ -448,29 +447,29 @@ from the system\\
 	\textbf{Rationale}: The user should be able to turn pages to switch among different sections of information.\\
 	\textbf{Fit Criterion}: When showing multiple pages, page turn buttons shall be on each page. When the user clicks on the forward page turn button, the page shall display the previous information. When the user clicks on the backward page turn button, the page shall display the subsequent information.
 	
-	\item The product must allow users to go back to the overall view \textcolor{red}{of the digital
+	\item The product shall allow users to go back to the overall view \textcolor{red}{of the digital
 	twin forest} when \textcolor{red}{\st{focusing on} they are viewing} a certain forest plot.\\
 	\textbf{Rationale}: Users might need to go back to see the overview of the forest and see some
 	 overall information about the forest.  \\
 	\textbf{Fit Criterion} The full view of the forest shall show up when the user scrolls backward the
 	 scroll wheel of the mouse.
 	
-	\item The product must \textcolor{red}{provide ways to }allow users to \textcolor{red}{\st{click an
-	 exit button and}} quit the product.\\
+	\item The product shall \textcolor{red}{provide ways to }allow users to \textcolor{red}{\st{click
+	 an exit button and}} quit the product.\\
 	\textbf{Rationale}: The user would need a clear signal to exit.\\
 	\textbf{Fit Criterion}: Once the user clicks on the 'exit' button, the application shall quit and the process of the software shall be terminated.
     
-    \item The product must allow users to update \textcolor{red}{\st{the information about the forest
+    \item The product shall allow users to update \textcolor{red}{\st{the information about the forest
      and trees} forest data(both overall forest data and forest plot data) and tree parameters}.\\
 	\textbf{Rationale}: In order to let the application show the latest information, it's necessary for
 	 users to upload the renew the information and statistics about the forest by themselves.\\
 	\textbf{Fit Criterion}: After the user uploads the latest information, the virtual forest shall
 	 display this latest information. 
 	
-	\item The product must allow users to choose to update the product or not when a new version is
+	\item The product shall allow users to choose to update the product or not when a new version is
 	 released. 
 	 
-	 \item \textcolor{red}{The system shall allow users to choose to update official forest data or
+	 \item \textcolor{red}{The product shall allow users to choose to update official forest data or
 	 not.}\\
 	\textbf{Rationale}: Our product relies deeply on the latest information to give reasonable
 	 references. The user can choose to update to the latest version when any version is released.\\
@@ -532,8 +531,8 @@ What does it mean for the latest information? Is it data, user interface, new fu
      it's easy for users to understand the function of the system.\\
     \textbf{Fit criterion}:  There are at least 8 modules that serve one function in every 10 modules.
    
-    \item[LF1.2] The goal of the product shall be to display a lifelike forest to the users.\\
-    \textcolor{red}{Revision: The digital twin forest should be lifelike compared with the target
+    \item[LF1.2] \textcolor{red}{\st{The goal of the product shall be to display a lifelike forest to
+     the users.} The digital twin forest should be lifelike compared with the target
      forest.}\\
     \textbf{Rationale}: The graphic quality can optimize users' experiences.\\
     \textbf{Fit criterion}: Among \textcolor{red}{\st{10 samples of users who use it for the first
@@ -577,7 +576,8 @@ What does it mean for the latest information? Is it data, user interface, new fu
     \item The product shall use \textcolor{red}{\st{symbols} icons} to highlight core functions.\\
     \textbf{Rationale}: Highlight can make users notice the core function of the system.\\
     \textbf{Fit criterion}: Among \textcolor{red}{\st{10} all the sample users during the 
-    testing phase}, over 80\% of them can notice the \textcolor{red}{\st{highlight} icons}.
+    testing phase}, over 80\% of them can notice and 
+    \textcolor{red}{understand} the \textcolor{red}{\st{highlight} icons}.
     
     \item The product shall use icons that are appealing to all ages.\\
     \textbf{Rationale}: Icons can improve users' experience.\\
@@ -594,16 +594,16 @@ What does it mean for the latest information? Is it data, user interface, new fu
     
     \item The product's user interface should be easy to learn.\\
     \textbf{Rationale}: A neat and clean user interface can take users less time to learn to use.\\
-    \textbf{Fit criterion}: Among all the users during the testing phase, over 80\% of then can learn
-     how to use the system within half an hour.
+    \textbf{Fit criterion}: Among all the sample users during the testing phase, over 80\% of them
+     can learn how to use the system within half an hour.
 \end{enumerate}
 \subsection{Performance Requirements}
 \subsubsection{Speed and Latency Requirements}
 \begin{enumerate}
     \item[PR1.1] The product shall respond to user \textcolor{red}{\st{actions} requests} quickly.\\
     \textbf{Rationale}: Quick response can improve users' experience.\\
-    \textbf{Fit Criterion}: The system can respond within 1 second \textcolor{red}{\st{for 23 hours out
-     of 24 hours} for all the user requests}.
+    \textbf{Fit Criterion}: The system can respond within 2 seconds \textcolor{red}{\st{for 23 hours
+     out of 24 hours} for all the user requests}.
     
     \item[PR1.2] The product shall run at high FPS.\\
     \textbf{Rationale}: Smooth display can improve users' experience.\\
@@ -611,7 +611,7 @@ What does it mean for the latest information? Is it data, user interface, new fu
     
     \item[PR1.3] The product shall be able to load the models fast.\\
     \textbf{Rationale}: Less wait time for users can improve users' experience.\\
-    \textbf{Fit Criterion}: The wait time will not exceed 10 seconds 100\% of the time.
+    \textbf{Fit Criterion}: The waiting time will not exceed 10 seconds 100\% of the time.
 \end{enumerate}
 \subsubsection{Safety-Critical Requirements}
 N/A
@@ -624,9 +624,9 @@ N/A
     forest data}.\\
  
    
-    \item \st{The relative error of each model shall be small. \\
+    \item \textcolor{red}{\st{The relative error of each model shall be small. \\
     \textbf{Rationale}: The data is supposed to be reliable.\\
-    \textbf{Fit Criterion}: The relative error will not exceed 30\% for each data.}\\
+    \textbf{Fit Criterion}: The relative error will not exceed 30\% for each data.}}\\
     
 \end{enumerate}
 \subsubsection{Reliability and Availability Requirements}
@@ -710,8 +710,8 @@ N/A
    \textcolor{red}{after releasing}.\\
     \textbf{Rationale}: The effectiveness of this product significantly depends on the timely information related to the target forest. The latest information should be updated weekly for a higher quality of this product.\\
     \textbf{Fit criterion}: The update should be released weekly.\\
-    \item Each release shall not cause \textcolor{red}{\st{previous} existing functions or
-    } features to fail. \\
+    \item Each release shall not cause \textcolor{red}{\st{previous} existing functions or} features 
+    to fail. \\
     \textbf{Rationale}: The product shall be updated frequently, while each release should keep all the core functions and should not previous features to fail.\\
     \textbf{Fit criterion}: Each release should \textcolor{red}{\st{test all the features and must}}
      pass every test case \textcolor{red}{before releasing to end users}.\\
