@@ -525,8 +525,7 @@ What does it mean for the latest information? Is it data, user interface, new fu
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
 \begin{enumerate}
-    \item[LF1.1] The product shall have a goal that all modules adhere to. \textcolor{red}{cannot 
-    understand}\\
+    \item[LF1.1] The product shall have a goal that all modules adhere to. \\
     \textbf{Rationale}: The system can be consistent and coherent if all modules focus on one goal, and
      it's easy for users to understand the function of the system.\\
     \textbf{Fit criterion}:  There are at least 8 modules that serve one function in every 10 modules.
@@ -658,8 +657,8 @@ N/A
     \item New components shall be easily added to the product in the future version.\\
     \textbf{Rationale}: If the components can be added easily, we can update the content and modify the system more easily.\\
     \textbf{Fit Criterion}: \textcolor{red}{\st{A programmer will not spend over one day adding a
-     feature to the system} Adding new features or functions shall not need to modify too much
-     existing code}.\\
+     feature to the system} Adding new features or functions shall not need to modify over 
+     two existing modules}.\\
 \end{enumerate}
 \subsubsection{Longevity Requirements}
 \begin{enumerate}[PR8.1]
@@ -687,7 +686,7 @@ N/A
     \textbf{Fit criterion}: The product shall be launched successfully and run without errors on both
      desktops and laptops.\\
    
-    \item[OE1.2] The product shall be used with a mouse.\\
+    \item[OE1.2] The product shall be used with a mouse \textcolor{red}{and a keyboard}.\\
     \textbf{Rationale}: Some of the functions of this product, like zooming in or out, are designed to be used with a mouse. The product must be used with one and take the input from it.\\
     \textbf{Fit criterion}: The devices with a mouse should be able to successfully realize the designed functions.\\
 \end{enumerate}
@@ -706,10 +705,12 @@ N/A
 \end{enumerate}
 \subsubsection{Release Requirements}
 \begin{enumerate}[OE4.1]
-    \item The maintenance releases will be offered to end users weekly for at least one year
+    \item The maintenance releases will be offered to end users \textcolor{red}{\st{weekly}
+    monthly} for at least one year
    \textcolor{red}{after releasing}.\\
     \textbf{Rationale}: The effectiveness of this product significantly depends on the timely information related to the target forest. The latest information should be updated weekly for a higher quality of this product.\\
-    \textbf{Fit criterion}: The update should be released weekly.\\
+    \textbf{Fit criterion}: The update should be released \textcolor{red}{\st{weekly}
+    monthly}.\\
     \item Each release shall not cause \textcolor{red}{\st{previous} existing functions or} features 
     to fail. \\
     \textbf{Rationale}: The product shall be updated frequently, while each release should keep all the core functions and should not previous features to fail.\\
@@ -766,7 +767,8 @@ N/A
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
 \begin{enumerate}[SR1.1]
-    \item The product shall only be accessed by users who download the product from our website.\\
+    \item The product shall only be accessed by users who download the product from our
+     \textcolor{red}{\st{website} GitHub}.\\
     \textbf{Rationale}: The product is supposed to be used through a proper approach\\
     \textbf{Fit criterion}: Testers cannot download the product in any way other than the GitHub
     
@@ -780,15 +782,16 @@ N/A
     users when they use other applications.\\
     \textbf{Fit criterion}: Injecting 100 errors on purpose, at most 2 errors
     will be propagated.
-     \item[\textcolor{blue}{SR2.2}] \textcolor{blue}{The product shall avoid crash when being used.}
+     \item[\textcolor{blue}{SR2.2}] \textcolor{blue}{The product shall avoid crashing when
+      being used.}
     \item[\textcolor{blue}{SR2.3}] \textcolor{blue}{The product shall check if user
     updates(user inputs) are legal before updating them to the system.}
-    \item[\textcolor{blue}{SR2.4}] \textcolor{blue}{Data displayed in the application shall be
-     consistent with the data stored.}
-    \item[\textcolor{blue}{SR2.5}] \textcolor{blue}{The system shall provide one-to-one mapping
-     relationships between each data and GUI.}
-    \item[\textcolor{blue}{SR2.6}] \textcolor{blue}{The data integrity of the system shall be
-     maintained.}
+    \item[\textcolor{blue}{SR2.4}] \textcolor{blue}{Data displayed in the application shall
+     be consistent with the data stored.}
+    \item[\textcolor{blue}{SR2.5}] \textcolor{blue}{The system shall provide one-to-one
+     mapping relationships between each data and GUI.}
+    \item[\textcolor{blue}{SR2.6}] \textcolor{blue}{The data integrity of the system shall
+     be maintained.}
 \end{enumerate}
 \subsubsection{Privacy Requirements}
 \begin{enumerate}[SR3.1]
