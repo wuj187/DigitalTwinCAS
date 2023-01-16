@@ -46,8 +46,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+Jan 16 & 1.0 & First Version\\
 \bottomrule
 \end{tabularx}
 
@@ -64,8 +63,14 @@ This section records information for easy reference.
   \toprule		
   \textbf{symbol} & \textbf{description}\\
   \midrule 
-  \progname & Explanation of program name\\
-  \wss{...} & \wss{...}\\
+  \progname & A virtual representation of the real world\\
+  SRS & Software Requirements Specification\\
+  V\&V & Verification and Validation\\
+  UI & User Interface\\
+  MG & Module Guide \\
+  MIS &  Module Interface Specification\\
+  FR & Functional Requirement\\
+  MVC & Model, Viewer, Controller\\
   \bottomrule
 \end{tabular}\\
 
@@ -85,41 +90,182 @@ This section records information for easy reference.
 
 \section{Introduction}
 
-\wss{Include references to your other documentation}
+This document is the system design of the project Digital Twin Forest. A digital twin forest
+ is a virtual representation of the natural world, specifically a real forest. The detailed
+  introduction of our project can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf}{here}. 
+  The revised SRS document can be found
+   \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/DocRevision/SRSRevision/SRSRevision.pdf}{here}.
 
 \section{Purpose}
 
-\wss{Purpose of your design documentation}
+The purpose of the system is to display visualized 
+forest data to the users. Therefore, the users could do scientific researches, or make
+economic decisions based on the information. However, in order to keep the data of all 14
+plots organized and updated, the system of the application shall be divided into work
+assignments. It is easier to maintain, reuse and understand a  modularized system.\\
 
-\wss{Point to your other design documents}
+\noindent The purpose of this design document is to illustrate and verify the decomposition of
+the system into different components. This document will show the general idea of how the team
+is going to implement the application, and guarantee the design meet all functional and
+nonfunctional requirements. In addition, it provides an overview of the system behaviour. The
+detailed MG document can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Architecture-Design/MG.pdf}{here}. 
+The MIS document can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Detailed-Design/MIS.pdf}{here}.
 
 \section{Scope}
 
-\wss{Include a figure that show the System Context (showing the boundary between
-your system and the environment around it.)}
+The system includes JSON files which used to store the forest data and a 3D model of the
+terrain and the virtual forest. A scene manager is used to control user behaviours, the users
+can interact with the UI to read and modify the data. The users will be able to control the
+camera and view the forest from different perspectives.
+
+\subsection{Context Diagram}
+
+\begin{figure}[H]
+
+\caption{Context Diagram}
+    \centering
+    \includegraphics[scale=0.3]{SysDesPic/context.png}
+    
+\end{figure}
+
+\subsection{Assumptions}
+\begin{itemize}
+    \item The generated model will only use the average data and will not be exactly the same
+     with the real forest.\\
+    Rational: The parametric modeling and sampled data save a lot of implementation time and
+     computing resources.
+    \item The user will only input valid forest data into the system.\\
+    Rational: The stakeholders of the system are all professional scientists and lab members.
+     In addition, invalid input will not cause total failure in the system.
+    \item The system will only be installed on a PC.\\
+    Rational: Eliminate the performance and space requirements.
+    \item The data provided by Dr. Gonsamo's lab is accurate.\\
+    Rational: Eliminate the data error. It is not the SE students' responsibility to verify
+     the accuracy of the geological data. 
+\end{itemize}
 
 \section{Project Overview}
 
 \subsection{Normal Behaviour}
+Digital Twin Forest is a software application that combines virtual forests with real-world
+data to provide users with comprehensive information about real-world forests. The
+application visualizes this data for users, including overall environmental data for each plot
+and detailed information about each type of trees in it. This can assist forest owners in
+making economic decisions without physically visiting the forest, as well as aid scientists in
+research such as climate change and forest analysis.\\
+
+\noindent When the application is launched, a main page will appear, where users can click on
+various buttons to perform different actions. The ``Start" button loads the models and data,
+allowing users to view the virtual forests and their associated data. The ``Instruction" and
+"Contact Us" buttons lead users to the instruction and contact pages, respectively.The ``Quit"
+button allows users to exit the application.\\
+
+
+\noindent On the model page, data about each plot and each type of trees within it can be
+displayed or hidden by clicking on the ``Show Environmental Data" and ``Show Overall Tree
+Parameters" buttons. When different plots are selected, the data displayed will change to
+reflect that specific plot. The camera's perspective in the model changes as the user moves
+his mouse, and the camera's position can also be adjusted as the user presses the
+\textbf{WASD} keys. The ``Update Data" button will take users to a page where they can modify
+tree parameters and environmental data. After users enter the new data, it will replace the
+old data and display on the screen.
+The ``Back" button will take users back to the main page when users click on it.
 
 \subsection{Undesired Event Handling}
 
-\wss{How you will approach undesired events}
+Users can manually adjust the data stored in the application. However, if users mistype and
+accidentally enter the incorrect data, an error will occur. To avoid this, a data validation
+function was added to this application, enabling the system verify whether the data is valid.
+If the data is not valid, the application will display an error message to inform users that
+the data entered is not valid, telling them to re-enter the data. The code uses multiple if
+statements to determine whether the data is valid or not. If it is not valid, the system will
+not store the invalid data until the users provide valid data.
+
+\newpage
 
 \subsection{Component Diagram}
+We used MVC to implement our system, so the following three diagrams show relationships of
+modules within Model modules, Viewer modules, and Controller modules.
 
-\subsection{Connection Between Requirements and Design} \label{SecConnection}
+\begin{figure}[H]
+\caption{Relationships between Model modules}
+\includegraphics[scale=0.65]{SysDesPic/Model-Modules.png}
+\end{figure}
 
-\wss{The intention of this section is to document decisions that are made
+\newpage
+
+\begin{figure}[H]
+\caption{Relationships between Viewer modules}
+\includegraphics[scale=0.65]{SysDesPic/Viewer-Modules.png}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{Relationships between Controller modules}
+\includegraphics[scale=0.65]{SysDesPic/Controller-Modules.png}
+\end{figure}
+
+\newpage
+
+\subsection{Connection Between Requirements and Design}
+
+\label{SecConnection}
+
+The intention of this section is to document decisions that are made
   ``between'' the requirements and the design.  To satisfy some requirements,
   design decisions need to be made.  Rather than make these decisions implicit,
   they are explicitly recorded here.  For instance, if a program has security
   requirements, a specific design decision may be made to satisfy those
-  requirements with a password.}
+  requirements with a password.\\
+  
+\noindent SR1.2, SR2.3 - The system uses JSON files to store data. It is not appropriate to
+allow users to directly modify the data in these files by hand because it does not meet
+requirements SR1.2 and SR2.3, and it can also lead to problems such as accidentally deleting
+the entire file or deleting the wrong content. To address this, functions for reading and
+writing JSON files has been developed and linked to the ``Update Data" page, which provides an
+interface for users to update the data.\\
+
+\noindent FR6, FR7, FR9 - The ``Show Environmental Data" button and the ``Show Overall Tree
+ Parameters" button on the upper-left and upper-right corners of the screen allow users to
+ show and hide the environmental data and the tree parameters. When users click on these
+ buttons, the environmental data and tree parameters will be shown on the two sides of the
+screen, without interrupting the user's view of the virtual forest. There is a function
+in the back-end code that takes a Boolean value to determine whether the data is shown
+or not, and this function is bound to these two buttons. If users want to hide the data,
+they can click on the buttons again to hide the data. In the middle of the upper edge of the
+screen, there is a button where users can select which plot they want to see. As users select
+a different plot, the corresponding environmental data and tree parameters for that specific
+plot will be displayed.\\
+
+\noindent FR1, FR2, FR3 - A ``Start" button and an ``Instructions" button have been designed,
+ programmed, and placed on the main page, allowing users to enter the virtual forest and
+  access the instructions page.\\
+
+\noindent FR15 - A ``Quit" button has been designed, programmed, and placed on the main page,
+allowing users to exit the application as users click on it. On the virtual forest page, a
+"Back" button has been designed the programmed to that users can quit the virtual forest page
+and go back to the main page.\\
+
+\noindent FR16 - An ``Update data" button and has been designed, programmed the placed on the
+virtual forest page to allow users to enter the page where they can modify and update the
+data.\\
+
+\noindent FR10, FR11, FR5 - The code uses a \textit{Vector} data type variable to store and
+calculate the direction of the camera's movement and calls the \textit{Move} function to
+enable the camera's movement. The code records the axis of the mouse with
+ \textit{Input.GetAxis} functions, and uses \textit{Quaternion.Euler} and
+ \textit{Transform.Rotate} functions to calculate the movement of the mouse. Therefore, Users
+ can press the \textbf{WASD} keys to move the camera and move their mouse to adjust the
+ camera's perspective. As users move the perspective of the camera up and press the \textbf{W}
+key, they can zoom out of the virtual forest. On the contrary, by moving the perspective down
+and pressing the \textbf{S} key, they can zoom in on the virtual forest. The initial position
+of the camera is set above the forest, so users can see a full view of the overall digital
+twin forest.
 
 \section{System Variables}
 
-\wss{Include this section for Mechatronics projects}
+Include this section for Mechatronics projects.\\ \textcolor{red}{N/A for our project}
 
 \subsection{Monitored Variables}
 
@@ -128,44 +274,96 @@ your system and the environment around it.)}
 \subsection{Constants Variables}
 
 \section{User Interfaces}
+We designed our user interface based on the users' need to organize data and view data
+hierarchically. The detailed design is described below, and we attached the manuscript of the
+design in Appendix A.\\
 
-\wss{Design of user interface for software and hardware.  Attach an appendix if
-needed. Drawings, Sketches, Figma}
+\noindent When the product is launched, a welcome page is displayed, with buttons of start,
+contact us, instruction, and quit. The background of the welcome page is a picture of a
+forest, which corresponds to the function of our product. In the pages of contact us and
+instruction, we use the same background to make the appearance consistent. \\
+
+\noindent The users can click start to launch the model or click quit to terminate the
+program. When the model is launched, the product displays a model of the target forest, with a
+view of a height of about two meters above the ground. The users can use the mouse to change
+the direction of the camera and use the keyboard \textbf{WASD} to move the camera within the
+model. The model is parametrically generated and highly reappears the real view in the target
+forest. \\
+
+\noindent Meanwhile, there is a button on the top of the screen to show the current plot. The
+users can click it to change the plot or show the overall data of the forest. If this button
+is clicked, a drop-down box shows up and displays all possible options. \\
+
+\noindent On the upper left corner, there is a button which allows the user to access or hide
+the environmental data of the selected plot. The data would be displayed in a floating box,
+which isolates the data and the model. And on the upper right corner, there is a similar
+button for the tree parameters. When the users access to the tree parameters, there is another
+drop-down menu to categorize the data by the types of trees. \\
+
+\noindent To avoid the sudden change of the camera direction when checking the data, the user
+can press \textbf{P} on the keyboard to pause the movement of the camera and press \textbf{P} again to resume. \\
+
+\noindent With this design, the data required by the users will be firstly categorized by each plot and then by environment and tree parameters. The data can be organized in this way. \\
+
+\noindent In the model page, the users are allowed to modify some specific data by clicking an update button on the lower left corner of the screen. After clicking it, the product will redirect to a new interface with choices of the serial number of the plot, then environmental data/ tree parameters and the tree type. After making all the choices, the interface displays all the possible data corresponding to the former choices. The user can read the old data, input the new data in this interface, and click save to do the modification. Modified data will show up on the model page right after this operation. After the modification, the users can click exit on the lower left corner to go back to the model page.\\
+
+\noindent To exit the model, the users can click the button quit to go back to the welcome page. 
+
 
 \section{Design of Hardware}
 
-\wss{Most relevant for mechatronics projects}
-\wss{Show what will be acquired}
-\wss{Show what will be built, with detail on fabrication and materials}
-\wss{Include appendices as appropriate, possibly with sketches, drawings, CAD, etc}
+Most relevant for mechatronics projects. Show what will be acquired. Show what will be built, with detail on fabrication and materials. Include appendices as appropriate, possibly with sketches, drawings, CAD, etc. \\ \textcolor{red}{N/A for our project}
 
 \section{Design of Electrical Components}
 
-\wss{Most relevant for mechatronics projects}
-\wss{Show what will be acquired}
-\wss{Show what will be built, with detail on fabrication and materials}
-\wss{Include appendices as appropriate, possibly with sketches, drawings,
-circuit diagrams, etc}
+Most relevant for mechatronics projects. Show what will be acquired. Show what will be built, with detail on fabrication and materials. Include appendices as appropriate, possibly with sketches, drawings, circuit diagrams, etc. \\ \textcolor{red}{N/A for our project}
 
 \section{Design of Communication Protocols}
 
-\wss{If appropriate}
+If appropriate. \\ \textcolor{red}{N/A for our project}
+
+\newpage
 
 \section{Timeline}
+\begin{itemize}
+    \item January 10: Finish data storing modules (JSON files) with Dr. Gonsamo's lab members. The team will get the accurate forest data from the lab and start to implement the user interface. - All team members.
+    \item January 15: Finish adding the user interface component. The team shall implement scripts to let the users read and write the forest data. - Tingyu Shi \& Jiacheng Wu.
+    \item January 22: Finish modifying the modelling component by adding new species to the virtual forest. New models shall be added to the existing digital twin so that the number of species is the same with the accurate data. The virtual tree height and tree density shall also follow the measured data. - Bowen Zhang.
+    \item February 5: Finish enough tests and verification before the revision 0 demonstration. The team will follow the V\&V plan to do manual and automated testings to guarantee the correctness of the system. - Yichen Jiang \& Junhong Chen
+    \item February 6: Revision 0 Demonstration - All team members.
+\end{itemize}
 
-\wss{Schedule of tasks and who is responsible}
 
-% \bibliographystyle {plainnat}
-% \bibliography{../../../refs/References}
-
-\newpage{}
+\newpage
 
 \appendix
 
 \section{Interface}
 
-\wss{Include additional information related to the appearance of, and
-interaction with, the user interface}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{SysDesPic/AppendixA-1.jpeg}
+    \caption{Welcome Page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{SysDesPic/AppendixA-2.jpeg}
+    \caption{Initialized Main Page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{SysDesPic/AppendixA-3.jpeg}
+    \caption{Extended Main Page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{SysDesPic/AppendixA-4.jpeg}
+    \caption{Update Data Page}
+\end{figure}
+
 
 \section{Mechanical Hardware}
 
@@ -182,9 +380,44 @@ graduate attribute of Problem Analysis and Design.  Please answer the following 
   \item What are the limitations of your solution?  Put another way, given
   unlimited resources, what could you do to make the project better? (LO\_ProbSolutions)
   \item Give a brief overview of other design solutions you considered.  What
-  are the benefits and tradeoffs of those other designs compared with the chosen
+  are the benefits and trade-offs of those other designs compared with the chosen
   design?  From all the potential options, why did you select documented design?
   (LO\_Explores)
+
+\begin{itemize}
+    \item Yichen\\ 
+A limitation of our solution is that the model does not perfectly correspond to the target forest. With this limitation, any interaction with the model seems to be meaningless. This limitation leads to more limitations we currently have. We would love to implement some features based on the models originally, but we have to give these ideas up because of this limitation. For instance, we considered measuring the distance between two trees initially, but we found that it is impossible to reappear 100\% of the target forest using Unity with our budget and schedule, and measuring the distance between two trees in such a model does not make sense. If we could have more time and budget, or at least some advanced 3D scanning devices, we could give a better model with higher fidelity and therefore realize more features we came up with. \\
+
+In the modelling phase, there were two alternatives. One is to use 3D scanning devices and cover the whole plot. The other one is parametric modelling, using the measured data provided by our supervisor and his research group. We also considered implementing some interactive features with the model, such as displaying more data about a specific tree if it is clicked, measuring the distance between two trees, etc. The benefits of these alternatives include showing the data more directly and intuitively, while the trade-off is that it has a high requirement for our model fidelity. And as mentioned above, the budget and schedule do not allow us to give a satisfying scanned model. Thus we chose the documented design. \\
+
+Besides, in the feature of updating data, we considered letting our users directly modify the data files, while we currently choose to implement an independent page with a user interface to do so. The benefits of modifying data files include ease, less workload, and more freedom for our users. However, we think this alternative might require some professional programming knowledge, and it could be easier to get wrong and cause the crash of the whole product. Therefore, we chose the documented design with a complete user interface for updating data. \\
+    
+    \item Bowen\\
+Limitations include the model, which could have a higher fidelity to the target forest, and the functions, which are limited by our method of modelling. To be specific, as we used parametric modelling, the model and target forest still have many differences. Therefore, the functions like measuring distance or interaction with specific trees cannot be realized on the top of a parametric generated model. The parametric generated model is indeed the best choice we have currently. We tried scanning the plot we would like to model using our mobile devices, but the outcome was not satisfying. An advanced scanning device could help, but it is over the budget, and we still need some time to learn about the new device. So if we have unlimited resources, the modelling method would be the first thing we would love to change. And there are more functions that can be realized on a perfectly modelled scene. \\
+
+We considered the design based on the model, while the trade-off includes it highly depends on an accurate model, so we finally chose the documented design. And we considered letting our users directly modify the data file. The benefit is that it saves additional write operations when loading the model, and the trade-off is higher requirements for our users. We want a more consistent product, so chose the documented alternative over this one. Besides, we considered delivering 14 different models for the different plots, while as we used parametric modelling, the average data we used for modelling did not produce significant differences among the models. And this alternative will end up with a huge size of product. Therefore we just modified the corresponding data instead of changing all the models.
+
+
+    
+    \item Junhong
+
+    The most significant limitation is the correlation between the model and the target forest. We failed to reappear all the details in the target forest. For instance, there are 7 or 8 types of trees in the target forest, while as we used parametric modelling instead of scanning, our model highly depends on the off-the-shelf 3D models of the trees. The trees that appeared in our model still have a huge difference from the ones in the forest. And the positions are not exactly the same. If we have more budget or time, we could learn to do the modelling or scan at least one tree for each type of tree to get better accuracy.\\
+
+    The alternatives we considered include scanning the whole plot using our mobile devices, implementing interactive functions based on the models, and updating the data directly by modifying the data file. The first alternative has better accuracy compared to the current design, while it requires a device that is more advanced than our mobile devices like iPad or iPhone. This alternative is clearly off our budget, so we finally gave it up. The second one makes our model more useful and fancy, while it highly depends on an accurate  model. As I explained before, the accuracy of our model cannot support the functions like this. Also, updating the data directly by modifying the data file can save a user interface and provides more freedom to our users to modify the product. However, any minor mistake made by our users could lead to the crash of the product. Therefore we chose the documented design. \\
+    \item Tingyu\\
+The limitations of our product are the model and user interface design. The model is highly limited by our budget and schedule, which cannot completely correspond to the target forest. If we have unlimited resources like budget and time, we can develop our model by scanning the whole plot utilizing some sophisticated devices, or based on the real coordinates of the trees. And we can correspondingly design and implement more features based on the accurate model. \\
+
+Possible alternatives include more accurate model which is mentioned above, and using pychart to add more charts and graphs as a complementary of data display. We did not develop the accurate model because of the limitation of budget and schedule. And the outcomes of pychart are not satisfying in the little experiments we did before we determine the final design. Introducing more charts will make the data shown more straightforward, while the overall appearance does not fit our expectations. This alternative is still one part of our plan, we would love to add this feature after we find the method to make our product consistent and attractive. \\
+    
+    \item Jiacheng\\
+The limitation of our product is the relatively low-fidelity model. The method we chose to model the target forest is parametric modelling, so only the parameters are accurate compared to the real world. We tried other modelling method, which is to scan all the trees using our mobile devices, while it can only provide a reference for the modelling work. With unlimited resources, we might still choose to scan the trees in the forest, with another kind of devices instead. 
+
+We considered many alternatives at first, like implementing applications to use on mobile devices like cell phones, and the application will utilize the AR technology to let our users walk in the forest. The benefit of this alternative is that we can make our users feel they're actually in the forest. And after we reported our idea to our supervisor, we found out that he would love to have a data visualization software to utilize on the laptop. And the scenario he would use our product is only for working. So we finally choose the documented design. 
+    
+\end{itemize}
+
+
+  
 \end{enumerate}
 
 \end{document}
