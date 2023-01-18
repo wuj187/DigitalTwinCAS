@@ -1,0 +1,72 @@
+{
+    "redPine": {
+        "treeName": "plot11_redpine",
+        "Density": "plot11_redpine_density",
+        "DBH": "plot11_redpine_DBH",
+        "AverageLAI": "plot11_redpine_AverageLAI",
+        "Height": "plot11_redpine_Height",
+        "Age": "plot11_redpine_Age"
+    },
+
+    "oak": {
+        "treeName": "plot11_oak",
+        "Density": "plot11_oak_density",
+        "DBH": "plot11_oak_DBH",
+        "AverageLAI": "plot11_oak_AverageLAI",
+        "Height": "plot11_oak_Height",
+        "Age": "plot11_oak_Age"
+    },
+
+    "beech": {
+        "treeName": "plot11_beech",
+        "Density": "plot11_beech_Density",
+        "DBH": "plot11_beech_DBH",
+        "AverageLAI": "plot11_beech_AverageLAI",
+        "Height": "plot11_beech_Height",
+        "Age": "plot11_beech_Age"
+    },
+
+    "birch":{
+        "treeName": "plot11_birch",
+        "Density": "plot11_birch_Density",
+        "DBH": "plot11_birch_DBH",
+        "AverageLAI": "plot11_birch_AverageLAI",
+        "Height": "plot11_birch_Height",
+        "Age": "plot11_birch_Age"
+    },
+
+    "whitePine":{
+        "treeName": "plot11_whitepine",
+        "Density": "plot11_whitepine_Density",
+        "DBH": "plot11_whitepine_DBH",
+        "AverageLAI": "plot11_whitepine_AverageLAI",
+        "Height": "plot11_whitepine_Height",
+        "Age": "plot11_whitepine_Age"
+    },
+
+    "redMaple": {
+        "treeName": "plot11_redmaple",
+        "Density": "plot11_redmaple_Density",
+        "DBH": "plot11_redmaple_DBH",
+        "AverageLAI": "plot11_redmaple_AverageLAI",
+        "Height": "plot11_redmaple_Height",
+        "Age": "plot11_redmaple_Age"
+    },
+
+    "redOak": {
+        "treeName": "plot11_redoak",
+        "Density": "plot11_redoak_Density",
+        "DBH": "plot11_redoak_DBH",
+        "AverageLAI": "plot11_redoak_AverageLAI",
+        "Height": "plot11_redoak_Height",
+        "Age": "plot11_redoak_Age"
+    },
+
+    "envData": {
+        "Humility": "plot11_Humidity",
+        "Temp": "plot11_Temp",
+        "CO2CONCEN": "plot11_CO2",
+        "O2CONCEN": "plot11_O2",
+        "SoilPH": "plot11_SoilPH"
+    }
+}
