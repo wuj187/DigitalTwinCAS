@@ -81,7 +81,7 @@ and integration, visualization, advanced analysis including AI, automation, and 
 sharing and collaboration. This project can be beneficial for two groups of users.  The first
 group of users is forest owners. This project can help them to manage the forest. The 
 second group of users is meteorologists. This project can help them to 
-do research.
+do research. \textcolor{red}{Other Team: Expand about how to help meteorologists to do research.}
 \subsubsection{Goals of the Project}
 \begin{itemize}
     \item Implement the virtual forest, which corresponds to the target natural forest. The model of a single tree is obtained by LiDAR scanning on the field. The final project combines previous models and lab statistics to give a virtual view of the forest. 
@@ -271,7 +271,8 @@ The following is the context of use diagram:
 \end{center}
 \caption{Context Diagram}
 \end{figure}
-
+\noindent \textcolor{red}{Other Team: Differentiate the responsibilities/roles between coding teaming
+and modelling team}\\
 \noindent If the above picture is not clear, please download the picture \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS_Pictures/Context_Use.png}{\textcolor{red}{here}}. \\
 
 \noindent Forest data includes the following:
@@ -374,76 +375,104 @@ from the system\\
 
 
 \subsection{Functional Requirements}
-
+\textcolor{red}{All the rationale and fit criteria are not revised for FR.}
 \begin{enumerate}[FR1]
-	\item The product must display the basic instruction when the user accesses to the product for the first time.\\
-	\textbf{Rationale}: The user might not be familiar with our product especially when the user uses it for the first time.\\
+	\item The product shall \textcolor{red}{\st{display} provide an option to display} basic
+	 instructions. \textcolor{red}{\st{when users access to the product for the first time}}\\
+	\textbf{Rationale}: Users might not be familiar with our product especially when they use 
+	it for the first time.\\
 	\textbf{Fit Criterion}: A basic instruction 
 	option shows up on the user interface after the software is launched. 
 	
-	\item The product must allow the user to click a ‘start’ button to start the virtual tour.\\
+	\item The product shall \textcolor{red}{provide a way to} allow users \textcolor{red}{\st{to click
+	 a start button}} to start the virtual tour.\\
 	\textbf{Rationale}: The user would need a clear signal to get started.\\
 	\textbf{Fit Criterion}: A 'start' button is displayed on the home page of the application.
 	
-	\item The product must load the forest model when the user clicks ‘start’.\\
+	\item The product shall load the forest model when users \textcolor{red}{\st{clicks start} give
+	the system inputs to start.}\\
 	\textbf{Rationale}: The clicking of 'start' indicates the user has been through the instruction and is ready to use our product. The product can now initialize the functions by loading the model.\\
 	\textbf{Fit Criterion}: Once the user select 'start', the data of the forest is loaded.
 	
-	\item The product shall display a progress bar while loading. \\
+	\item The product shall display the \textcolor{red}{percentage of }progress \textcolor{red}{\st{bar}} while \textcolor{red}
+	 {the forest models are being loaded.} \\
 	\textbf{Rationale}: The product should give feedback on the action of clicking 'start'. The loading might take seconds and a progress bar helps when the user's waiting. \\
 	\textbf{Fit Criterion}: A dynamic progress bar will be displayed when the forest is loading.
 	
-	\item The product must display a full view of the digital twin forest.\\
+	\item The product shall display a full view of the \textcolor{red}{overall} digital twin
+	forest.\\
 	\textbf{Rationale}: Users might not be aware of the overall information and the overview of the forest that the product simulates.\\
 	\textbf{Fit Criterion}: 13 complete plots of the forest with highlighted borders will show up together when the user zooms out the interface.
     
-    \item The product must allow the user to minimize the user interface. \\
+    \item The product shall allow users to minimize the user interface\textcolor{red}{ (User 
+    interface includes windows that present forest data)}. \\
     \textbf{Rationale}: The user might want to pay more attention to the model instead of information related to it. Minimizing the user interface allows the user to do so. \\
 	\textbf{Fit Criterion}: The windows of the user interface will be minimized to the side of the screen once the user clicks the \textit{minimized} button on the user interface.
 	
-	\item The product must display a menu to show specific data when the user clicks on each plot.\\
+	\item The product shall \textcolor{red}{be able to} display \textcolor{red}{\st{a menu to show
+	 specific data} forest plot data} when users \textcolor{red}{\st{clicks on each} select
+	 a specific forest} plot.\\
 	\textbf{Rationale}: After the user has located a specific plot, he or she should be able to access to related information. And the most intuitive and convenient method to do so would be clicking. \\
 	\textbf{Fit Criterion}: After the user clicks on a specific plot, windows containing information about that plot shall be displayed on both sides of the screen.
 	
-	\item The product must allow the users to click a specific tree in order to view related information.\\
+	\item The product shall allow users to \textcolor{red}{\st{click} select} a specific tree in order
+	 to view related information\textcolor{red}{(Tree Parameters)}.\\
 	\textbf{Rationale}: It allows users to see the related information of a specific tree in detail.\\
 	\textbf{Fit Criterion}: After the user enters a specific plot and clicks on a specific tree. windows containing information about that kind of tree shall be displayed on both sides of the screen. 
 	
-	\item The product must display the overall data of the forest on both sides of the screen.\\
+	\item The product shall display the \textcolor{red}{\st{overall} forest} data\textcolor{red}{(both 
+	overall forest data and forest plot data)} \textcolor{red}{\st{of the forest on both sides of the
+	 screen} without interrupting users viewing forest models}.\\
 	\textbf{Rationale}: The product should display the important data that our users might care about on the user interface while not letting the information interrupt the display of the model. Therefore, it should distribute the information on both sides.\\
 	\textbf{Fit Criterion}: When the full view of the forest is displayed, windows containing the overall information about the forest shall be shown on both sides of the screen. 
 	
-	\item The product must allow the users to zoom in and out of the model.\\
+	\item The product shall allow users to zoom in and out of the \textcolor{red}{\st{model} the 
+	digital twin forest}.\\
 	\textbf{Rationale}: The user might need to zoom in to locate a specific plot or zoom out for a fuller view of the forest. \\
 	\textbf{Fit Criterion}: When the user scrolls forward the scroll wheel of the mouse, the map shall be zoomed in. When the user scrolls backward, the map shall be zoomed out. 
 	
-	\item The product must allow the user to change the point of view. \\
+	\item The product shall allow users to change the point of view. \\
 	\textbf{Rationale}: The users might need to observe the forest from different perspectives.\\
 	\textbf{Fit Criterion}: The user's point of view shall change when the user moves the mouse and scrolls the scroll wheel.
 	
-	\item The product shall display the information on separate pages when the content does not fit on one page.\\
-	\textbf{Rationale}: The amount of information might not fit on a single page. Instead of compromising the user interface and minimizing the font size, displaying the information on several pages would be a better choice.\\
+	\item \textcolor{red}{\st{The product shall display the information on separate pages when the
+	 content does not fit on one page.} The product shall provide a way to present all the data when
+	  the amount of data is huge.}\\
+	\textbf{Rationale}: The amount of information might not fit on a single page. Instead of
+	 compromising the user interface and minimizing the font size, displaying the information on
+	  several pages would be a better choice.\\
 	\textbf{Fit Criterion}: Several pages will show up when showing information with very long content.
 	
-	\item The product shall allow the user to turn pages if the interface has multiple pages. \\
+	\item The product shall allow users to turn pages if the interface has multiple pages. \\
 	\textbf{Rationale}: The user should be able to turn pages to switch among different sections of information.\\
 	\textbf{Fit Criterion}: When showing multiple pages, page turn buttons shall be on each page. When the user clicks on the forward page turn button, the page shall display the previous information. When the user clicks on the backward page turn button, the page shall display the subsequent information.
 	
-	\item The product must allow the user to go back to the full view when focusing on a certain plot.
-	\textbf{Rationale}: Users might need to go back to see the overview of the forest and see some overall information about the forest.  \\
-	\textbf{Fit Criterion} The full view of the forest shall show up when the user scrolls backward the scroll wheel of the mouse.
+	\item The product shall allow users to go back to the overall view \textcolor{red}{of the digital
+	twin forest} when \textcolor{red}{\st{focusing on} they are viewing} a certain forest plot.\\
+	\textbf{Rationale}: Users might need to go back to see the overview of the forest and see some
+	 overall information about the forest.  \\
+	\textbf{Fit Criterion} The full view of the forest shall show up when the user scrolls backward the
+	 scroll wheel of the mouse.
 	
-	\item The product must allow the user to click an ‘exit’ button and quit the product.\\
+	\item The product shall \textcolor{red}{provide ways to }allow users to \textcolor{red}{\st{click
+	 an exit button and}} quit the product.\\
 	\textbf{Rationale}: The user would need a clear signal to exit.\\
 	\textbf{Fit Criterion}: Once the user clicks on the 'exit' button, the application shall quit and the process of the software shall be terminated.
     
-    \item The product must allow the user to update the information about the forest and trees.\\
-	\textbf{Rationale}: In order to let the application show the latest information, it's necessary for users to upload the renew the information and statistics about the forest by themselves.\\
-	\textbf{Fit Criterion}: After the user uploads the latest information, the virtual forest shall display this latest information. 
+    \item The product shall allow users to update \textcolor{red}{\st{the information about the forest
+     and trees} forest data(both overall forest data and forest plot data) and tree parameters}.\\
+	\textbf{Rationale}: In order to let the application show the latest information, it's necessary for
+	 users to upload the renew the information and statistics about the forest by themselves.\\
+	\textbf{Fit Criterion}: After the user uploads the latest information, the virtual forest shall
+	 display this latest information. 
 	
-	\item The product must allow the user to choose to update the product or not when a new version is released.\\
-	\textbf{Rationale}: Our product relies deeply on the latest information to give reasonable references. The user can choose to update to the latest version when any version is released.\\
-	\textbf{Fit Criterion}: The product should overwrite any modification made by users and update all the information corresponding to the latest released version of our product.
+	\item The product shall allow users to choose to update the product or not when a new
+	 version is released. \textcolor{red}{Update may include the latest forest data and
+	 some new functions and features of the product.}\\
+	\textbf{Rationale}: Our product relies deeply on the latest information to give reasonable
+	 references. The user can choose to update to the latest version when any version is released.\\
+	\textbf{Fit Criterion}: The product should overwrite any modification made by users and update all
+	 the information corresponding to the latest released version of our product.
 \end{enumerate}
 
 \subsection{Priority and Timeline}
@@ -473,8 +502,17 @@ from the system\\
 \end{tabular}
 \caption{Functional Requirements Priority Table}
 \end{table}
- 
-	
+
+\textcolor{red}{
+The following are FR related comments from other team
+\begin{itemize}
+\item mention more about how the data the forest/data will be constructed, consumed or inputted
+into the system.
+\item FR2 and FR3 are ambitious. In FR2, your 'start' button on the main page will redirect your users to the virtual tour page. In FR3, your 'start' button will start the data loading process. Is the 'start' button in FR3 different from your FR2 'start' button? I will suggest you use two different names for the buttons to distinguish the two functions.
+\item FR16:
+What does it mean for the latest information? Is it data, user interface, new functions, or something else? You should classify it so that the developer can know the latest information they need to provide to the users.
+\end{itemize} 
+}
 
 %%%%%%%%%%%%% Functional Requirements End %%%%%%%%%%%
 
@@ -485,34 +523,42 @@ from the system\\
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
 \begin{enumerate}
-    \item[LF1.1] The product shall have a goal that all modules adhere to.\\
-    \textbf{Rationale}: The system can be consistent and coherent if all modules focus on one goal, and it's easy for users to understand the function of the system.\\
+    \item[LF1.1] The product shall have a goal that all modules adhere to. \\
+    \textbf{Rationale}: The system can be consistent and coherent if all modules focus on one goal, and
+     it's easy for users to understand the function of the system.\\
     \textbf{Fit criterion}:  There are at least 8 modules that serve one function in every 10 modules.
    
-    \item[LF1.2] The goal of the product shall be to display a lifelike forest to the users.\\
+    \item[LF1.2] \textcolor{red}{\st{The goal of the product shall be to display a lifelike forest to
+     the users.} The digital twin forest should be lifelike compared with the target
+     forest.}\\
     \textbf{Rationale}: The graphic quality can optimize users' experiences.\\
-    \textbf{Fit criterion}: Among 10 samples of users who use it for the first time, 8 of them agree trees are lifelike.
+    \textbf{Fit criterion}: Among \textcolor{red}{\st{10 samples of users who use it for the first
+     time} all the sample users during the testing phase}, \textcolor{red}{\st{8} 80\%} of them agree
+      \textcolor{red}{\st{trees} the digital twin forest} is lifelike.
 \end{enumerate}
 \subsubsection{Style Requirements}
 \begin{enumerate}[LF2.1]
     \item The product shall appear authoritative based on the real forest.\\
     \textbf{Rationale}: The product is reliable only if it's based on real data.\\
-    \textbf{Fit criterion}: The data in our project will not exceed a relative error of 30\%.
+    \textbf{Fit criterion}: The data in our project will not exceed a relative error of 
+    5\%.
     
     \item The product shall appear professional.\\
     \textbf{Rationale}: A project is more convincing if it looks professional.\\
-    \textbf{Fit criterion}: Among 10 samples of users, at least 8 think the system is professional.
+    \textbf{Fit criterion}: Among \textcolor{red}{\st{10 samples of users} all sample users during the 
+    testing phase}, at least \textcolor{red}{\st{8} 80\% of them} think the system is professional.
 \end{enumerate}
 \subsection{Usability and Humanity Requirements}
 \subsubsection{Easy of Use Requirements}
 \begin{enumerate}[UH1.1]
-    \item The instructions of the product shall be easy to understand.\\
+    \item The product instructions shall be easy to understand.\\
     \textbf{Rationale}: Clear instructions can take users less time to learn to use this product.\\
-    \textbf{Fit criterion}: Among 10 users, at least 80\% of users can learn how to use the system within half an hour.
+    \textbf{Fit criterion}: Among \textcolor{red}{\st{10 users} all the sample users during the 
+    testing phase}, at least 80\% of them can learn how to use the system within half an hour.
 \end{enumerate}
 \subsubsection{Personalization and Internationalization Requirements}
 \begin{enumerate}[UH2.1]
-    \item The product shall be English only.\\
+    \item The product shall use English only.\\
     \textbf{Rationale}: English is a general language that most users know.\\
     \textbf{Fit criterion}: 100\% of the text is in English.
 \end{enumerate}
@@ -524,95 +570,121 @@ from the system\\
 \end{enumerate}
 \subsubsection{Understandability and Politeness Requirements}
 \begin{enumerate}[UH4.1]
-    \item The product shall use symbols to highlight core functions.\\
+    \item The product shall use \textcolor{red}{\st{symbols} icons} to highlight core functions.\\
     \textbf{Rationale}: Highlight can make users notice the core function of the system.\\
-    \textbf{Fit criterion}: Among 10 users who use the system for the first time, over 80\% of people can notice the highlight.
+    \textbf{Fit criterion}: Among \textcolor{red}{\st{10} all the sample users during the 
+    testing phase}, over 80\% of them can notice and 
+    \textcolor{red}{understand} the \textcolor{red}{\st{highlight} icons}.
     
     \item The product shall use icons that are appealing to all ages.\\
     \textbf{Rationale}: Icons can improve users' experience.\\
-    \textbf{Fit criterion}: Among 10 users, at least 80\% of the people think the icons are appealing.
+    \textbf{Fit criterion}: Among \textcolor{red}{\st{10} all the sample users during the 
+    testing phase}, over 80\% of them think the icons are appealing.
 \end{enumerate}
 \subsubsection{Accessibility Requirements}
 \begin{enumerate}[UH5.1]
-    \item The product shall be usable by people who are able to use a computer and a mouse.\\
-    \textbf{Rationale}: The interface of the system shall be consistent with other software (e.g use a mouse and keyboard).\\
-    \textbf{Fit criterion}: 100\% of the actions can be done with a mouse and keyboard.
+    \item The product shall be usable by people who are able to use a \textcolor{red}{\st{computer}
+     keyboard} and a mouse.\\
+    \textbf{Rationale}: The interface of the system shall be consistent with other software (e.g use a
+     mouse and keyboard).\\
+    \textbf{Fit criterion}: 100\% of the actions can be done with a mouse and a keyboard.
     
     \item The product's user interface should be easy to learn.\\
     \textbf{Rationale}: A neat and clean user interface can take users less time to learn to use.\\
-    \textbf{Fit criterion}: Among 10 users, at least 80\% of users can learn how to use the system within half an hour.
+    \textbf{Fit criterion}: Among all the sample users during the testing phase, over 80\% of them
+     can learn how to use the system within half an hour.
 \end{enumerate}
 \subsection{Performance Requirements}
 \subsubsection{Speed and Latency Requirements}
 \begin{enumerate}
-    \item[PR1.1] The product shall respond to user actions quickly.\\
+    \item[PR1.1] The product shall respond to user \textcolor{red}{\st{actions} requests} quickly.\\
     \textbf{Rationale}: Quick response can improve users' experience.\\
-    \textbf{Fit Criterion}: The system can respond within 1 second for 23 hours out of 24 hours.
+    \textbf{Fit Criterion}: The system can respond within 2 seconds \textcolor{red}{\st{for 23 hours
+     out of 24 hours} for all the user requests}.
     
     \item[PR1.2] The product shall run at high FPS.\\
     \textbf{Rationale}: Smooth display can improve users' experience.\\
-    \textbf{Fit Criterion}: The system run at 30 frames per second over 80\% of the time.
+    \textbf{Fit Criterion}: The system should run at least 30 frames per second over 80\% of the time.
     
     \item[PR1.3] The product shall be able to load the models fast.\\
     \textbf{Rationale}: Less wait time for users can improve users' experience.\\
-    \textbf{Fit Criterion}: The wait time will not exceed 10 seconds 100\% of the time.
+    \textbf{Fit Criterion}: The waiting time will not exceed 10 seconds 100\% of the time.
 \end{enumerate}
 \subsubsection{Safety-Critical Requirements}
 N/A
 \subsubsection{Precision or Accuracy Requirements}
 \begin{enumerate}[PR3.1]
     \item Data displayed on the screen shall be accurate.\\
-    \textbf{Rationale}: A fixed decimal can make data more consistent and accurate.\\
-    \textbf{Fit Criterion}: 100\% of the data in this system are in two decimals.
-    
-    \item The relative error of each model shall be small.\\
     \textbf{Rationale}: The data is supposed to be reliable.\\
-    \textbf{Fit Criterion}: The relative error will not exceed 30\% for each data.
+    \textbf{Fit Criterion}: \textcolor{red}{\st{100\% of the data in this system are in two decimals}
+    All the data in the system should have at most 5\% relative errors compared with the target
+    forest data}.\\
+ 
+   
+    \item \textcolor{red}{\st{The relative error of each model shall be small. \\
+    \textbf{Rationale}: The data is supposed to be reliable.\\
+    \textbf{Fit Criterion}: The relative error will not exceed 30\% for each data.}}\\
+    
 \end{enumerate}
 \subsubsection{Reliability and Availability Requirements}
 \begin{enumerate}[PR4.1]
-    \item The product shall be available whenever the users access to it.\\
+    \item The product shall be available whenever users access to it.\\
     \textbf{Rationale}: The product is reliable if it's available most of the time.\\
-    \textbf{Fit criterion}: The system is required to work over 23 hours in a day.
+    \textbf{Fit criterion}: The system is required to work \textcolor{red}{\st{over 23 hours in a
+     day} all the time}.
     
-    \item The product shall not crash while running.\\
+    \item The product shall \textcolor{red}{\st{not} avoid} crashing while running.\\
     \textbf{Rationale}: Stable running environment can make the product more reliable.\\
-    \textbf{Fit Criterion}: The system will not crash over twice out of 10 times.
+    \textbf{Fit Criterion}: The system shall not crash over once out of 100 hours of running.\\
 \end{enumerate}
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 \begin{enumerate}[PR5.1]
     \item The product shall be able to run locally.\\
     \textbf{Rationale}: The product can be more reliable if it runs locally.\\
-    \textbf{Fit Criterion}: The product can run normally for 23 hours for every 24 hours.
+    \textbf{Fit Criterion}: The product can \textcolor{red}{\st{run normally for 23 hours for every 24
+     hours} perform all the functions without internet connection}.
 \end{enumerate}
 \subsubsection{Capacity Requirements}
 \begin{enumerate}[PR6.1]
     \item The software size shall not be too large.\\
     \textbf{Rationale}: Less size can make the software more portable.\\
-    \textbf{Fit Criterion}: The size of the software will not exceed 10 GB.
+    \textbf{Fit Criterion}: The size of the software shall not exceed 10 GB.
 \end{enumerate}
 \subsubsection{Scalability or Extensibility Requirements}
 \begin{enumerate}[PR7.1]
     \item New components shall be easily added to the product in the future version.\\
     \textbf{Rationale}: If the components can be added easily, we can update the content and modify the system more easily.\\
-    \textbf{Fit Criterion}: A programmer will not spend over one day adding a feature to the system.
+    \textbf{Fit Criterion}: \textcolor{red}{\st{A programmer will not spend over one day adding a
+     feature to the system} Adding new features or functions shall not need to modify over 
+     two existing modules}.\\
 \end{enumerate}
 \subsubsection{Longevity Requirements}
 \begin{enumerate}[PR8.1]
-    \item The product shall be expected to operate within the maximum maintenance budget for a minimum of one year.\\
-    \textbf{Rationale}: The developer team is mandatory to run the project for at least one year, and later plan is to be determined.\\
-    \textbf{Fit Criterion}: The developer team must pay enough effort and spend the necessary budget on this product for at least one year, to ensure the product reaches a satisfying quality. This is to say, the product should satisfy all the requirements mentioned in this document.
+    \item \textcolor{red}{\st{The product shall be expected to operate within the maximum maintenance
+     budget for a minimum of one year} The developers should ensure the product having 
+     satisfying qualities for at least a year after releasing}.\\
+    \textbf{Rationale}: The developer team is mandatory to run the project for at least one year, and
+     later plan is to be determined.\\
+    \textbf{Fit Criterion}: \textcolor{red}{\st{The developer team must pay enough effort and spend the
+     necessary budget on
+     this product for at least one year, to ensure the product reaches a satisfying quality. This is to
+      say, the product should satisfy all the requirements mentioned in this document.} The product
+       should satisfy all the requirements mentioned in this document within one year after
+       releasing.}
 \end{enumerate}
 
 \subsection{Operational and Environmental Requirements}
 \subsubsection{Expected Physical Requirements}
 
 \begin{enumerate}[OE1.1]
-    \item The product shall be used on computers and laptops.\\
-    \textbf{Rationale}: This product is designed for personal computer and laptop users, for these devices provide enough computing capabilities. The product should be able to run on target devices.\\
-    \textbf{Fit criterion}: The product shall be launched successfully and run without errors on both computers and laptops.\\
+    \item The product shall be used on desktops and laptops.\\
+    \textbf{Rationale}: This product is designed for personal computer and laptop users, for these
+     devices provide enough computing capabilities. The product should be able to run on target
+      devices.\\
+    \textbf{Fit criterion}: The product shall be launched successfully and run without errors on both
+     desktops and laptops.\\
    
-    \item[OE1.2] The product shall be used with a mouse.\\
+    \item[OE1.2] The product shall be used with a mouse \textcolor{red}{and a keyboard}.\\
     \textbf{Rationale}: Some of the functions of this product, like zooming in or out, are designed to be used with a mouse. The product must be used with one and take the input from it.\\
     \textbf{Fit criterion}: The devices with a mouse should be able to successfully realize the designed functions.\\
 \end{enumerate}
@@ -627,55 +699,79 @@ N/A
 \begin{enumerate}[OE3.1]
     \item The product shall be distributed as an application to be installed on computers.\\
     \textbf{Rationale}: The user might be a forest owner with no experience with coding. A reasonable method to distribute the product should be using an installer that can be downloaded. \\
-    \textbf{Fit criterion}: The product should be able to be downloaded and installed by users with clicks. \\
+    \textbf{Fit criterion}: The product should be able to be downloaded and installed by users with clicks \textcolor{red}{instead of installing using the terminal or commands}. \\
 \end{enumerate}
 \subsubsection{Release Requirements}
 \begin{enumerate}[OE4.1]
-    \item The maintenance releases will be offered to end users weekly for at least one year.\\
+    \item The maintenance releases will be offered to end users \textcolor{red}{\st{weekly}
+    monthly} for at least one year
+   \textcolor{red}{after releasing}.\\
     \textbf{Rationale}: The effectiveness of this product significantly depends on the timely information related to the target forest. The latest information should be updated weekly for a higher quality of this product.\\
-    \textbf{Fit criterion}: The update should be released weekly.\\
-    \item Each release shall not cause previous features to fail. \\
+    \textbf{Fit criterion}: The update should be released \textcolor{red}{\st{weekly}
+    monthly}.\\
+    \item Each release shall not cause \textcolor{red}{\st{previous} existing functions or} features 
+    to fail. \\
     \textbf{Rationale}: The product shall be updated frequently, while each release should keep all the core functions and should not previous features to fail.\\
-    \textbf{Fit criterion}: Each release should test all the features and must pass every test case.\\
-    \item Each release shall include the latest data and models. \\
-    \textbf{Rationale}: The product should contain information related to the target forest, which is changing continuously. The latest recorded information should be updated to the users with the update release.\\
-    \textbf{Fit criterion}: The lasted data should be updated to the product and be released to the users. \\
+    \textbf{Fit criterion}: Each release should \textcolor{red}{\st{test all the features and must}}
+     pass every test case \textcolor{red}{before releasing to end users}.\\
+    
+    \item \textcolor{red}{\st{Each release shall include the latest data and models. \\
+    \textbf{Rationale}: The product should contain information related to the target forest, which is
+     changing continuously. The latest recorded information should be updated to the users with the
+      update release.\\
+    \textbf{Fit criterion}: The latest data should be updated to the product and be released to the
+     users. }}
 \end{enumerate}
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
 \begin{enumerate}
     \item[MS1.1] Documentation of this product shall be kept up to date.\\
     \textbf{Rationale}: Documentation related to this product may change along with any changes in the product. \\
-    \textbf{Fit criterion}: Any modification of the features of the product should be documented before the change.\\
+    \textbf{Fit criterion}: Any modifications of the features \textcolor{red}{or functions}
+    of the product should be documented before the change.\\
+    
     \item[MS1.2] All functions shall be clearly documented.\\
     \textbf{Rationale}: The development of this project should follow the documentation for a well-organized development process.\\
     \textbf{Fit criterion}: The project should not be modified without documentation, which means it should realize all and only documented functions.\\
+    
     \item[MS1.3] Any detected bug in the product shall be fixed within three days.\\
     \textbf{Rationale}: Limited time for fixing bugs ensures the product to work normally.\\
-    \textbf{Fit criterion}: Any time when the developer team detects any bug, the bug should be fixed within three days.\\
+    \textbf{Fit criterion}: Any time when the developer team detects any bug, the bug should be fixed within three days.
 \end{enumerate}
+
 \subsubsection{Supportability Requirements}
 \begin{enumerate}[MS2.1]
-    \item The development of the product shall collect feedback from the users to improve usability.\\
-    \textbf{Rationale}: The users should have the method to send feedback to or contact the developer team if they want. \\
-    \textbf{Fit criterion}: The user should be able to find the contact method in the instruction.\\
+    \item \textcolor{red}{\st{development of the product} Users} shall be able to provide
+    feedback to developers.\\
+    \textbf{Rationale}: The users should have the method to send feedback to or contact the developer
+     team if they want. \\
+    \textbf{Fit criterion}: Users should be able to find the contact method in the instruction.\\
 \end{enumerate}
 \subsubsection{Adaptability Requirements}
 \begin{enumerate}[MS3.1]
-    \item The product is expected to run on different computer operating systems.\\
+    \item The product is expected to run on different \textcolor{red}{\st{computer}} 
+    operating systems.\\
     \textbf{Rationale}: Users use different operating systems. The above 
     non-functional requirement can allow more users to experience our product.\\
-    \textbf{Fit criterion}: The product shall be launched successfully and run without errors on at least two different operating systems.\\
+    \textbf{Fit criterion}: The product shall be launched successfully and run without errors on at
+     least two different operating systems.\\
+    
     \item The product is expected to be used indoors and outdoors.\\
-    \textbf{Rationale}: The product should be able to be used wherever as long as the user has a required device.\\
-    \textbf{Fit criterion}: The product should be able to launch and work as expected for the devices located either indoors or outdoors. \\
+    \textbf{Rationale}: The product should be able to be used wherever as long as the user has a
+     required device.\\
+    \textbf{Fit criterion}: The product should be able to launch and work as expected for the devices
+     located either indoors or outdoors. \\
 \end{enumerate}
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
 \begin{enumerate}[SR1.1]
-    \item The product shall only be accessed by users who download the product from our website.\\
+    \item The product shall only be accessed by users who download the product from our
+     \textcolor{red}{\st{website} GitHub}.\\
     \textbf{Rationale}: The product is supposed to be used through a proper approach\\
-    \textbf{Fit criterion}: Testers cannot download the product in any way other than the github\\
+    \textbf{Fit criterion}: Testers cannot download the product in any way other than the GitHub
+    
+    \item[\textcolor{blue}{SR1.2}] \textcolor{blue}{Tree and forest
+    data shall only be modified through the interface provided by developers.}
 \end{enumerate}
 \subsubsection{Integrity Requirements}
 \begin{enumerate}[SR2.1]
@@ -683,7 +779,17 @@ N/A
     \textbf{Rationale}: Propagating errors in users' machines will affect
     users when they use other applications.\\
     \textbf{Fit criterion}: Injecting 100 errors on purpose, at most 2 errors
-    will be propagated.\\
+    will be propagated.
+     \item[\textcolor{blue}{SR2.2}] \textcolor{blue}{The product shall avoid crashing when
+      being used.}
+    \item[\textcolor{blue}{SR2.3}] \textcolor{blue}{The product shall check if user
+    updates(user inputs) are legal before updating them to the system.}
+    \item[\textcolor{blue}{SR2.4}] \textcolor{blue}{Data displayed in the application shall
+     be consistent with the data stored.}
+    \item[\textcolor{blue}{SR2.5}] \textcolor{blue}{The system shall provide one-to-one
+     mapping relationships between each data and GUI.}
+    \item[\textcolor{blue}{SR2.6}] \textcolor{blue}{The data integrity of the system shall
+     be maintained.}
 \end{enumerate}
 \subsubsection{Privacy Requirements}
 \begin{enumerate}[SR3.1]
@@ -694,8 +800,8 @@ N/A
     without permissions.\\
     \textbf{Rationale}: Sending notifications without permissions will
     interrupt users' other activities.\\
-    \textbf{Fit criterion}: Let 10 users turn off notifications, none of
-    them should receive any notifications.\\
+    \textbf{Fit criterion}: Let \textcolor{red}{\st{10} all the sample users turn off notifications
+    during the test phase}, 0\% of them should receive any notifications.\\
 \end{enumerate}
 \subsubsection{Audit Requirements}
  N/A
@@ -707,7 +813,8 @@ N/A
 \begin{enumerate}[CP1.1]
     \item The product shall not have elements that offend the users of the environment in which the system is deployed.\\
     \textbf{Rationale}: Offending users will decrease users' experience.\\
-    \textbf{Fit criterion}: Among 10 users, the number of users who think there are offensive contents will not exceed 2.\\
+    \textbf{Fit criterion}: Among \textcolor{red}{\st{10} all the sample users during the testing 
+    phase, 0\% of them should feel being offended.}
 \end{enumerate}
 \subsubsection{Political Requirements}
 N/A
@@ -719,12 +826,25 @@ N/A
     \item The product shall abide by all Canadian laws and regulations.\\
     \textbf{Rationale}: The product must obey all legal rules so that it could be published or used.\\
     \textbf{Fit criterion}: 100\% of the contents are assessed by a law expert in Canada.\\
-    \item The product shall be facing to adults.\\
+    
+    \item \textcolor{red}{\st{The product shall be facing to adults.\\
     \textbf{Rationale}: This product will mainly be used by forest 
     owners and meteorologists. These people are normally adults. \\ 
     \textbf{Fit criterion}: An adult user should know how to use
-    the product after looking through the instruction page.\\
+    the product after looking through the instruction page.}}
 \end{enumerate}
+
+\textcolor{red}{
+The following are NFR related comments from other team
+\begin{itemize}
+\item More requirements about Look and Feel since this is a 3D based projects
+\item LF2.1, PR3.2, PR4.1, PR5.1 have the same fit criteria.
+\item In your non-functional requirements (such as PR 4.1 and PR 5.1), you are mentioning that the system availability should be high. You also gave a fit criterion saying it should be available 23/24 hours but it might have been better to give it in terms of percentages to keep it more consistent with the other fit criterion. Also, 1 hour unavailability each day seems a bit excessive unless system requires daily backups that lasts 1 hour.
+\item In your non-functional and functional requirements, there is an inconsistency in your fit criterion. In some of the requirements (such as UH 4.2) you are mentioning out of 10 users 80\% of them should ... but in other requirements (such as LF 2.2) you are mentioning out of 10 users 8 of them should ... I think if you were to select one and use it throughout the document, it would help with consistency.
+\end{itemize} 
+}
+
+
 %%%%%%%%%%%%%%%%%%% Non-functional Requirements End %%%%%%%%%%%%
 
 
@@ -966,11 +1086,15 @@ not related to functional requirements.
     \item Data could be changed. First, data magnitudes may change since users and the developing team.
     may update data. Secondly, data types may change since the developing team may add or 
     delete data.
-    \item The way to "update official data" may change.
+    \item The way to "update official data" may change. \textcolor{red}{Peer Review Comments: 
+    ambiguous}
     \item User interface may change since we may add or delete data.
     \item The contents in the virtual representation other than trees may change. For example,
     the developing team may add other elements to the virtual representation like grass, bushes, etc.
 \end{enumerate}
+
+\noindent \textcolor{red}{Peer Review Comments: Likely changes and unlikely changes should talk more
+ about FR and NFR rather than implementation details.}
 %%%%%%%%%%%%%%% Likely Changes End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%% Unlikely Changes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
