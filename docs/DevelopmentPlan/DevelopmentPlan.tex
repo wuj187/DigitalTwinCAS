@@ -2,6 +2,7 @@
 
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{ulem}
 \usepackage[colorlinks,linkcolor=blue]{hyperref}
 
 \title{Development Plan\\ Digital Twin Forest}
@@ -85,22 +86,47 @@ Communication within our group will be completed through weekly in-person meetin
 \begin{itemize}
     %\item Mobile device may not provide sufficient computing capacities to test the models.\\\\ 
         %Solution: We might convert high polygon models to low polygon models when representing in the mobile device. 
-    \item The accuracy of measurement and modelling strongly depends on the reality with different weather.
-        Solution: Choose the timing with better condition.
+    \item The accuracy of measurement and modelling strongly depends on the reality with different
+    weather.\\Solution: Choose the timing with better condition.
         
-    \item The ideal process of scanning and modelling would be scan an entire plot at once, while this process is limited by the scanning device we use, which would be mobile phones and ipads.     Solution: Scan single trees and splice the models in Unity.
+    \item The ideal process of scanning and modelling would be scan an entire plot at once, while this
+    process is limited by the scanning device we use, which would be cell phone and iPad.\\Solution:
+    Scan single trees and splice the models in Unity.
     
-    \item The trees might be too high to scan all aspects of the trees or result in a poor precision.
-        Solution: Employ drones to scan the pictures.
+    \item The trees might be too high to scan all aspects of the trees or result in a poor
+    precision.\\Solution: Employ drones to scan the pictures.
 \end{itemize}
+
+\textcolor{red}{The following are revised Risks for POC Demo.}
+\textcolor{red}{
+\begin{itemize}
+\item Creating huge amount of trees efficiently.
+\item The virtual representation should be close to the real forest.
+\item How to simulate the first perspective of a real person to view the forest.
+\item Different assets used in Unity may require different Unity versions or rendering pipelines.
+\item As the plant density increases, it uses more and more draw calls which is not affordable.
+\end{itemize}
+}    
 
 \subsection{POC Demonstration contents}
 \begin{itemize}
-    \item POC should include virtual representation of a limited amount
-    of trees with qualified devices like laptops scanned by mobile devices with LiDAR like iPhone or iPad. 
-    This can prove that modelling and a virtual representation of forest could be realized.
-    \item POC should include trees higher than 5 meters to provide a proof of adequate measurement and modelling. 
+    \item \textcolor{red}{The POC demonstration should include a virtual representation of a limited
+    amount of trees, along with a simple version of user interface. The data displayed shall or shall not
+    be close to the real forest data, this depends on the data collection process by Dr.Gonsamo's lab. }
+
+    \item \textcolor{red}{\sout{POC should include virtual representation of a limited amount
+    of trees with qualified devices like laptops scanned by mobile devices with LiDAR like iPhone or iPad.
+    This can prove that modelling and a virtual representation of forest could be realized.}}
+    
+    \item \textcolor{red}{\sout{POC should include trees higher than 5 meters to provide a proof of adequate measurement and modelling.}} 
+    
+    \item \textcolor{red}{POC should include the demonstration of our project prototype that can operate
+    properly.}
+    
+    \item \textcolor{red}{POC should demonstrate a way to simulate first perspective of real persons to
+    view the forest.}
 \end{itemize}
+
 \section{Technology}
 
 \begin{itemize}
