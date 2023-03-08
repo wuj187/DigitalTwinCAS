@@ -11,13 +11,20 @@
     urlcolor=blue
 }
 \usepackage[round]{natbib}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage[dvipsnames]{xcolor}
 
-\input{../Comments}
+
+\geometry{margin = 0.75in}
+
+\input{Comments}
+\input{Common}
 
 \begin{document}
 
-\title{Test Report: Project Title} 
-\author{Author Name}
+\title{Verification and Validation Report: \progname} 
+\author{\authname}
 \date{\today}
 	
 \maketitle
@@ -29,8 +36,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+March 6th & 1.0 & First Draft\\
 \bottomrule
 \end{tabularx}
 
@@ -39,15 +45,18 @@ Date 2 & 1.1 & Notes\\
 \section{Symbols, Abbreviations and Acronyms}
 
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{l l} 
+\begin{tabular}{|l | l|} 
   \toprule		
   \textbf{symbol} & \textbf{description}\\
   \midrule 
-  T & Test\\
+  Digital Twin & A virtual representation of the real world\\
+  FR & Functional Requirement\\
+  NFR & Non-Functional Requirement\\
+  SRS & Software Requirements Specification\\
+  GUI & Graphical User Interface \\
+  VnV & Validation and Verification \\
   \bottomrule
 \end{tabular}\\
-
-\wss{symbols, abbreviations or acronyms -- you can reference the SRS tables if needed}
 
 \newpage
 
@@ -60,37 +69,1048 @@ Date 2 & 1.1 & Notes\\
 \newpage
 
 \pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% SRS VnV %%%%%%%%%%%%%%%%%%%%%%%
+\section{SRS Verification}
+The SRS can be found 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{here}.
+This part focuses on the verification of functional and non-functional requirements 
+of SRS.
+\subsection{Modification to the current functional requirements}
+\begin{itemize}
+\item FR1: This requirement is fulfilled.
+\item FR2: This requirement is fulfilled.
+\item FR3: This requirement is fulfilled.
+\item FR4: This requirement is removed. Loading forest model can be completed very
+fast, so implementing a progress bar is unnecessary.
+\item FR5: This requirement is removed. This requirement requires building large 
+building very large models, which is not in line with the idea of model reuse.
+\item FR6: This requirement is fulfilled.
+\item FR7: We should modify this requirement to ``The product shall be able 
+to display environmental data and tree parameters.''
+\item FR8: This requirement is removed. During our implementation, we found out that
+the lab cannot provide tree parameters for each tree. The lab can only provide tree
+parameters for each tree type. Therefore, this functional requirement is redundant 
+and was removed from our product.
+\item FR9: This requirement is fulfilled.
+\item FR10: This requirement is fulfilled.
+\item FR11: This requirement is fulfilled.
+\item FR12: This requirement is fulfilled.
+\item FR13: This requirement is fulfilled.
+\item FR14: Since we do not have an overall forest view, we should modify this 
+document to ``The product shall allow users to go back to the main page when 
+they are viewing a certain plot.''
+\item FR15: This requirement is fulfilled.
+\item FR16: We should modify this requirement to ``The product shall allow users to
+update environmental data and tree parameters.''
+\item FR17: This requirement is fulfilled.
+\end{itemize}
+\subsection{Newly added functional requirements}
+We have added the following requirements to our product.
+\begin{itemize}
+\item The product shall be able to display the contact information of all the 
+developers.
+\item The product shall be able to display percentages of different tree types.
+\item The product shall be able to display correct environmental data when users
+change the plot.
+\item The product shall be able to display correct tree parameters when users
+change tree type.
+\item The forest model shall be able to reflect correct percentages of different
+tree types according to tree densities.
+\item Tree distributions shall be the same as the real forest.
+\item The forest model shall allow users to change seasons.
+\end{itemize}
+\subsection{Modification to the current non-functional requirements}
+\begin{itemize}
+\item LF1.1: This requirement is removed. This is not related to look and feel.
+\item LF1.2: This requirement is fulfilled.
+\item LF2.1: This requirement is fulfilled.
+\item LF2.2: This requirement is fulfilled.
+\item UH1.1: This requirement is fulfilled.
+\item UH2.1: This requirement is fulfilled.
+\item UH3.1: This requirement is fulfilled.
+\item UH4.1: This requirement is fulfilled.
+\item UH4.2: This requirement is fulfilled.
+\item UH5.1: This requirement is fulfilled.
+\item UH5.2: This requirement is fulfilled.
+\item PR1.1: This requirement is fulfilled.
+\item PR1.2: This requirement is fulfilled.
+\item PR1.3: This requirement is fulfilled.
+\item PR3.1: This requirement is fulfilled.
+\item PR3.2: This requirement is removed. All the tree models are generated from 
+the data, if data are accurate, then we can extrapolate that tree models are 
+accurate. Therefore, this requirement is covered by PR3.1.
+\item PR4.1: This requirement is fulfilled.
+\item PR4.2: This requirement is fulfilled.
+\item PR5.1: This requirement is fulfilled.
+\item PR6.1: This requirement is fulfilled.
+\item PR7.1: This requirement is fulfilled.
+\item PR8.1: This requirement is fulfilled.
+\item OE1.1: This requirement is fulfilled.
+\item OE1.2: This requirement is fulfilled.
+\item OE2.1: This requirement is fulfilled.
+\item OE3.1: This requirement is fulfilled.
+\item OE4.1: This requirement is fulfilled.
+\item OE4.1: This requirement is fulfilled.
+\item OE4.3: This requirement is removed.  This requirement is covered by PR3.1.
+\item MS1.1: Our team failed to keep all the documents up to data. We will update
+all the documents for the final documentation.
+\item MS1.2: This requirement is fulfilled.
+\item MS1.3: This requirement is fulfilled.
+\item MS2.1: This requirement is fulfilled.
+\item MS3.1: This requirement is fulfilled.
+\item MS3.2: This requirement is fulfilled.
+\item SR1.1: This requirement is fulfilled.
+\item SR1.2: This requirement is not fulfilled.
+\item SR2.1: This requirement is fulfilled.
+\item SR2.2: This requirement is fulfilled.
+\item SR2.3: This requirement is fulfilled.
+\item SR2.4: This requirement is fulfilled.
+\item SR2.5: This requirement is fulfilled.
+\item SR2.6: This requirement is fulfilled.
+\item SR3.1: This requirement is fulfilled.
+\item SR3.2: This requirement is fulfilled.
+\item CP1.1: This requirement is fulfilled.
+\item LR2.1: This requirement is fulfilled.
+\item LR2.1: This requirement is removed.
+\end{itemize}
+\subsection{Newly added non-functional requirements}
+None.
+%%%%%%%%%%%%%%%%%%%%%%%%%%% SRS VnV Ends %%%%%%%%%%%%%%%%%%%%%%%
 
-This document ...
 
+%%%%%%%%%%%%%%%%%%%%%% Design Doc VnV %%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design Documentation Verification}
+According to the SRS verification documented above, Design Documentations are revised and modified. The major modifications are listed below:
+
+\begin{itemize}
+    \item Rearrange the data categories and hierarchy, and remove overall forest view. For environmental data, keep data \verb|Humidity|, \verb|Soil Carbon Content|, \verb|Soil Nitrogen Content|, \verb|Temperature|, and \verb|LAI|. Add chart to show percentage of each tree type. For tree parameters, keep data \verb|Density|, \verb|DBH|, \verb|Height|, \verb|Age|. Overall forest view is combined with the models for each plot instead and the related information can still be reached.
+
+    \item Change the stored models to the instantly generated models. Models for 14 plots are both space-consuming and redundant for our product. Store the constraints and methods to generate models instantly, instead of the models themselves.
+ 
+
+    \item Remove the information for each tree. Instead, show the information about each kind of trees for each plot. This modification is for better accomplishing the scientific purpose, as the scientific work of our stakeholders concerns about the overall information within a certain area, instead of specific individuals. Also, due to limited resources and schedule, precisely reappearing every detail of the target forest in the model is not realistic. 
+
+    
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%% Design Doc VnV ends %%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%% VnV Plan VnV %%%%%%%%%%%%%%%%%%%%%%%%
+\section{VnV Plan Verification}
+During the test processes the Forest Mirror team performed to verify the implementations of functional requirements, team members found that the Automated Testing and Verification Tool section is not correct because automated testing is not applicable to the application. The back-end code of the application is bound to the game components in Unity, which can not be tested by solely using automated tools and running it so the team used manual tests on Unity to verify the implementations of requirements. After the mistake was discovered, the team decided to delete this section from the VnV plan.
+The Forest Mirror team gathered some feedback and problems occurring in the VnV plan from the other team members and TAs and modified some contents in the presenting version of the VnV plan according to that feedback.  
+%%%%%%%%%%%%%%%%%%%%%% VnV Plan VnV ends %%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Implementation Verification %%%%%%%%%%%%%%%%
+\section{Implementation Verification}
+Our team deployed both dynamic and static testing to verify the implementation of our project. For dynamic testing, since we implement the software with Unity, we used integral testing and system testing most of the time to monitor each component to operate normally. Also, the tests cases are evaluated to make sure all lines of code are covered. All the dynamic testing was done without any error 
+
+During the development of the project, we constantly communicated with our stakeholder ---- Dr.Gonsamo to ensure that we are doing the right product. Also, by demonstrating the proof of concept to stakeholders, we can ensure that our clients will be satisfied with our product.
+
+For static testing, our team used code inspection and document inspection to make sure that the design is following our expectation(high cohesion and low couple, easy to modify) and there is no big issue in the code. Our purpose for static testing is to make sure the code have good quality and complete. After our testing, we evaluated our code with good quality and completeness.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Implementation Verification Ends %%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Automated Testing %%%%%%%%%%%%%%%%%%%%
+\section{Automated Testing and Verification Tools}
+All the tests were conducted manually. So this part is not applicable.
+%%%%%%%%%%%%%% Automated Testing Ends %%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Software Validation %%%%%%%%%%%%%%%%%%
+\section{Software Validation}
+After Rev0 demo, we had a meeting with Dr. Gonsamo and he gave us the following 
+advice:
+\begin{itemize}
+\item We need to adjust the initial camera position when users just enter the 
+forest model. The camera position should allow users to have a full view of the 
+plot.
+\item We should add another GUI for displaying leaf information.
+\item We should implement seasonal change.
+\item Tree distribution should follow the real forest tree distribution.
+\end{itemize}
+%%%%%%%%%%%%%% Software Validation Ends %%%%%%%%%%%%%
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% Functional Requirements Evaluation %%%%%%%%%%%%%%%%%
 \section{Functional Requirements Evaluation}
+\subsection{Presentation}
+\noindent The following testing results of test cases 
+related to the presentation of our products.
 
+\newcommand{\pass}{{\color{Green}PASS}}
+\newcommand{\fail}{{\color{Red}FAIL}}
+
+%%%%%%%%%%% Test-FR1 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR1}
+\begin{itemize}
+\item Inputs: Testers click \verb|Instruction| button
+for 10 times and reset the system to the initial 
+state(Main page) after each click.
+\item Excepted Value: Instruction page should appear 
+on the screen 10 times.
+\item Actual Value: Instruction page appeares on the 
+screen 10 times.
+\item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%% Test-FR4.1 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR4.1}
+This test was about testing the display of the progress 
+bar when switching from the main page to the forest 
+model. During our implementation, loading the forest 
+model is really fast so that the function of 
+the progress bar is removed from our product. The 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}
+and \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan} will be updated accordingly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR4.2 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR4.2}
+This test was about testing the display of the progress 
+bar when switching between different forest models of 
+different plots. 
+During our implementation, switching 
+the forest model between plots is really fast so that 
+the function of 
+the progress bar is removed from our product. The 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}
+and \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan} will be updated accordingly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%% Test-FR5 %%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR5}
+This test was about testing displaying the full view
+(14 plots) of the target forest. This requires building very large 
+models, which is not in line with the idea of model reuse. This 
+function is removed from our product.  The 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}
+and \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan} will be updated accordingly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR9.1 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR9.1}
+\begin{itemize}
+    \item Inputs: Testers click \verb|Environmental Data| button
+    10 times and reset the system to the initial state after each click.
+    The initial state is defined as the forest model presented but environmental 
+    data are not displayed
+    \item Excepted Value: Environmental data should appear on the left side of the 
+    screen 10 times
+    \item Actual Value: Environmental data appeares on the left side of the screen 
+    10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR9.2 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR9.2}
+\begin{itemize}
+    \item Inputs: Testers click \verb|Tree Parameters| button
+    10 times and reset the system to the initial state after each click.
+    The initial state is defined as the forest model presented but tree parameters
+    are not displayed
+    \item Excepted Value: Tree parameters should appear on the right side of the 
+    screen 10 times
+    \item Actual Value: Tree parameters appeares on the right side of the screen 
+    10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR12.1 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR12.1}
+\begin{itemize}
+    \item Inputs: Testers record all the environmental data from
+    the GUI. This includes environmental data for 14 plots and the overall 
+    forest. 
+    \item Expected Value: All the environmental data recorded from the
+    GUI should match the JSON files stored 
+    \href{https://github.com/tingyushi/DTForest-DS}{here}.
+    \item Actual Value: All the environmental data recorded from the
+    GUI matches the JSON files.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR12.2 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR12.2}
+\begin{itemize}
+    \item Inputs: Testers record all the tree parameters from
+    the GUI. This includes tree parameters of 7 types of trees from  14
+    plots and the overall forest. 
+    \item Expected Value: All the tree parameters recorded from the
+    GUI should match the JSON files stored 
+    \href{https://github.com/tingyushi/DTForest-DS}{here}.
+    \item Actual Value: All the tree parameters recorded from the
+    GUI matches the JSON files.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Users' interaction with the product}
+%%%%%%%%%%%%%%% Test-FR23 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR2\&3}
+\begin{itemize}
+    \item Inputs: Testers click \verb|Start| button 10 times and reset the system
+    to the initial state(main page) after each click. 
+    \item Expected Value: Forest model view should appear on the screen 10 times.
+    \item Actual Value: Forest model view appears on the screen 10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR6.1 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR6.1}
+\begin{itemize}
+    \item Inputs: Testers click \verb|Environmental Data| button 10 times and reset 
+    the system to the initial state after each click. The initial state is defined
+    as ``environmental data are displayed''
+    \item Expected Value: Environmental data display should disappear 10 times.
+    \item Actual Value: Environmental data display disappeares 10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR6.2 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR6.2}
+\begin{itemize}
+    \item Inputs: Testers click \verb|Tree Parameters| button 10 times and reset 
+    the system to the initial state after each click. The initial state is defined
+    as ``tree parameters are displayed''
+    \item Expected Value: Tree parameters display should disappear 10 times.
+    \item Actual Value: Tree parameters display disappeares 10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR7 %%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR7}
+Test-FR7 can be considered as a subset of Test-FR12.1 and Test-FR12.2. Since our 
+system passed Test-FR12.1 and Test-FR12.2, this test was not performed. \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan} will be updated accordingly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR8 %%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR8}
+This test was about testing clicking on a tree model and related tree parameters 
+should be displayed. During our implementation, we found out that the lab cannot 
+provide tree parameters for each tree. The lab can only provide tree parameters for 
+each tree type. Therefore, this functional requirement is redundant and was removed
+from our product. The 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}
+and 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/VnVPlan/VnVPlan.pdf}
+{VnV Plan} will be updated accordingly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR10 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR10}
+\begin{itemize}
+\item Inputs: Testers press \verb|W| key 5 times in succession 
+and each key press should last 2 seconds.  After this, testers press \verb|S|
+key 5 times in succession, and each key press should last 2 seconds. 
+\item Excepted Value: Tree models should be zoomed in after each \verb|W| key press.
+Tree models should be zoomed out after each \verb|S| key press.
+and zoomed out after 
+\item Actual Value: Tree models are zoomed in after each \verb|W| key press.
+Tree models are zoomed out after each \verb|S| key press.
+\item Test Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR11.1 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR11.1}
+\begin{itemize}
+    \item Inputs: Testers press \verb|A| key and \verb|D| key.
+    \item Expected value: Users’ first view should move left after pressing \verb|A|
+    key. Users’ first view should move right after pressing \verb|D| key.
+    \item Actual value: Users’ first view moves left after pressing \verb|A| key. Users’ first view should move
+right after pressing \verb|D| key
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR11.2 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR11.2}
+\begin{itemize}
+    \item Inputs: Testers move the mouse in 4 different directions, which are left, right, forward, and
+backward.
+    \item Expected value: The user's point of view should rotate according to the input. 
+    \begin{itemize}
+    \item Move the mouse forward: The user's first point of view should rotate up.
+    \item Move the mouse backward: The user's first point of view should rotate 
+    down.
+    \item Move the mouse left: The user's first point of view should rotate left.
+    \item Move the mouse right: The user's first point of view should rotate right.
+\end{itemize}
+
+    \item Actual value: The user's point of view rotates according to the input. 
+    \begin{itemize}
+    \item Move the mouse forward: The user's first point of view rotates up.
+    \item Move the mouse backward: The user's first point of view rotates
+    down.
+    \item Move the mouse left: The user's first point of view rotates left.
+    \item Move the mouse right: The user's first point of view rotates right.
+\end{itemize}
+
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR13.1 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR13.1}
+\begin{itemize}
+    \item Inputs: Let testers click the \verb|turn page| button on the window showing
+    environmental data 10 times. Before, each click, testers need to make sure that
+    the system is in the initial state.
+    \item Expected value: A pie chart indicating percentages of different tree types should appear in the same window 10 times.
+    \item Actual value: A pie chart indicating percentages of different tree types appears in the same window 10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR13.2 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR13.2}
+\begin{itemize}
+    \item Inputs: Let testers click \verb|turn page| button on the window showing
+    tree parameters 10 times. Before, each click, testers need to make sure that
+    the system is in the initial state.
+    \item Expected value: Leaf information should appear in the same window 10 times.
+    \item Actual value: Leaf information appears in the same window 10 times.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR14 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR14}
+This test was about testing the presentation of the overall view. During our implementation, we removed this view from our product. The 
+\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}
+and \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan} will be updated accordingly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR15 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR15}
+\begin{itemize}
+    \item Inputs: Let testers click \verb|Quit| button located in the main page.
+    \item Expected value: The product should terminate.
+    \item Actual value: The product terminates.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR16%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR16}
+\begin{itemize}
+    \item Inputs: Testers enter new data in the input box and click \verb|Update| button.
+    \item Expected value: A text should pop up indicating if the update was successful. And environmental data display and tree parameters display should 
+    reflect the newly entered data. 
+    \item Actual value: A text pops up indicating if the update was successful. And environmental data display and tree parameters display  
+    reflect the newly entered data.
+    \item Result: \pass
+\end{itemize}
+\textcolor{blue}{NOTE: The above test was conducted for 14 plots and 7 tree types. 
+All tests passed.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Test-FR17 %%%%%%%%%%%%%%%%%%%%
+\subsubsection{Test-FR17}
+\begin{itemize}
+    \item Inputs: Let testers go to GitHub and download a new version. 
+    \item Expected value: The downloaded new version of software should work properly.
+    \item Actual value: The downloaded new version of software works properly.
+    \item Result: \pass
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% Functional Requirements Evaluation Ends %%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%% Non-Functional Requirements Evaluation Ends %%%%%%%%%
 \section{Nonfunctional Requirements Evaluation}
 
-\subsection{Usability}
-		
-\subsection{Performance}
+\subsection{Look and Feel Requirements Evaluation}
+		\subsubsection{Test-NFR-LF1.1}
+We found that this requirement is neither necessary or related to the look and feel requirement, so we decided to remove the requirement and test cases for that.
+            \subsubsection{Test-NFR-LF1.2}
+\begin{itemize}
+    \item Testing Process: We conducted interviews to random people for the feedback by providing the questionnaire in the Appendix.
+    \item Expected Result: Over 80 percent of the users choose A or B in the first question in the questionnaire.
+    \item Actual Result: Out of 20 interviewed users, 10 chose A and 7 chose B in this question.(17/20)
+    \item Result Analysis: \pass  
+\end{itemize}
+            \subsubsection{Test-NFR-LF2.1}
+\begin{itemize}
+    \item Testing Process: Testers will collect all the data and parameters of our forest and compare the data to the physical measurements.
+    \item Expected Result: All environmental data and tree parameters have relative errors less than 0.1 comparing to the actual data our clients provide us
+    \item Actual Result: All environmental data and tree parameters have relative errors less than 0.1.
+    \item Result Analysis: \pass
+\end{itemize}
+            \subsubsection{Test-NFR-LF2.2}
+\begin{itemize}
+    \item Testing Process:We conducted interviews to random people for the feedback by providing the questionnaire in the Appendix,
+    \item Expected Result: Over 80 percent of the users choose A or B in the second question in the questionnaire.
+    \item Actual Result: Out of 20 interviewed users, 9 chose A and 9 chose B in this question.(18/20)
+    \item Result Analysis: \pass
+\end{itemize}
+\subsection{Usability and Humanity Requirements Evaluation}
+            \subsubsection{Test-NFR-UH1.1}
+\begin{itemize}
+    \item Testing Process:We conducted interview random people for the feedback by providing the questionnaire in the Appendix.
+    \item Expected Result: Over 80 percent of the users choose A or B in the third question in the questionnaire.
+    \item Actual Result: Out of 20 interviewed users, 5 chose A and 12 chose B in this question.(17/20)
+    \item Result Analysis: \pass
+\end{itemize}
 
-\subsection{etc.}
+            \subsubsection{Test-NFR-UH2.1}
+\begin{itemize}
+    \item Testing Process: Every member in our team inspect all the UI components that contain texts in this software to see whether there is any non-English texts.
+    \item Expected Result: 100 percent of the texts should be used in English except for number.
+    \item Actual Result: 100 percent of the texts are in English except for numbers.
+    \item Result Analysis: \pass
+\end{itemize}
+
+            \subsubsection{Test-NFR-UH3.1}
+\begin{itemize}
+    \item Testing Process: Testers will launch the system and go to main page. After that, the testers will click instructions option on that page
+    \item Expected Result: Instructions are displayed on the screen.
+    \item Actual Result: Instructions are displayed on the screen.
+    \item Result Analysis: \pass
+\end{itemize}
+
+            \subsubsection{Test-NFR-UH4.1}
+\begin{itemize}
+    \item Testing Process: We conducted interview random people for the feedback by providing the questionnaire in the Appendix.
+    \item Expected Result: Over 80 percent of the users choose A or B in the fourth question in the questionnaire.
+    \item Actual Result: Out of 20 interviewed users, 12 chose A and 7 chose B for this question.(19/20)
+    \item Result Analysis: \pass
+\end{itemize}
+
+            \subsubsection{Test-NFR-UH4.2}
+\begin{itemize}
+    \item Testing Process: We conducted interview random people for the feedback by providing the questionnaire in the Appendix.
+    \item Expected Result: Over 80 percent of the users choose A or B in the fifth question in the questionnaire
+    \item Actual Result: Out of 20 interviewed users, 11 chose A and 9 chose B for this question.(20/20)
+    \item Result Analysis: \pass
+\end{itemize}
+
+            \subsubsection{Test-NFR-UH5.1}
+\begin{itemize}
+    \item Testing Process: We asked 5 users to use mouse and keyboard to navigate through our system
+    \item Expected Result: All of them will go through the system without any trouble
+    \item Actual Result: All of them will went through the system without any trouble
+    \item Result Analysis: \pass
+\end{itemize}
+
+            \subsubsection{Test-NFR-UH5.2}
+\begin{itemize}
+    \item Testing Process: We conducted interview random people for the feedback by providing the questionnaire in the Appendix.
+    \item Expected Result: Over 80 percent of the users choose A or B in the sixth question in the questionnaire.
+    \item Actual Result: Out of 20 interviewed users, 15 of them chose A and 1 of them chose B(16/20)
+    \item Result Analysis: \pass
+\end{itemize}
+\subsection{Performance Requirements Evaluation}
+\subsubsection{Test-NFR-PR1.1}
+\begin{itemize}
+    \item Testing Process: Testers launch the software, set a timer, and record the time it takes to respond to the events from the mouse and the keyboard.
+    \item Expected Result: The system should respond to any requests within 2 seconds. 
+    \item Actual Result: The average response time is less than 2 seconds.
+    \item Result Analysis: \pass 
+\end{itemize}
+\subsubsection{Test-NFR-PR1.2}
+\begin{itemize}
+    \item Testing Process: Testers launch the software, move, click the mouse, and press the keyboard to give all kinds of inputs for actions. At the same time, testers record the FPS displayed on the screen.
+    \item Expected Result: 80 percent of the time the software should have at least 30 FPS.
+    \item Actual Result: The software has over 30 FPS all the time when it is running.
+    \item Result Analysis: \pass 
+\end{itemize}
+\subsubsection{Test-NFR-PR1.3}
+\begin{itemize}
+    \item Testing Process: Testers click on the start option on the main page and simultaneously record the time the software takes to show all the models.
+    \item Expected Result: The system should load all the models within 10 seconds.
+    \item Actual Result: The system loads all the models in less than 10 seconds.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-PR3.1}
+\begin{itemize}
+    \item Testing Process: Testers record all the data and parameters displayed in the application and compare the data with the actual data collected by Dr.Gonsamo and his lab members. After that, testers compute the relative error for each data.
+    \item Expected Result: All the data of the forest should have relative errors less than 0.05.
+    \item Actual Result: All the data of the forest have relative errors less than 0.05.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-PR4.1}
+\begin{itemize}
+    \item Testing Process: Testers click on the application icon and wait for the application to open.
+    \item Expected Result: The application should open normally every time when testers click on the application icon.
+    \item Actual Result: The application opens normally every time when testers click on the application icon.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-PR4.2}
+\begin{itemize}
+    \item Testing Process: Testers launch the software and run the application in the background for 24 hours.
+    \item Expected Result: The application should not crash in 24 hours.  
+    \item Actual Result: The application runs normally and does not crash in 24 hours.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-PR5.1}
+\begin{itemize}
+    \item Testing Process: Testers run the application without an internet connection and see if the system responds normally to every input action. 
+    \item Expected Result: The application should respond to all the input actions normally without an internet connection.
+    \item Actual Result: The application responds to all the input actions normally without an internet connection.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-PR6.1}
+\begin{itemize}
+    \item Testing Process: Testers open the property window of the application and check its size.
+    \item Expected Result: The size of the software should be less than 10 GB. 
+    \item Actual Result: The size of the software is around 250MB.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsection{Operational and Environmental Requirements Evaluation}
+\subsubsection{Test-NFR-OE1.1}
+\begin{itemize}
+    \item Testing Process: Testers run the application on both desktops and laptops to check if it works normally.
+    \item Expected Result: The application should run normally on desktops and laptops.
+    \item Actual Result: The application runs normally on desktops and laptops.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-OE1.2}
+\begin{itemize}
+    \item Testing Process: Testers run the software and perform all kinds of actions in the software using a mouse and keyboard.
+    \item Expected Result: All actions should be accomplished without any problems.
+    \item Actual Result: All actions are accomplished without any problems.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-OE2.1}
+\begin{itemize}
+    \item Testing Process: Testers run the software on Windows 10 or later version or MacOS 12 or later version and perform operations on the software.
+    \item Expected Result: All the operations should be accomplished normally.
+    \item Actual Result: All the operations are accomplished normally
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-OE3.1}
+\begin{itemize}
+    \item Testing Process: Testers download and install the application from GitHub and check it can run normally.
+    \item Expected Result: The application should be downloaded successfully from GitHub to the computer and it can run without any errors and bugs.
+    \item Actual Result: The application is downloaded successfully from GitHub to the computer and it can run without any errors and bugs.
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-OE4.1}
+\begin{itemize}
+    \item Testing Process: Testers look at the git commit history and see if there are weekly updates.
+    \item Expected Result: There should be some weekly updates in the git commit history.
+    \item Actual Result: There are some weekly updates in the git commit history
+    \item Result Analysis: \pass
+\end{itemize}
+\subsubsection{Test-NFR-OE4.2}
+\begin{itemize}
+    \item Testing Process: Testers perform tests on the previous functions after each update and record the test results in the test report.
+    \item Expected Result: All the previous functions should be unaffected and all the test cases should be passed.
+    \item Actual Result: All the previous functions are unaffected and all the test cases are passed.
+    \item Result Analysis: \pass
+\end{itemize}
+
+\subsection{Maintenance and Support Requirements Evaluation}
+\subsubsection{Test-NFR-MS1.1}
+\begin{itemize}
+    \item Testing Process: Testers check the documentation of the product to see if the new features, functions, and any modifications are added to the documentation. 
+    \item Expected Result: All features, functions and modifications should be on the documentation.
+    \item Actual Result: New features, functions and modifications after February are not on the documentation.
+    \item Result Analysis: \fail
+
+\end{itemize}
+
+\subsubsection{Test-NFR-MS1.2}
+\begin{itemize}
+    \item Testing Process: Testers read the documentation of the product to see if the documentations specifies the functions clearly.
+    \item Expected Result: All functions on the documentation should be clearly documented.
+    \item Actual Result: All functions on the documentation are clearly documented.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsubsection{Test-NFR-MS1.3}
+\begin{itemize}
+    \item Testing Process: Record the time from the bug occurs to the time when the bug
+is fixed. Measure the time to see if it is within three days.
+    \item Expected Result: All bugs should be fixed within three days.
+    \item Actual Result: All bugs are fixed within three days.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsubsection{Test-NFR-MS2.1}
+\begin{itemize}
+    \item Testing Process: Testers first look for the contact method on the contact page,
+then use the contact method to contact the developers to see if they can contact the developers
+successfully or not.
+    \item Expected Result: Testers should be able to reach the developers successfully.
+    \item Actual Result: Testers are able to reach the developers successfully.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsubsection{Test-NFR-MS3.1}
+\begin{itemize}
+    \item Testing Process:  Testers try to launch the application on more than one operating
+system to see if it can be run successfully on a different system or not.
+    \item Expected Result: The application should be able to launch on more than one operating system. 
+    \item Actual Result: The application is able to launch on more than one operating system. 
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsubsection{Test-NFR-MS3.2}
+\begin{itemize}
+    \item Testing Process: Testers try to launch the application on the devices located
+indoors and outdoors respectively to see if the application can be used both indoors and
+outdoors.
+    \item Expected Result: The application should be able to launch on the devices located both indoors and outdoors.
+    \item Actual Result: The application is able to launch on the devices located both indoors and outdoors.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+
+
+\subsection{Security Requirements Evaluation}
+\subsubsection{Test-NFR-SR1.1}
+\begin{itemize}
+    \item Testing Process:  Testers try to find and download the product from GitHub and
+any other website.
+    \item Expected Result: Testers can not download the product in other websites other than GitHub.
+    \item Actual Result: Testers can not download the product in other websites other than GitHub.
+    \item Result Analysis: \pass
+\end{itemize}
+
+\subsubsection{Test-NFR-SR1.2}
+\begin{itemize}
+    \item Testing Process:  Testers try to update the data of trees and forests via the interface and anywhere else to see if they can update the data successfully or not.
+    \item Expected Result: Testers should not be able to update the data except through the interface. 
+    \item Actual Result: Testers can delete or modify .json file to modify the data.
+    \item Result Analysis: \fail
+\end{itemize}
+
+
+
+
+\subsubsection{Test-NFR-SR2.1}
+\begin{itemize}
+    \item Testing Process:  Testers inject 100 errors on purpose in our application and see
+if the scan results of the computer security application will detect the errors in the computer
+system or not.
+    \item Expected Result: The number of errors that the product propagates should less than 2.
+    \item Actual Result: 0 error is propagated. 
+    \item Result Analysis: \pass
+\end{itemize}
+
+\subsubsection{Test-NFR-SR2.2}
+\begin{itemize}
+
+    \item Testing Process:  Testers use the software and perform some complicated tasks such as zooming in and zooming out for a long time to see if the application will crash or not.
+    \item Expected Result: The application should not crash.
+    \item Actual Result: The application does not crash.
+    \item Result Analysis: \pass
+\end{itemize}
+
+\subsubsection{Test-NFR-SR2.3}
+\begin{itemize}
+
+    \item Testing Process:   Testers input some invalid data in the \verb|Update Data| page.
+    \item Expected Result: Fail to update the data. And a warning message should pop up indicating invalid update
+operation.
+    \item Actual Result: Fail to update the data. And a warning message pops up indicating invalid update
+operation.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsubsection{Test-NFR-SR2.4\&2.6}
+\begin{itemize}
+    \item Testing Process:Testers manually update some data into the product, take records, and find the data in the display.
+    \item Expected Result: The data should be consistent with the data just updated.
+    \item Actual Result: The data are consistent with the data just updated. 
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+
+\subsubsection{Test-NFR-SR2.5}
+\begin{itemize}
+    \item Testing Process: Testers manually compare the GUI and data files.  
+    \item Expected Result: Each data should have one unique position to display in the GUI and each GUI should correspond to a unique data.  
+    \item Actual Result: Each data has one unique position to display in the GUI and each GUI corresponds to a unique data. 
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+
+
+\subsubsection{Test-NFR-SR3.1}
+\begin{itemize}
+    \item Testing Process: Use questionnaire to check if the users are asked to provide personal information when using the product.
+    \item Expected Result: No user should be asked to provide personal information.
+    \item Actual Result: No user was asked to provided personal information.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsubsection{Test-NFR-SR3.2}
+\begin{itemize}
+    \item Testing Process: Use questionnaire to check if the product sends notification without permission.
+    \item Expected Result: No user should receive notification without permission.
+    \item Actual Result: No user received notification without permission.
+    \item Result Analysis: \pass
+\end{itemize}
+
+
+\subsection{Cultural and Political Requirements Evaluation}
+\subsubsection{Test-NFR-CP1.1}
+\begin{itemize}
+    \item Testing Process: Use questionnaire to check if any user is offended by the product.
+    \item Expected Result: No user should feel offended by the product.
+    \item Actual Result: No user feels offended by the product.
+    \item Result Analysis: \pass
+\end{itemize}
+
+\subsection{Legal Requirements Evaluation}
+\subsubsection{Test-NFR-LR2.1}
+\begin{itemize}
+    \item Testing Process: Testers ask the users that if any part appears lawfully unreasonable when spread the questionnaires.
+    \item Expected Result: Users should not notice any part lawfull unreasonable.
+    \item Actual Result: No user notices any part lawfull unreasonable.
+    \item Result Analysis: \pass
+\end{itemize}
+
+%%%%%%%%%%%%%%%%% NFR Test Ends %%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 	
 \section{Comparison to Existing Implementation}	
-
 This section will not be appropriate for every project.
 
 \section{Unit Testing}
+Unit testing does not accommodate Unity's workflow. Each script is automatically compiled by Unity. If the team wants to test a particular module, they still have to run the whole system and check the Unity console. As a result, all unit testing are included in the system testing. Please check section 3 and 4 instead.
 
 \section{Changes Due to Testing}
+\begin{itemize}
+    \item Feedback from the Rev 0 demo: It does not make sense that there are so much grass on the forest floor. The tree heights are unbalanced because no tree shall grow in the shade of other trees.\\
+    The team change the ground texture to show more details of the soil and fallen leaves instead of grass for realism. The team measures the accurate height of the tree model, later the models are resized to fit the data collected by drones.
+    \item Feedback from the Rev 0 demo: There are spelling and grammar errors in user interface and codes.\\
+    The team goes through the user interface and comments to fix the typo in project.
+    \item Feedback from the Rev o demo: The user interface is not straight forward. It is hard to learn how to update forest data.\\
+    The team rearranges the user interface to make it easier to learn.
+    \item Feedback from Dr. Gonsamo's lab: The species and tree distribution shall be consistent with the real forest.\\
+    The team checked the species counted by Dr. Gonsamo's lab and updated the models. The team later writes a script to dynamically control the distribution of tree models based on the satellite photos.
+\end{itemize}
+
+
 
 \section{Automated Testing}
-		
+Automated testing does not accommodate Unity's workflow, everything is tested manually in Unity, such as UI, scene manager, and terrain.etc.
+
+\newpage
+
 \section{Trace to Requirements}
-		
-\section{Trace to Modules}		
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    Function Requirement     &  Test Case ID\\
+    \hline
+    FR1     & Test-FR1\\
+    \hline
+    FR2 & Test-FR2\&3\\
+    \hline
+    FR3 & Test-FR2\&3\\
+    \hline
+     FR4 & Test-FR4.1, Test-FR4.2\\
+    \hline
+     FR5 & Test-FR5\\
+    \hline
+     FR6 & Test-FR6.1, Test-FR6.2\\
+    \hline
+     FR7 & Test-FR7\\
+    \hline
+     FR8 & Test-FR8\\
+    \hline
+     FR9 & Test-FR9.1, Test-FR9.2\\
+    \hline
+     FR10 & Test-FR10\\
+    \hline
+     FR11 & Test-FR11.1, Test-FR11.2\\
+    \hline 
+     FR12 & Test-FR12.1, Test-FR12.2\\
+    \hline
+    FR13 & Test-FR13.1, Test-FR13.2\\
+    \hline
+    FR14 & Test-FR14\\
+    \hline
+    FR15 & Test-FR15\\
+    \hline
+    FR16 & Test-FR16\\
+    \hline
+    FR17 & Test-FR17\\
+    \hline
+    \end{tabular}
+    \caption{Traceability between Functional Requirements and Tests}
+\end{table}
+
+\newpage
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    Non-functional Requirement & Test Case ID\\
+    \hline
+    NFR-LF1.1 & Test-NFR-LF1.1\\
+    \hline
+    NFR-LF1.2 & Test-NFR-LF1.2\\
+    \hline
+    NFR-LF2.1 & Test-NFR-LF2.1\\
+    \hline
+    NFR-LF2.2 & Test-NFR-LF2.2\\
+    \hline
+    NFR-UH1.1 & Test-NFR-UH1.1\\
+    \hline
+    NFR-UH2.1 & Test-NFR-UH2.1\\
+    \hline
+    NFR-UH3.1 & Test-NFR-UH3.1\\
+    \hline
+    NFR-UH4.1 & Test-NFR-UH4.1\\
+    \hline
+    NFR-UH4.2 & Test-NFR-UH4.2\\
+    \hline
+    NFR-UH5.1 & Test-NFR-UH5.1\\
+    \hline
+    NFR-UH5.2 & Test-NFR-UH5.2\\
+    \hline
+    NFR-PR1.1 & Test-NFR-PR1.1\\
+    \hline
+    NFR-PR1.2 & Test-NFR-PR1.2\\
+    \hline
+    NFR-PR1.3 & Test-NFR-PR1.3\\
+    \hline
+    NFR-PR3.1 & Test-NFR-PR3.1\\
+    \hline
+    NFR-PR4.1 & Test-NFR-PR4.1\\
+    \hline
+    NFR-PR4.2 & Test-NFR-PR4.2\\
+    \hline
+    NFR-PR5.1 & Test-NFR-PR5.1\\
+    \hline
+    NFR-PR6.1 & Test-NFR-PR6.1\\
+    \hline
+    NFR-PR7.1 & Test-NFR-PR7.1\\
+    \hline
+    NFR-PR8.1 & Test-NFR-PR8.1\\
+    \hline
+    \end{tabular}
+    \caption{Traceability between Non-Functional Requirements and Tests Part 1}
+\end{table}
+
+\newpage
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    Non-functional Requirement & Test Case ID\\
+    \hline
+    NFR-OE1.1 & Test-NFR-OE1.1\\
+    \hline
+    NFR-OE1.2 & Test-NFR-OE1.2\\
+    \hline
+    NFR-OE2.1 & Test-NFR-OE2.1\\
+    \hline
+    NFR-OE3.1 & Test-NFR-OE3.1\\
+    \hline
+    NFR-OE4.1 & Test-NFR-OE4.1\\
+    \hline
+    NFR-OE4.2 & Test-NFR-OE4.2\\
+    \hline
+    NFR-MS1.1 & Test-NFR-MS1.1\\
+    \hline
+    NFR-MS1.2 & Test-NFR-MS1.2\\
+    \hline
+    NFR-MS1.3 & Test-NFR-MS1.3\\
+    \hline
+    NFR-MS2.1 & Test-NFR-MS2.1\\
+    \hline
+    NFR-MS3.1 & Test-NFR-MS3.1\\
+    \hline
+    NFR-MS3.2 & Test-NFR-MS3.2\\
+    \hline
+    NFR-SR1.1 & Test-NFR-SR1.1\\
+    \hline
+    NFR-SR1.2 & Test-NFR-SR1.2\\
+    \hline
+    NFR-SR2.1 & Test-NFR-SR2.1\\
+    \hline
+    NFR-SR2.2 & Test-NFR-SR2.2\\
+    \hline
+    NFR-SR2.3 & Test-NFR-SR2.3\\
+    \hline
+    NFR-SR2.4 & Test-NFR-SR2.4\&2.6\\
+    \hline
+    NFR-SR2.5 & Test-NFR-SR2.5\\
+    \hline
+    NFR-SR2.6 & Test-NFR-SR2.4\&2.6\\
+    \hline
+    NFR-SR3.1 & Test-NFR-SR3.1\\
+    \hline
+    NFR-SR3.2 & Test-NFR-SR3.2\\
+    \hline
+    NFR-CP1.1 & Test-NFR-CP1.1\\
+    \hline
+    NFR-LR2.1 & Test-NFR-LR2.1\\
+    \hline
+    \end{tabular}
+    \caption{Traceability between Non-Functional Requirements and Tests Part 2}
+\end{table}
+
+\newpage
 
 \section{Code Coverage Metrics}
+Code coverage does not accommodate our project since we did not use automated testing.
 
-\bibliographystyle{plainnat}
+\newpage
 
-\bibliography{../../refs/References}
+\section{Appendix --- Reflection}
+
+The information in this section will be used to evaluate the team members on the
+graduate attribute of Reflection.  Please answer the following question:\\
+\noindent
+In what ways was the Verification and Validation (VnV) Plan different
+  from the activities that were actually conducted for VnV?  If there were
+  differences, what changes required the modification in the plan?  Why did
+  these changes occur?  Would you be able to anticipate these changes in future
+  projects?  If there weren't any differences, how was your team able to clearly
+  predict a feasible amount of effort and the right tasks needed to build the
+  evidence that demonstrates the required quality?  (It is expected that most
+  teams will have had to deviate from their original VnV Plan.)
+
+\begin{enumerate}
+  \item Bowen Zhang: In general, there can be differences between the VnV plan and the actual activities conducted for VnV due to the testing process of Unity project. In the team's VnV plan, it is assumed that there will be unit testing and automated testing after completing MG and MIS. However, the team found that each script has been automatically tested by Unity during implementation. When a script is finished, Unity compiles it directly to see if there are any bugs. In addition, the tester needs to run the Unity project to use the script. As a result, the unit testing has been combined into the system testing. The team shall not use automated testing, everything could be tested manually in Unity, otherwise it is just duplication of work. In this way, the team decides to modify the VnV plan. The unit testing section and automated testing section are deleted. The team adds more details in the testings for functional and non-functional requirements to make them more comprehensive. In future projects, this problem can be anticipated by designing a flexible VnV plan that can accommodate Unity workflow. The team should regularly review and update the plan to reflect any changes happened in Unity. In this way, the team can solve the difference between the VnV plan and the actual activities conducted for VnV and ensure project success.
+
+  \item Yichen Jiang: The major difference between VnV plan and the activities that were actually conducted for VnV is brought by the change on the design. The VnV report was completed months ago, and within the time till now, our supervisor clarified more ideas that he would love to have in our product. There are many more features now in our product, so the verification and validation activities were adapted for the changes. Besides, the workflow is modified as well. We completed the VnV plan before we worked on MIS and MG, of course also before the real implementation. Our plan used to be do the testing after all the implementation work's done, while when we implement it, we found that the testing is actually everywhere and anytime. We have to compile the scripts in Unity and check if everything's right all the time, and that is actually how our testing works. This method also influences the unit testing part of our testing plan. Any test has to be done with launching whole system. Therefore you may notice that we put almost all efforts in system testing in the verification and validation report. 
+    \item Junhong Chen: There are some differences between the VnV plan and the actual activities conducted for Vnv. In the VnV plan, we assumed that we can perform unit tests on a single function or a single module. However, in the actual test process, we can't perform unit tests for most of the functions because the implementations of the functions require launching the entire system. For example, it is hard to perform unit tests on the onClick() functions bound to some buttons which capture the click event from the mouse device and opens a new page just by simply running the code itself without launching the entire software. In addition, after several meetings with Dr.Gonsamo and his lab members, a few new features were added to the product, which causes changes in some requirements, leading to the actual activities conducted for VnV differing from the VnV plan.
+    \item  Jiacheng Wu: There are a few differences in the two V\&V documents.
+     First one is that the V\&V plan is more about designing the test case and V\&V is about conducting the designed test cases. The second difference is the time. At the time we wrote the V\&V plan, the software was native and we didn't have a clear view to our product but for the report we have our product completed. Also, during our development, our requirements were changing constantly because we kept contacting with our clients. Due to the change of the requirements, we have to change SRS as well as test plan. Our anticipated changes are probably UI and seasonal change of the model. During this process, I realized that we should constantly change the  our SRS and V\&V documents every time we contact with our clients because our requirements are changing constantly during the communication.
+
+    \item Tingyu Shi: VnV Plan is different from the activities that  we conducted
+    for VnV report.  In VnV plan,
+    we documented that we will use automated testing. However, our product 
+    involves a lot of GUI and interactions between  users and the software; 
+    therefore, manual testing is more feasible and efficient. So, we need to 
+    modify the automated testing part for the final document. For the future project,
+    if it involves many GUI and user interactions, manual testing may be a better
+    way to test. 
+\end{enumerate}
 
 \end{document}
