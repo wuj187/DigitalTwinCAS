@@ -23,64 +23,85 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-September 16,2022 & Jiacheng Wu, Yichen Jiang, Tingyu Shi, Bowen Zhang, Junhong Chen & First version of problem statement and goals\\
+September 16, 2022 & All team members & First version
+of the problem statement and goals\\
 \hline
-September 17,2022 & Jiacheng Wu, Yichen Jiang, Tingyu Shi, Bowen Zhang, Junhong Chen & Complete stretch goals\\
-September 26 ,2022 & Jiacheng Wu, Yichen Jiang, Tingyu Shi, Bowen Zhang, Junhong Chen & Modify environment and goals\\
+September 17,2022 & All team members & Complete stretch
+goals\\
+\hline
+September 26, 2022 & All team members & Modify environment 
+and goals\\
+\hline
+March 29 ,2023 & All team members & Final Version\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Problem Statement}
 \subsection{Problem}
-A digital twin forest is a virtual representation of the natural world, specifically a real forest. By taking the distribution, ages, average height and leaf density of the forest, we are able to model the forest with the data we collected so that we can supervise the forest from a distance and collect data from fire, cutting, climate, etc. so that we can predict the impact those events have to the forest. This project can be beneficial for both commercial and scientific use. For commercial use, the product can help forest owners make decisions, and for scientific use, the product can help researchers to study climate change.
+A digital twin forest is a virtual representation of the 
+natural forest located at Turkey Point Ontario. By taking
+various data from the forest such as environmental data 
+and tree parameters, we are able to model the forest with
+these data. As a result, we can supervise the forest from a
+distance. More specifically, we are trying to solve the 
+following three problems:
+\begin{itemize}
+\item A virtual representation of the real forest,
+allowing monitoring and analyzing from distance.
+\item Visualizing important data related to scientific 
+research and decision-making.
+\item A forest model that can change dynamically 
+according to the modification of the data.
+\end{itemize}
+This project can be beneficial for both commercial and scientific use. For commercial use, the product can help forest owners make decisions, and for scientific use, the product can help researchers to study climate change.
 
 \subsection{Inputs and Outputs}
 
 Inputs:
 \begin{itemize}
-    \item Collected data related to target forest from the lab. 
-    \item Scanning data from the target natural trees.
+    \item Real forest data collected by the lab.
 \end{itemize}
 Outputs:
 \begin{itemize}
-    \item Virtual representations of the target natural forest.
-    \item Integration of forest data with virtual forest representations.
+\item Virtual representations of the real forest. (Tree
+Models)
+\item Forest data visualization. 
+\item Synchronisation between forest data and tree models.
 \end{itemize}
-
 
 \subsection{Stakeholders}
 \begin{itemize}
-    \item Dr. Alemu Gonsamo from School of Earth, Environment and Society McMaster University (Dr. Gonsamo is the supervisor of this project.)
-    \item Forest Owners(The final project can be helpful for forest owners to better manage the 
+    \item Dr. Alemu Gonsamo from School of Earth,
+    Environment and Society McMaster University (Dr.
+    Gonsamo is the supervisor of this project.)
+    \item Forest Owners(The final project can be helpful
+    for forest owners to better manage the 
     forest and make decisions)
-    \item Meteorologists(The final product can be helpful for researchers to 
-    study climate change)
+    \item Meteorologists(The final product can be helpful 
+    for researchers to study climate change)
 \end{itemize}
+
 \subsection{Environment}
 \begin{itemize}
-    \item iPad Pro LiDAR and multi-angle smart phone scans with photogrammetry technique: The camera that scans the trees and generate point cloud for future modeling.
-    \item Laptops: The devices used for modeling, coding and testing.
-    \item 3D Scanner app: The app generates the 3D-reconstruction of the environment. It provides the team with the basic data of the forest, such as the height and diameters.
-    \item Agisoft Metashape: A software that performs photogrammetric processing of digital images. It generates the models and data that the team needs to represent the virtual forest.
+    \item 3D Scanner app: The app generates the 3D-reconstruction of the environment. It provides the team with the basic data of the forest, such as the tree heights, diameters, etc.
     \item Unity: A game engine that supports augmented reality development and model editing. The team will build the virtual forest, and design the user interface here.
     \item Virtual Studio 2019: The IDE for augmented reality implementation. It supports C Sharp auto-correction and in game tests, so it has been widely used in the field of AR development.
-    
+    \item ArcGIS: An online tool to visualize forest distribution and tree data. The team can calculate the density of different tree species and the formulas according to the tree distribution based on the satellite pictures.
 \end{itemize}
 
 \section{Goals}
 \begin{itemize}
-    \item Implement the virtual forest, which corresponds to the target natural forest. The model of a single tree is obtained by LiDAR scanning on the field. The final project combines previous models and lab statistics to give a virtual view of the forest. 
-    \item Provide basic representation of data, such as age, height, and plant density. 
+\item To create a virtual representation of the real forest, allowing for monitoring and analyzing.
+\item To visualize important data related to scientific 
+research and decision-making, including environmental data such as temperature and humidity, as well as tree-related data including density, height, and diameter.
+\item To develop a dynamic forest model that can be modified based on the collected data.
 \end{itemize}
 
 \section{Stretch Goals}
 
 \begin{itemize}
-    \item Represent overall data of forest, like amount of logging, the situation of growth.
-    \item Record significant data for later use, supporting forest owners to optimize their strategy to manage the forest.
-    \item Support the climate and forest researchers to predict certain values related to the forest, including the situation of 
-    soil, percentage of carbon dioxide, etc. to better study climate change in this forest.
-
+\item Utilize AI models to predict various values relevant to the forest, such as soil conditions and carbon dioxide levels, to enhance the study of climate change in this forest.
+\item Implement seasonal changes into the virtual representation of the forest.
 \end{itemize}
 \end{document}
