@@ -9,6 +9,10 @@
 \usepackage{geometry}
 \usepackage{soul}
 \usepackage{ulem}
+\usepackage{float}
+\usepackage{multirow}
+
+
 \geometry{margin = 0.75in}
 
 \hypersetup{
@@ -46,6 +50,8 @@
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
 October 18 & All team members & Initial documents\\
+\hline
+April 2 & All team members & Final Draft \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -64,34 +70,44 @@ October 18 & All team members & Initial documents\\
 
 \section{Introduction}
 
-This document is the hazard analysis of the project Digital Twin Forest. Digital twin forest is a virtual representation of the natural world, specifically a real forest. The detailed introduction of our project can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf}{here}.
+This document is the hazard analysis of the project Digital Twin 
+Forest. Digital twin forest is a virtual representation of the 
+natural world, specifically a real forest. The detailed introduction
+of our project can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf}{here}.
 
 \section{Scope and Purpose of Hazard Analysis}
 
-The scope of this document is to analyze and identify the hazards may occur
-in our system 
-in order to minimize the cost and harm of them when they occur.\\
+The scope of this document is to analyze and identify the hazards 
+that may occur in our system  in order to minimize the cost and harm
+of them when they occur.\\
 
-\noindent Safety is always the top requirement of ours. Though we are developing a software which may not lead to any physical harms to our users, we would make an effort to examine and then avoid any other kind of possible harms. We care about not only our users but also our development and maintenance team, which will
+\noindent Safety is always the top requirement of ours. Though we 
+are developing software that may not lead to any physical harm to 
+our users, we would make an effort to examine and then avoid any
+other kind of possible harm. We care about not only our users but 
+also our development and maintenance team, which will
 provide long-term support for our users.\\
 
 \noindent The purpose of our product is to display visualized 
-forest information to users. As a result, users would be able to better make their
-strategies based on the information we provided in the product, which means,
-inaccurate data might mislead the users when making decisions. Thus, different
-with many other products, the information accuracy is another one of our top
-concerns. Regarding to the purpose of the product and the requirements of
-information accuracy, we will also include the analysis of possible source of data
-inaccuracy in this document. \\
+forest information to users. As a result, users would be able to 
+better make their strategies based on the information we provided in
+the product, which means, inaccurate data might mislead the users 
+when making decisions. Thus, different with many other products, 
+information accuracy is another one of our top concerns. Regarding 
+to the purpose of the product and the requirements of
+information accuracy, we will also include the analysis of the 
+possible sources of data inaccuracy in this document. \\
 
-\noindent With the hazard analysis recorded in this document, we expect our
-product to avoid mentioned possible hazards and provide a safer using experience
-for our users. 100\% safety is not achievable in a project. However, we believe
-that it is still essential to avoid predictable unsafe situations and try our best
-to prepare for unpredictable ones. In this document of hazard analysis, it
-identifies unsafe behaviours while accomplishing the application, and it makes
-sure such behaviours are eliminated. We would raise several recommended actions
-for each hazard we mentioned, which provides possible solutions to avoid hazards. 
+\noindent With the hazard analysis recorded in this document, we 
+expect our product to avoid mentioned possible hazards and provide a
+safer user experience for our users. 100\% safety is not achievable
+in a project. However, we believe that it is still essential to 
+avoid predictable unsafe situations and try our best to prepare for
+unpredictable ones. In this document of hazard analysis, it
+identifies unsafe behaviors while accomplishing the application, and
+it makes sure such behaviors are eliminated. We would raise several
+recommended actions for each hazard we mentioned, which provides 
+possible solutions to avoid hazards. 
 
 \newpage
 
@@ -101,146 +117,226 @@ Our system includes the following contents:
 \begin{itemize}
     \item Entire application
     \item Computers or laptops that execute our application
-    \item Mobile devices like iPad that execute our application
-    \item backup data files
+    \item JSON files to store the data
 \end{itemize}
 \subsection{System Components}
 The application will be divided into the following 5 components, in order of importance:
 \begin{enumerate}
-    \item Data collection and analysis
-    \item Model construction
-    \item Data presentation
-    \item Data storage
-    \item Future update and maintenance 
+    \item Forest Model Construction
+    \item Data Visualization
+    \item Data Storage
+    \item Data Update from users
 \end{enumerate}
-\noindent The following is the justification of our components division:\\
-As the functions and the whole system of our product are integrated,
-dividing components according to the different features or subsystems seems
-unreasonable in this case. In contrast, we divide the components regarding to
-the development phases, which cover data collection and analysis, model construction, code implementation(including data
-presentation and storage), future update and maintenance. In each phase, there are several possible hazards which
-might lead to safety and security concerns or data inaccuracy. 
 
 \section{Critical Assumptions}
-
-We assume the data stored in data store classes should always match the data
-collected.
+We assume that Unity game engine will always work properly.
 
 \newpage
 
 \section{Failure Mode and Effect Analysis}
 
-\begin{figure}[H]
-\begin{flushleft}
-\begin{center}
-    \includegraphics[scale = 0.55]{HA_Pictures/Data_CA.png}
-\end{center}
-    \caption{FMEA for Data Collection and Analysis}
-    \end{flushleft}
-\end{figure}
 
-\begin{figure}[H]
-\begin{flushleft}
-\begin{center}
-    \includegraphics[scale = 0.55]{HA_Pictures/Modeling.png}
-\end{center}
-    \caption{FMEA for Modeling}
-    \end{flushleft}
-\end{figure}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|p{5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{1cm}|p{1cm}|}
+\hline
+Component& Failure Modes& Effects of Failure& Causes of Failure & 
+Recommended Action & SR & Ref \\ \hline
+\multirow{4}{*}{Forest Model Construction} 
+& 
+System lag or crash when loading tree models
+& 
+Users cannot use the system anymore
+&
+\begin{itemize}
+\item Excessive accuracy of the model
+\item Loading too many models at the same time
+\end{itemize}
+&
+\begin{itemize}
+\item Reduce the accuracy of the model as a trade-off
+\item Use parametric modeling to solve the problem of loading 
+too many models at the same time
+\end{itemize}
+&
+SR 2.2
+&
+H 1-1
+\\ \hline
+\end{tabular}%
+}
+\caption{FMEA Forest Model Construction}
+\end{table}
 
-\begin{figure}[H]
-\begin{flushleft}
-\begin{center}
-    \includegraphics[scale = 0.55]{HA_Pictures/Data_P.png}
-\end{center}
-    \caption{FMEA for Data Presentation}
-    \end{flushleft}
-\end{figure}
+% data presentation
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|p{5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{1cm}|p{1cm}|}
+\hline
+Component         & Failure Modes & Effects of Failure & Causes of Failure & Recommended Action & SR & Ref \\ \hline
+\multirow{2}{*}{Forest Data Visualization} &        
+The user interface is missing for some of the forest data       
+&          
+Users will not be able to collect or analyze the data if 
+the interface is not presented.          
+&          
+The space is not large enough for the interface or the Unity UI 
+the system does not work properly.         
+&          
+Check if the Unity UI panel and buttons are finished. Make sure the space is big enough to present all data.          
+&  
+SR2.4, SR2.5 
+&  
+H2-1    
+\\\cline{2-7} 
+&
+UI was implemented, but the corresponding forest data are inaccurate or missing.      &
+The system may crash due to calculations using non-exist or wrong data.
+&
+The lab and the team do not have or upload the latest forest data.
+&
+Download the latest forest data from ArcGIS and update the data.
+Add scripts for fault tolerance when the data is missing.
+&
+SR2.2, SR2.5
+&
+H2-2  \\ \hline
+\end{tabular}
+}
+\caption{FMEA Forest Data Visualization}
+\end{table}
 
 
-\begin{figure}[H]
-\begin{flushleft}
-\begin{center}
-    \includegraphics[scale = 0.55]{HA_Pictures/Data_S.png}
-\end{center}
-    \caption{FMEA for Data Storage}
-    \end{flushleft}
-\end{figure}
+\begin{table}[H]
+\centering
 
-\begin{figure}[H]
-\begin{flushleft}
-\begin{center}
-    \includegraphics[scale = 0.55]{HA_Pictures/Update.png}
-\end{center}
-    \caption{FMEA for Data Update}
-    \end{flushleft}
-\end{figure}
+\resizebox{\textwidth}{!}{
+
+\begin{tabular}{|p{5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{1cm}|p{1cm}|}
+\hline
+Component& Failure Modes& Effects of Failure& Causes of Failure & 
+Recommended Action & SR & Ref \\ \hline
+\multirow{4}{*}{Data Storage} 
+& 
+Data Storage classes were unintentionally deleted.
+& 
+\begin{itemize}
+\item Data analysis fails
+\item User interfaces fail to represent data
+\end{itemize}
+&
+Missing data storage
+&
+Users can download the backup data storage  from GitHub of our
+project.(As we cannot prevent the users from deleting the data.)
+&
+SR1.1, SR1.2 SR2.2 SR2.3
+&
+H 3-1 \\ \hline
+\end{tabular} 
+
+}
+\caption{FMEA Data Storage}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|p{5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{1cm}|p{1cm}|}
+\hline
+Component& Failure Modes& Effects of Failure& Causes of Failure & 
+Recommended Action & SR & Ref \\ \hline
+\multirow{4}{*}{Data update from users} 
+& 
+Inappropriate user inputs
+& 
+\begin{itemize}
+\item  Possible application crash  caused by invalid data input.
+\item b. Invalid data input may  disable some of the features like
+pie charts, due to the failure of necessary calculations
+\end{itemize}
+&
+Invalid input with wrong data type
+&
+Implement a feature to check the data type of the input before
+forwarding it to the storage.
+&
+SR2.2 SR2.3
+&
+H 4-1
+\\ \hline
+\end{tabular}
+}
+\caption{FMEA Data Update}
+\end{table}
 
 \newpage
 
 \section{Safety and Security Requirements}
-
 New added requirements are shown in \textcolor{blue}{blue} and will be
 updated into SRS document. 
-
 \subsection{Access Requirements}
 \begin{enumerate}
-    \item[SR1.1] The product shall only be accessed by users who download the product from our website.
-    \item[\textcolor{blue}{SR1.2}] \textcolor{blue}{Tree and forest
-    data shall only be modified through the interface provided by developers.}
+\item[SR1.1] The product shall only be accessed by users who download the product from our
+ GitHub website.\\
+ \textcolor{blue}{
+ \item[SR1.2]Forest
+data shall only be modified through the interface provided by developers.\\}
 \end{enumerate}
-
 \subsection{Integrity Requirements}
 \begin{enumerate}
-    \item[SR2.1] The system shall not propagate errors throughout the users' devices in case of failure.
-    \item[\textcolor{blue}{SR2.2}] \textcolor{blue}{The product shall avoid crash when being used.}
-    \item[\textcolor{blue}{SR2.3}] \textcolor{blue}{The product shall check if user
-    updates(user inputs) are legal before updating them to the system.}
-    \item[\textcolor{blue}{SR2.4}] \textcolor{blue}{Data displayed in the application shall be consistent with the data stored.}
-    \item[\textcolor{blue}{SR2.5}] \textcolor{blue}{The system shall provide one-to-one mapping relationships between each data and GUI.}
-    \item[\textcolor{blue}{SR2.6}] \textcolor{blue}{The data integrity of the system shall be maintained.}
+\item[SR2.1] The system shall not propagate errors throughout the users' devices in case of failure.\\
+\textcolor{blue}{
+\item[SR2.2] The product shall avoid crashing when
+  being used.\\
+\item[SR2.3] The product shall check if user
+updates(user inputs) are legal before updating them to the system.\\
+\item[SR2.4] Data displayed in the application shall
+ be consistent with the data stored.\\
+\item[SR2.5] The system shall provide one-to-one
+ mapping relationships between each data and GUI.\\}
 \end{enumerate}
 \subsection{Privacy Requirements}
 \begin{enumerate}
     \item[SR3.1] The product shall not ask the users to provide personal information.\\
-    \item[SR3.2] The product shall not send notifications to the users without permissions.\\
+    \item[SR3.2] The product shall not send notifications to the users without permission.\\
 \end{enumerate}
 
 \subsection{Audit Requirements}
  N/A
-
 \subsection{Immunity Requirements}
 N/A
+\\
 
+\noindent 
+\textcolor{red}{The corresponding fit criteria can be found 
+in the SRS document}
 
 \newpage
 
 \section{Roadmap}
-\subsection{Data collection and analysis}
-Unsafe behaviours related to data collection and analysis are identified and
-eliminated before the hazard analysis revision 0 on October 19. This component has
+\subsection{Data storage}
+Unsafe behaviours related to data storage are identified and
+eliminated before hazard analysis revision 0 on October 19. This component has
 the greatest importance in the failure mode and effect analysis. The team
-accomplished most of the data measurement during the reading week with Dr.
+accomplished most of the measurement during the reading week with Dr.
 Gonsamo's guidance.
 
-\subsection{Model construction}
+\subsection{Forest Model Construction}
 Unsafe behaviours related to modeling will be identified and solved before the
 proof of concept demonstration on November 14. The model is the basic visual
 representation of the real forest. Failures may occur while the team using the
 technique of parametric modeling in Unity. It is necessary to eliminate or
 mitigate all of them during the early phase of the project.
 
-\subsection{Code implementation}
-Unsafe behaviours related to coding will be identified and solved before the proof
-of concept demonstration on November 14. The team may encounter challenges and
-unpredictable failures while implementing the project. Actions shall be taken to
-ensure the outcome of the demo is satisfying.
+\subsection{Data visualization}
+Unsafe behaviours related to data visualization will be identified and solved before the POC demonstration on November 14. The team may encounter challenges and
+unpredictable failures while implementing the user interface of the project. Actions shall be taken to ensure the user experience of the demo is satisfying.
 
-\subsection{Future update and maintenance}
-The solution of unsafe behaviours related to future updates and maintenance will
-be postponed to the end of the project. According to the failure mode and effect
-analysis, this component is the least important. Therefore, the team shall focus
-on the implementation of the project first, and defer the mitigation of unsafe
-maintenance behaviours.
+\subsection{Data update}
+The solution to unsafe behaviours related to data updates will
+be postponed until the end of the project. According to the failure mode and effect analysis, this component is the least important. Therefore, the team shall focus on the implementation of the project first, and defer the mitigation of unsafe maintenance behaviours.
 \end{document}
-
