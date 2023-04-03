@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{hyperref}
+%\usepackage{tabularray}
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -33,8 +34,9 @@
 
 \begin{document}
 
-\title{System Design for \progname{}} 
-\author{\authname}
+\title{System Design for Digital Twin Forest} 
+\author{Team 8, Forest Mirror\\Yichen Jiang\\ Bowen Zhang\\ Jiacheng Wu\\ Junhong Chen\\ Tingyu Shi}
+
 \date{\today}
 
 \maketitle
@@ -46,7 +48,11 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Jan 16 & 1.0 & First Version\\
+January 5 & 1.0 & Work Delivery\\
+\hline
+January 10 & 2.0 & Revision 0\\
+\hline
+April 2 & 3.0 & Final Version\\
 \bottomrule
 \end{tabularx}
 
@@ -63,14 +69,15 @@ This section records information for easy reference.
   \toprule		
   \textbf{symbol} & \textbf{description}\\
   \midrule 
-  \progname & A virtual representation of the real world\\
-  SRS & Software Requirements Specification\\
-  V\&V & Verification and Validation\\
-  UI & User Interface\\
+  FR & Functional Requirement\\
   MG & Module Guide \\
   MIS &  Module Interface Specification\\
-  FR & Functional Requirement\\
-  MVC & Model, Viewer, Controller\\
+  SRS & Software Requirements Specification\\
+  UI & User Interface\\
+  V\&V & Verification and Validation\\
+ 
+  
+  
   \bottomrule
 \end{tabular}\\
 
@@ -90,107 +97,96 @@ This section records information for easy reference.
 
 \section{Introduction}
 
-This document is the system design of the project Digital Twin Forest. A digital twin forest
- is a virtual representation of the natural world, specifically a real forest. The detailed
-  introduction of our project can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf}{here}. 
-  The revised SRS document can be found
-   \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/DocRevision/SRSRevision/SRSRevision.pdf}{here}.
+This document is the system design of the project Digital
+Twin Forest. A digital twin forest is a virtual 
+representation of the natural world, specifically a real 
+forest in our project. The detailed introduction of our
+project can be found in our \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf}{Problem Statement} and \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}.
 
 \section{Purpose}
 
-The purpose of the system is to display visualized 
-forest data to the users. Therefore, the users could do scientific researches, or make
-economic decisions based on the information. However, in order to keep the data of all 14
-plots organized and updated, the system of the application shall be divided into work
-assignments. It is easier to maintain, reuse and understand a  modularized system.\\
+Our system has the following three main purposes:
+\begin{itemize}
+\item A virtual representation of the real forest,
+allowing monitoring and analyzing from a distance.
+\item Visualizing important data related to scientific 
+research and decision-making. For the environment, 
+important data include temperature, humidity, etc. 
+For tree parameters, important data include tree density,
+tree heights, tree diameters, etc.
+\item A forest model that can change dynamically 
+according to the modification of the data.
+\end{itemize}
 
-\noindent The purpose of this design document is to illustrate and verify the decomposition of
-the system into different components. This document will show the general idea of how the team
-is going to implement the application, and guarantee the design meet all functional and
-nonfunctional requirements. In addition, it provides an overview of the system behaviour. The
-detailed MG document can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Architecture-Design/MG.pdf}{here}. 
-The MIS document can be found \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Detailed-Design/MIS.pdf}{here}.
+\noindent The purpose of this design document is to
+illustrate and verify the decomposition of the system 
+into different components. This document will show 
+the general idea of how the team is going to 
+implement the application, and guarantee the design
+meet all functional and non-functional requirements. 
+In addition, it provides an overview of the system behavior. We have also completed  \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/MG/MG.pdf}{Module Guide} and  \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/MIS/MIS.pdf}{Module Interface 
+Spcification}.
 
 \section{Scope}
 
-The system includes JSON files which used to store the forest data and a 3D model of the
-terrain and the virtual forest. A scene manager is used to control user behaviours, the users
-can interact with the UI to read and modify the data. The users will be able to control the
-camera and view the forest from different perspectives.
+The system includes JSON files which are used to 
+store the forest data, a 3D model of the terrain and 
+the virtual forest, and a graphical user interface. 
+A scene manager is used to control user behaviors, 
+the users can interact with the UI to read and modify
+the data. The users will be able to control the 
+camera and view the forest from different 
+perspectives.
 
 \subsection{Context Diagram}
-
 \begin{figure}[H]
-
-\caption{Context Diagram}
     \centering
-    \includegraphics[scale=0.3]{SysDesPic/context.png}
-    
+    \includegraphics[scale=0.28]{SysDesPic/Use_Case.png}
+    \caption{Context Diagram}
+    \label{usecase}
 \end{figure}
 
 \subsection{Assumptions}
 \begin{itemize}
-    \item The generated model will only use the average data and will not be exactly the same
-     with the real forest.\\
-    Rational: The parametric modeling and sampled data save a lot of implementation time and
-     computing resources.
-    \item The user will only input valid forest data into the system.\\
-    Rational: The stakeholders of the system are all professional scientists and lab members.
-     In addition, invalid input will not cause total failure in the system.
-    \item The system will only be installed on a PC.\\
-    Rational: Eliminate the performance and space requirements.
-    \item The data provided by Dr. Gonsamo's lab is accurate.\\
-    Rational: Eliminate the data error. It is not the SE students' responsibility to verify
-     the accuracy of the geological data. 
+    \item The generated model will only use the average data and will not be exactly the same with the real forest.\\
+    Rationale: The parametric modeling and sampled data save a lot of implementation time and computing resources. And for now, the developers can only access to the average data from the supervisor's lab. 
+    \item The users have the right to update the data with any value and the correct data type locally. \\
+    Rationale: The users might use the product to visualize the forest with parameters which may differ from the reality. They would be allowed to update the data even if the data do not completely correspond with the reality. Therefore, the product would not provide solutions to check if the data are accurate.\\
+    \item The system will only be installed on a personal computer.\\
+    Rationale: The mainstream scenarios of this product being used are on the personal computers (either by forest owners or the environmental scientists). The product is designed and developed corresponding to these scenarios. 
+    
 \end{itemize}
 
 \section{Project Overview}
 
 \subsection{Normal Behaviour}
-Digital Twin Forest is a software application that combines virtual forests with real-world
-data to provide users with comprehensive information about real-world forests. The
-application visualizes this data for users, including overall environmental data for each plot
-and detailed information about each type of trees in it. This can assist forest owners in
-making economic decisions without physically visiting the forest, as well as aid scientists in
-research such as climate change and forest analysis.\\
+Digital Twin Forest is a software application that combines virtual forests with real-world data to provide users with comprehensive information about real-world forests. The application visualizes this data for users, including overall environmental data for each plot and detailed information about each type of trees in it. This would assist forest owners in making economic decisions without physically visiting the forest, as well as aid scientists in research such as climate change and environmental analysis. \\
 
-\noindent When the application is launched, a main page will appear, where users can click on
-various buttons to perform different actions. The ``Start" button loads the models and data,
-allowing users to view the virtual forests and their associated data. The ``Instruction" and
-"Contact Us" buttons lead users to the instruction and contact pages, respectively.The ``Quit"
-button allows users to exit the application.\\
+\noindent When the application is launched, a main page will appear, where users can click on various buttons to perform different actions. The ``Start" button loads the models and data, allowing users to view the virtual forests and their associated data. The ``Instruction" and "Contact Us" buttons lead users to the instruction and contact pages respectively. Within the instruction and contact pages, the ``Back" button will take users back to the main page when users click on it. The ``Quit" button on the main page allows users to exit the application.\\
 
 
-\noindent On the model page, data about each plot and each type of trees within it can be
-displayed or hidden by clicking on the ``Show Environmental Data" and ``Show Overall Tree
-Parameters" buttons. When different plots are selected, the data displayed will change to
-reflect that specific plot. The camera's perspective in the model changes as the user moves
-his mouse, and the camera's position can also be adjusted as the user presses the
-\textbf{WASD} keys. The ``Update Data" button will take users to a page where they can modify
-tree parameters and environmental data. After users enter the new data, it will replace the
-old data and display on the screen.
+\noindent On the model page, data about each plot and each type of trees within it can be displayed or hidden by clicking on the ``Show Environmental Data" and ``Show Overall Tree Parameters" buttons. By clicking the switch button on the panel that shows environmental data, the panel should switch between environmental data and a pie chart displaying the percentage of each types of tree. By clicking the switch button on the panel that shows tree parameters, the panel should switch between tree parameters and leaf information. When different plots are selected, the data displayed will change to reflect that specific plot. The camera's perspective in the model changes as the user moves his mouse, and the camera's position can be adjusted as the user presses the \textbf{WASD} keys. By pressing \textbf{P} key, the movement of perspective should disconnect with the mouse. Pressing \textbf{P} again should reconnect the movement of perspective and the mouse. By pressing \textbf{C}, the position of the cursor should come to the center of the screen. The ``Back" button will take users back to the main page when users click on it.\\
+
+\noindent The ``Update Data" button on the main page will take users to a page where they can modify tree parameters and environmental data. The "Select Plot" button should display a drop-down menu which allows the users to select plot to update data after clicked. After a plot is selected, the "Update Environmental Data" should allow users to choose which data to be updated after clicked. And the "Update Tree Parameters" button should allow users to choose the data of which type of trees to be updated after clicked. After choosing a certain attribute of either environmental data or a specific type of trees, an input box should show, indicate the original value of the chosen attribute, and allow the users to input the new value. After users enter the new data, it will replace the old data and display on the screen.
 The ``Back" button will take users back to the main page when users click on it.
 
 \subsection{Undesired Event Handling}
 
-Users can manually adjust the data stored in the application. However, if users mistype and
-accidentally enter the incorrect data, an error will occur. To avoid this, a data validation
-function was added to this application, enabling the system verify whether the data is valid.
-If the data is not valid, the application will display an error message to inform users that
-the data entered is not valid, telling them to re-enter the data. The code uses multiple if
-statements to determine whether the data is valid or not. If it is not valid, the system will
-not store the invalid data until the users provide valid data.
+Users can manually adjust the data stored in the application. However, if users mistype and accidentally enter data with unexpected data type, an error would occur. To avoid this, a data validation function was added to this application, enabling the system verify whether the data type is valid. If the data type is not valid, the application will display an error message to inform users that the data entered is not valid, reminding them to re-enter the data. The validation process would repeat until valid data is entered and successfully updated. 
 
 \newpage
 
 \subsection{Component Diagram}
-We used MVC to implement our system, so the following three diagrams show relationships of
+
+We used MVC to implement our system, so the following three diagrams show the relationships of
 modules within Model modules, Viewer modules, and Controller modules.
 
 \begin{figure}[H]
 \caption{Relationships between Model modules}
 \includegraphics[scale=0.65]{SysDesPic/Model-Modules.png}
 \end{figure}
+
+\noindent The structure of Model modules is designed to adapt the method of storing the data in JSON files. 
 
 \newpage
 
@@ -219,53 +215,21 @@ The intention of this section is to document decisions that are made
   requirements, a specific design decision may be made to satisfy those
   requirements with a password.\\
   
-\noindent SR1.2, SR2.3 - The system uses JSON files to store data. It is not appropriate to
-allow users to directly modify the data in these files by hand because it does not meet
-requirements SR1.2 and SR2.3, and it can also lead to problems such as accidentally deleting
-the entire file or deleting the wrong content. To address this, functions for reading and
-writing JSON files has been developed and linked to the ``Update Data" page, which provides an
-interface for users to update the data.\\
+\noindent All requirements about data storage(SR1.2, SR2.3) - The system uses JSON files to store data. It is not appropriate to allow users to directly modify the data in these files by hand because it does not meet requirements SR1.2 and SR2.3, and it can also lead to problems such as accidentally deleting the entire file or deleting the wrong content. To address this, functions for reading and writing JSON files have been developed and linked to the ``Update Data" page, which provides an interface for users to update the data.\\
 
-\noindent FR6, FR7, FR9 - The ``Show Environmental Data" button and the ``Show Overall Tree
- Parameters" button on the upper-left and upper-right corners of the screen allow users to
- show and hide the environmental data and the tree parameters. When users click on these
- buttons, the environmental data and tree parameters will be shown on the two sides of the
-screen, without interrupting the user's view of the virtual forest. There is a function
-in the back-end code that takes a Boolean value to determine whether the data is shown
-or not, and this function is bound to these two buttons. If users want to hide the data,
-they can click on the buttons again to hide the data. In the middle of the upper edge of the
-screen, there is a button where users can select which plot they want to see. As users select
-a different plot, the corresponding environmental data and tree parameters for that specific
-plot will be displayed.\\
+\noindent All requirements about the user interface of environmental data and tree parameters (FR4, FR5, FR6, FR7) - The ``Show Environmental Data" button and the ``Show Overall Tree Parameters" button on the upper-left and upper-right corners of the screen allow users to show and hide the environmental data and the tree parameters. When users click on these buttons, the environmental data and tree parameters will be shown on the two sides of the screen, without interrupting the user's view of the virtual forest. There is a function in the back-end code that takes a Boolean value to determine whether the data is shown or not, and this function is bound to these two buttons. If users want to hide the data, they can click on the buttons again to hide the data. In the middle of the upper edge of the screen, there is a button where users can select which plot they want to see. As users select a different plot, the corresponding environmental data and tree parameters for that specific plot will be displayed.\\
 
-\noindent FR1, FR2, FR3 - A ``Start" button and an ``Instructions" button have been designed,
- programmed, and placed on the main page, allowing users to enter the virtual forest and
-  access the instructions page.\\
+\noindent All requirements of the instruction page and start button (FR1, FR3) - A ``Start" button and an ``Instructions" button have been designed, programmed, and placed on the main page, allowing users to enter the virtual forest and access the instructions page.\\
 
-\noindent FR15 - A ``Quit" button has been designed, programmed, and placed on the main page,
-allowing users to exit the application as users click on it. On the virtual forest page, a
-"Back" button has been designed the programmed to that users can quit the virtual forest page
-and go back to the main page.\\
+\noindent Requirement about quitting the application (FR11) - A ``Quit" button has been designed, programmed, and placed on the main page, allowing users to exit the application as users click on it. On the virtual forest page, a "Back" button has been designed the programmed to that users can quit the virtual forest page and go back to the main page.\\
 
-\noindent FR16 - An ``Update data" button and has been designed, programmed the placed on the
-virtual forest page to allow users to enter the page where they can modify and update the
-data.\\
+\noindent Requirement about the update data page (FR12) - An ``Update data" button has been designed and placed on the home page to allow users to enter the page where they can modify and update the data.\\
 
-\noindent FR10, FR11, FR5 - The code uses a \textit{Vector} data type variable to store and
-calculate the direction of the camera's movement and calls the \textit{Move} function to
-enable the camera's movement. The code records the axis of the mouse with
- \textit{Input.GetAxis} functions, and uses \textit{Quaternion.Euler} and
- \textit{Transform.Rotate} functions to calculate the movement of the mouse. Therefore, Users
- can press the \textbf{WASD} keys to move the camera and move their mouse to adjust the
- camera's perspective. As users move the perspective of the camera up and press the \textbf{W}
-key, they can zoom out of the virtual forest. On the contrary, by moving the perspective down
-and pressing the \textbf{S} key, they can zoom in on the virtual forest. The initial position
-of the camera is set above the forest, so users can see a full view of the overall digital
-twin forest.
+\noindent All requirements about user movement (FR8, FR9) - The code uses a \textit{Vector} data type variable to store and calculate the direction of the camera's movement and calls the \textit{Move} function to enable the camera's movement. The code records the axis of the mouse with \textit{Input.GetAxis} functions, and uses \textit{Quaternion.Euler} and \textit{Transform.Rotate} functions to calculate the movement of the mouse. Therefore, Users can press the \textbf{WASD} keys to move the camera and move their mouse to adjust the camera's perspective. As users move the perspective of the camera up and press the \textbf{W} key, they can zoom out of the virtual forest. On the contrary, by moving the perspective down and pressing the \textbf{S} key, they can zoom in on the virtual forest. The initial position of the camera is set above the forest, so users can see a full view of the overall digital twin forest.
 
 \section{System Variables}
 
-Include this section for Mechatronics projects.\\ \textcolor{red}{N/A for our project}
+This section is for Mechatronics projects. We would not include this section in this document. 
 
 \subsection{Monitored Variables}
 
@@ -274,55 +238,40 @@ Include this section for Mechatronics projects.\\ \textcolor{red}{N/A for our pr
 \subsection{Constants Variables}
 
 \section{User Interfaces}
-We designed our user interface based on the users' need to organize data and view data
-hierarchically. The detailed design is described below, and we attached the manuscript of the
-design in Appendix A.\\
 
-\noindent When the product is launched, a welcome page is displayed, with buttons of start,
-contact us, instruction, and quit. The background of the welcome page is a picture of a
-forest, which corresponds to the function of our product. In the pages of contact us and
-instruction, we use the same background to make the appearance consistent. \\
 
-\noindent The users can click start to launch the model or click quit to terminate the
-program. When the model is launched, the product displays a model of the target forest, with a
-view of a height of about two meters above the ground. The users can use the mouse to change
-the direction of the camera and use the keyboard \textbf{WASD} to move the camera within the
-model. The model is parametrically generated and highly reappears the real view in the target
-forest. \\
+We designed our user interface based on the users' need to organize data and view data hierarchically. The detailed design is described below, and we attached the manuscript of the design in Appendix A.\\
 
-\noindent Meanwhile, there is a button on the top of the screen to show the current plot. The
-users can click it to change the plot or show the overall data of the forest. If this button
-is clicked, a drop-down box shows up and displays all possible options. \\
+\noindent When the product is launched, a welcome page is displayed, with buttons of start, contact us, instruction, and quit. The background of the welcome page is a picture of a forest, which corresponds to the function of our product. In the pages of contact us and instruction, we use the same background to make the appearance consistent. \\
 
-\noindent On the upper left corner, there is a button which allows the user to access or hide
-the environmental data of the selected plot. The data would be displayed in a floating box,
-which isolates the data and the model. And on the upper right corner, there is a similar
-button for the tree parameters. When the users access to the tree parameters, there is another
-drop-down menu to categorize the data by the types of trees. \\
+\noindent The users can click start to launch the model or click quit to terminate the program. When the model is launched, the product displays a model of the target forest, with a view of a height of about two meters above the ground. The users can use the mouse to change the perspective and use the keyboard \textbf{WASD} to move the camera within the model. The model is parametrically generated and highly reappears the real view in the target forest. \\
 
-\noindent To avoid the sudden change of the camera direction when checking the data, the user
-can press \textbf{P} on the keyboard to pause the movement of the camera and press \textbf{P} again to resume. \\
+\noindent Meanwhile, there are three buttons on the top of the screen. The first one shows the current plot. The users can click it to change the plot or show the overall data of the forest. If this button is clicked, a drop-down menu shows up and displays all possible options. The second one is seasonal change button, showing the current season in the model. The users can click it to switch between summer and winter. The third one shows the type of trees selected for the tree parameters panel. The users can click it to change the type of trees. If this button is clicked, a drop-down menu would show up and display all possible options. \\
 
-\noindent With this design, the data required by the users will be firstly categorized by each plot and then by environment and tree parameters. The data can be organized in this way. \\
+\noindent On the upper left corner, there is a button which allows the user to access or hide the environmental data of the selected plot. The data would be displayed in a floating panel, which isolates the data and the model. And on the upper right corner, there is a similar button for the tree parameters. When the users access to the tree parameters, there is another drop-down menu to categorize the data by the types of trees. \\
 
-\noindent In the model page, the users are allowed to modify some specific data by clicking an update button on the lower left corner of the screen. After clicking it, the product will redirect to a new interface with choices of the serial number of the plot, then environmental data/ tree parameters and the tree type. After making all the choices, the interface displays all the possible data corresponding to the former choices. The user can read the old data, input the new data in this interface, and click save to do the modification. Modified data will show up on the model page right after this operation. After the modification, the users can click exit on the lower left corner to go back to the model page.\\
+\noindent To avoid the sudden change of the camera direction when checking the data, the user can press \textbf{P} on the keyboard to pause the movement of the camera and press \textbf{P} again to resume. \\
 
-\noindent To exit the model, the users can click the button quit to go back to the welcome page. 
+\noindent In case the cursor is moved to the edge of the screen, the users can press \textbf{C} to move the cursor to the center of the screen. \\
+
+\noindent With this design, the data required by the users will be firstly categorized by each plot and then by environment and tree parameters. The data can be organized in this way. The users can access to a certain part of the data. \\
+
+\noindent In the main page, the users are allowed to modify some specific data by clicking an update button. After clicking it, the product will redirect to a new interface with choices of the serial number of the plot, then environmental data/ tree parameters and the tree type. After making all the choices, the interface displays all the possible data corresponding to the former choices. The user can read the old data, input the new data in this interface, and click ''Update" to do the modification. Modified data will show up on the model page right after this operation. After the modification, the users can click exit on the lower left corner to go back to the main page.\\
+
+\noindent To exit the model, the users can click the button Back to go back to the main page. 
 
 
 \section{Design of Hardware}
 
-Most relevant for mechatronics projects. Show what will be acquired. Show what will be built, with detail on fabrication and materials. Include appendices as appropriate, possibly with sketches, drawings, CAD, etc. \\ \textcolor{red}{N/A for our project}
+Most relevant for mechatronics projects. Show what will be acquired. Show what will be built, with detail on fabrication and materials. Include appendices as appropriate, possibly with sketches, drawings, CAD, etc.
 
 \section{Design of Electrical Components}
 
-Most relevant for mechatronics projects. Show what will be acquired. Show what will be built, with detail on fabrication and materials. Include appendices as appropriate, possibly with sketches, drawings, circuit diagrams, etc. \\ \textcolor{red}{N/A for our project}
+Most relevant for mechatronics projects. Show what will be acquired. Show what will be built, with detail on fabrication and materials. Include appendices as appropriate, possibly with sketches, drawings, circuit diagrams, etc.
 
 \section{Design of Communication Protocols}
 
-If appropriate. \\ \textcolor{red}{N/A for our project}
-
-\newpage
+If appropriate.
 
 \section{Timeline}
 \begin{itemize}
@@ -332,13 +281,14 @@ If appropriate. \\ \textcolor{red}{N/A for our project}
     \item February 5: Finish enough tests and verification before the revision 0 demonstration. The team will follow the V\&V plan to do manual and automated testings to guarantee the correctness of the system. - Yichen Jiang \& Junhong Chen
     \item February 6: Revision 0 Demonstration - All team members.
 \end{itemize}
+% \bibliographystyle {plainnat}
+% \bibliography{../../../refs/References}
 
-
-\newpage
+\newpage{}
 
 \appendix
 
-\section{Interface}
+\section{User Interface}
 
 \begin{figure}[H]
     \centering
@@ -419,5 +369,6 @@ We considered many alternatives at first, like implementing applications to use 
 
   
 \end{enumerate}
+
 
 \end{document}
