@@ -16,6 +16,7 @@
     urlcolor=blue
 }
 
+
 \input{Comments}
 \input{Common}
 
@@ -50,8 +51,7 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 Jan 14 & 1.0 & First Version\\
-\hline
-April 2 & 2.0 & Final Draft \\
+April 2 & 2.0 & Final Version\\
 \bottomrule
 \end{tabularx}
 
@@ -70,20 +70,20 @@ This section records information for easy reference.
   \midrule 
   AC & Anticipated Change\\
   DAG & Directed Acyclic Graph \\
-  M & Module \\
-  MG & Module Guide \\
-  OS & Operating System \\
-  R & Requirement\\
+  DBH & Diameter at breast height\\
   FR & Functional Requirement\\
-  NFR & Non-Functional Requirement\\
-  SC & Scientific Computing \\
-  SRS & Software Requirements Specification\\
-  \progname & Explanation of program name\\
-  UC & Unlikely Change \\
-  MVC & Model, Viewer, Controller\\
   GUI & Graphical User Interface\\
   LAI & Leaf Area Index\\
-  DBH & Diameter at breast height\\
+  M & Module \\
+  MG & Module Guide \\
+  MVC & Model, Viewer, Controller\\
+  NFR & Non-Functional Requirement\\
+  OS & Operating System \\
+  R & Requirement\\
+  SC & Scientific Computing \\
+  SE & Software Engineering\\
+  SRS & Software Requirements Specification\\
+  UC & Unlikely Change \\
   \bottomrule
 \end{tabular}\\
 
@@ -165,18 +165,17 @@ unlikely changes are listed in Section \ref{SecUchange}.
 Anticipated changes are the source of the information that is to be hidden
 inside the modules. Ideally, changing one of the anticipated changes will only
 require changing the one module that hides the associated decision. The approach
-adapted here is called design for
+adopted here is called design for
 change.
 
 \begin{description}
 \item[\refstepcounter{acnum} \actheacnum \label{acMainUI}:] The UI appearance of the main page
  will be continuously upgraded.
  
-\item[\refstepcounter{acnum} \actheacnum \label{acDataDisplay}:] The way of displaying 
-environmental data and tree parameters may change.
-
 \item[\refstepcounter{acnum} \actheacnum \label{acDataValue}:] The values of
 environmental data and tree parameters may change.
+
+\item[\refstepcounter{acnum} \actheacnum \label{acDataStructure}:] The data structures used to store the overall forest data could be changed.
 
 \item[\refstepcounter{acnum} \actheacnum \label{acTreeParam}:] Tree parameters of different
 trees may change. For example, the stakeholders may add different tree parameters for 
@@ -185,6 +184,10 @@ different types of trees in the future.
 \item[\refstepcounter{acnum} \actheacnum \label{acEnvData}:] The stakeholders may add more
 environmental data in the future.
 
+\item[\refstepcounter{acnum} \actheacnum \label{acUpdateData}:] The way to update data could be changed.
+
+\item[\refstepcounter{acnum} \actheacnum \label{acDataModified}:] Tree models and forest models may be modified in the future.
+
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
@@ -192,15 +195,14 @@ environmental data in the future.
 The module design should be as general as possible. However, a general system is
 more complex. Sometimes this complexity is not necessary. Fixing some design
 decisions at the system architecture stage can simplify the software design. If
-these decision should later need to be changed, then many parts of the design
+these decisions should later need to be changed, then many parts of the design
 will potentially need to be modified. Hence, it is not intended that these
 decisions will be changed.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:]  IO devices(keyboard \& mouse). 
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:]  IO devices (keyboard \& mouse). 
 \item[\refstepcounter{ucnum} \uctheucnum \label{ucOS}:] The system will always run on 
 macOS and Windows. 
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucModel}:] The 3D model of the virtual forest.
 \item[\refstepcounter{ucnum} \uctheucnum \label{ucMove}:] The way of viewing forest models.
 \end{description}
 
@@ -210,10 +212,82 @@ macOS and Windows.
 \section{Module Hierarchy} \label{SecMH}
 
 This section provides an overview of the module design. Modules are summarized
-in a hierarchy decomposed by secrets in Table \ref{TblModels}, \ref{TblViewers1}, \ref{TblViewers2},
-and \ref{TblControllers}. The modules listed
+in a hierarchy decomposed by secrets in Table \ref{TblControllers},  \ref{TblModels}, \ref{TblViewers1}, and \ref{TblViewers2}. The modules listed
 below, which are leaves in the hierarchy tree, are the modules that will
-actually be implemented.
+actually be implemented.\\
+The reason why each type of tree has its own module is that the team stored the forest data in JSON files. The structure of our JSON files requires them to be divided in to separate modules.\\
+We have more modules here than what we uploaded to GitHub src folder
+because the module guide also includes Unity built-in features. We do 
+not need to write scripts for them, but we used them in our user 
+interfaces.\\
+
+
+
+\begin{table}[H]
+\caption{Module Hierarchy(First Controller Table)}
+\label{TblControllers}
+
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+\multirow{18}{0.3\textwidth}{Controller Modules}
+& \refstepcounter{mnum} \mthemnum \label{Controller1}: JsonFileReader \\
+& \refstepcounter{mnum} \mthemnum \label{Controller2}: JsonFileWriter  \\
+& \refstepcounter{mnum} \mthemnum \label{Controller3}: PauseManager  \\
+& \refstepcounter{mnum} \mthemnum \label{Controller4}: PlayerMovement  \\
+& \refstepcounter{mnum} \mthemnum \label{Controller5}: NewDataInputBoxController\\
+& \refstepcounter{mnum} \mthemnum \label{Controller6}: StartButtonController  \\
+& \refstepcounter{mnum} \mthemnum \label{Controller7}: InstructionButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller8}: UpdateDataButtonController\\
+& \refstepcounter{mnum} \mthemnum \label{Controller9}: ContactUsButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller10}: QuitButtonController  \\
+& \refstepcounter{mnum} \mthemnum \label{Controller11}: BackButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller12}: PlotSelectionDropDownController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller13}: TreeTypeSelectionDropDownController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller14}: ShowEnvDataButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller15}: ShowTreeParamButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller16}: EnvDataSelectionButtonController\\
+& \refstepcounter{mnum} \mthemnum \label{Controller17}: DataTypeSelectionButtonsController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller18}: SaveButtonController \\
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+\newpage
+\begin{table}[H]
+\caption{Module Hierarchy(Second Controller Table)}
+\label{TblControllers}
+
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+\multirow{18}{0.3\textwidth}{Controller Modules}
+
+& \refstepcounter{mnum} \mthemnum \label{Controller19}: FileWriter \\
+& \refstepcounter{mnum} \mthemnum \label{Controller20}: FileReader \\
+& \refstepcounter{mnum} \mthemnum \label{Controller21}: SeasonChangeController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller22}: movePanelController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller23}: treePlantingController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller24}: TreeSwitchButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller25}: pieChartButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller26}: pieChartController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller27}: SeasonChangeButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller28}: TreeSwitchController \\
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+\newpage
 
 \begin{table}[H]
 \caption{Module Hierarchy(Models)}
@@ -273,6 +347,7 @@ actually be implemented.
 & \refstepcounter{mnum} \mthemnum \label{Viwer11}: DataTypeSelectionButtons \\
 & \refstepcounter{mnum} \mthemnum \label{Viwer12}: NewDataInputBox \\
 & \refstepcounter{mnum} \mthemnum \label{Viwer13}: SaveButton \\
+
 \bottomrule
 \end{tabular}
 \end{table}
@@ -300,53 +375,20 @@ actually be implemented.
 & \refstepcounter{mnum} \mthemnum \label{Viwer21}: EnvDataDisplay \\
 & \refstepcounter{mnum} \mthemnum \label{Viwer22}: TreeParamDisplay \\
 & \refstepcounter{mnum} \mthemnum \label{Viwer23}: PauseIndicatorDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer24}: SeasonChangeButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer25}: pieChartButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer26}: TreeSwitchButton \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \newpage
 
-\begin{table}[H]
-\caption{Module Hierarchy(Controllers)}
-\label{TblControllers}
-
-\centering
-\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-\toprule
-\textbf{Level 1} & \textbf{Level 2}\\
-\midrule
-
-\multirow{18}{0.3\textwidth}{Controller Modules}
-& \refstepcounter{mnum} \mthemnum \label{Controller1}: JsonFileReader \\
-& \refstepcounter{mnum} \mthemnum \label{Controller2}: JsonFileWriter  \\
-& \refstepcounter{mnum} \mthemnum \label{Controller3}: PauseManager  \\
-& \refstepcounter{mnum} \mthemnum \label{Controller4}: PlayerMovement  \\
-& \refstepcounter{mnum} \mthemnum \label{Controller5}: NewDataInputBoxController\\
-& \refstepcounter{mnum} \mthemnum \label{Controller6}: StartButtonController  \\
-& \refstepcounter{mnum} \mthemnum \label{Controller7}: InstructionButtonController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller8}: UpdateDataButtonController\\
-& \refstepcounter{mnum} \mthemnum \label{Controller9}: ContactUsButtonController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller10}: QuitButtonController  \\
-& \refstepcounter{mnum} \mthemnum \label{Controller11}: BackButtonController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller12}: PlotSelectionDropDownController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller13}: TreeTypeSelectionDropDownController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller14}: ShowEnvDataButtonController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller15}: ShowTreeParamButtonController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller16}: EnvDataSelectionButtonController\\
-& \refstepcounter{mnum} \mthemnum \label{Controller17}: DataTypeSelectionButtonsController \\
-& \refstepcounter{mnum} \mthemnum \label{Controller18}: SaveButtonController \\
-\bottomrule
-
-\end{tabular}
-
-\end{table}
-
-\newpage
 
 \section{Connection Between Requirements and Design} \label{SecConnection}
 
 The design of the system is intended to satisfy the requirements developed in
-the SRS(click \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/DocRevision/SRSRevision/SRSRevision.pdf}{here} for revised SRS). In this stage, the system is decomposed into modules. The connection
+the  \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/DocRevision/SRSRevision/SRSRevision.pdf}{SRS}. In this stage, the system is decomposed into modules. The connection
 between functional requirements and modules is listed in Table~\ref{TbFRM}. 
 The connection
 between non-functional requirements and modules is listed in Table~\ref{TbNFRM1} and \ref{TbNFRM2}.
@@ -371,6 +413,277 @@ Unity Engine.
 \item \emph{\progname{}} means the
 module will be implemented by the \progname{} software
 \end{itemize}
+
+
+\subsection{Controller Modules}
+\newcommand\bt{\textbf{Start}}
+\subsubsection{JsonFileReader Module (\mref{Controller1})}
+\begin{description}
+\item[Secrets:] Algorithms to read data from Json files.
+\item[Services:] Provide service of reading data from Json files and store them into 
+corresponding objects. When users click \textbf{Show Environmental Data} button and 
+\textbf{Show Tree Parameters} button, this module will be executed. Then, data will be read
+from corresponding Json files, stored in corresponding objects and waiting for future 
+processing. 
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{JsonFileWriter Module (\mref{Controller2})}
+\begin{description}
+\item[Secrets:] Algorithms to write data to Json files.
+\item[Services:] Provide service of reading data from the input box and write them into 
+corresponding files. When users click \textbf{Save} button in \textbf{Update Data} page, 
+this module will be executed.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{PauseManager Module (\mref{Controller3})}
+\begin{description}
+\item[Secrets:] Algorithm to control the time flow of the software.
+\item[Services:] When users want to check the environmental data or tree parameters, they
+have the option to pause the system. When the system is paused, mouse and first person view
+are disconnected, therefore, users can feel more convenient to click on different buttons
+to display different information.  
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{PlayerMovement Module (\mref{Controller4})}
+\begin{description}
+\item[Secrets:] Algorithms to control the first person view movement.
+\item[Services:] Allow users to move in the forest by using keyboards \verb|W, S, A, D| and 
+adjust view angle by using the mouse.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{NewDataInputBoxController Module (\mref{Controller5})}
+\begin{description}
+\item[Secrets:] Algorithm of accepting user inputs from the input box.
+\item[Services:] This module will be responsible for accepting inputs and verify that inputs
+are appropriate(For our software, we need to make sure that users only enter integers or
+decimal numbers). After that, new entered data will be stored in this module.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Start }}
+\subsubsection{StartButtonController Module (\mref{Controller6})}
+\begin{description}
+\item[Secrets:] The operations of displaying virtual
+forest after users click the \bt button.
+\item[Services:] Change scene to forest after clicking \bt button.
+\item[Implemented By:] \progname{} and Unity(Scene Manager)
+\end{description}
+
+\renewcommand{\bt}{\textbf{Instruction }}
+\subsubsection{InstructionButtonController Module (\mref{Controller7})}
+\begin{description}
+\item[Secrets:] The operations of displaying instructions after users click the \bt button.
+\item[Services:] The screen will change from main page to instruction page after clicking
+ \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Update Data }}
+\subsubsection{UpdateDataButtonController Module (\mref{Controller8})}
+\begin{description}
+\item[Secrets:] The operations of displaying the update data page after users click the \bt
+ button.
+\item[Services:] The screen will change from the main page to the Update data page after clicking
+ \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Contact Us }}
+\subsubsection{ContactUsButtonController Module (\mref{Controller9})}
+\begin{description}
+\item[Secrets:] The operations of displaying developers' contact information
+ after users click the \bt button.
+\item[Services:] The screen will change from the main page to developers' contact information page
+ after clicking \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Quit }}
+\subsubsection{QuitButtonController Module (\mref{Controller10})}
+\begin{description}
+\item[Secrets:] The operations of quitting the software after users click the \bt button.
+\item[Services:] The software will be closed after clicking \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Back }}
+\subsubsection{BackButtonController Module (\mref{Controller11})}
+\begin{description}
+\item[Secrets:] The operations of going back to the main page after users click the \bt
+ button.
+\item[Services:] The screen will show main page after clicking \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Plot Selection Drop Down Menu}}
+\subsubsection{PlotSelectionDropDownController Module (\mref{Controller12})}
+\begin{description}
+\item[Secrets:] The operations of selecting different plots after users click buttons 
+from the \bt.
+\item[Services:] By selecting plots, users can check environmental data and tree parameters
+from different plots.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Tree Type Selection Drop Down Menu}}
+\subsubsection{TreeTypeSelectionDropDownController Module (\mref{Controller13})}
+\begin{description}
+\item[Secrets:] The operations of selecting different tree types after users click buttons 
+from the \bt.
+\item[Services:] By selecting tree types, users can check tree parameters of different 
+types of trees.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Show Environmental Data }}
+\subsubsection{ShowEnvDataButtonController Module (\mref{Controller14})}
+\begin{description}
+\item[Secrets:] The operations of displaying environmental data
+ after users click the \bt button.
+\item[Services:] Environmental data will be displayed on the screen after clicking \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Show Tree Parameters }}
+\subsubsection{ShowTreeParamButtonController Module (\mref{Controller15})}
+\begin{description}
+\item[Secrets:] The operations of displaying tree parameters after users click the \bt button.
+\item[Services:] Tree parameters will be displayed on the screen after clicking \bt button.
+\item[Implemented By:] \progname{}
+\end{description}
+
+
+\renewcommand{\bt}{\textbf{Environmental Data }}
+\subsubsection{EnvDataSelectionButtonController Module (\mref{Controller16})}
+\begin{description}
+\item[Secrets:] The operations of displaying different environmental data types
+ after users click the \bt button in \textbf{Update Data} page.
+\item[Services:] The software will display all environmental data types for users to choose
+in order to update one specific environmental data.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\subsubsection{DataTypeSelectionButtonsController Module (\mref{Controller17})}
+\begin{description}
+\item[Secrets:] The operations of choosing different data types in order to update data.
+\item[Services:]  
+\begin{itemize}
+\item If users click \bt button, the following buttons will be displayed:
+
+\begin{itemize}
+\item Humility
+\item Temperature
+\item Soil C content
+\item Soil N content
+\item LAI
+\end{itemize}
+
+\item If users select a specific type of tree, the following buttons will be displayed:
+\begin{itemize}
+\item Density
+\item Age
+\item Height
+\item DBH
+\end{itemize}
+
+\end{itemize}
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Save }}
+\subsubsection{SaveButtonController Module (\mref{Controller18})}
+\begin{description}
+\item[Secrets:] The operations of saving newly entered data after users click the \bt button
+ in \textbf{Update Data} page.
+\item[Services:] This module will first access newly entered data from \mref{Controller5},
+and then call corresponding methods from \mref{Controller2} to store data in JSON files.
+\item[Implemented By:] \progname{}
+\end{description}
+
+
+\renewcommand{\bt}{\textbf{Write into the file}}
+\subsubsection{FileWriter Module (\mref{Controller19})}
+\begin{description}
+\item[Secrets:] The operations of editing a file after users input a new value.
+\item[Services:] This module will change the data stored in the JSON files.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Read from the file}}
+\subsubsection{FileReader Module (\mref{Controller20})}
+\begin{description}
+\item[Secrets:] The operation of reading a file after users input a new value.
+\item[Services:] This module will get the data stored in the JSON files.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Switch the season}}
+\subsubsection{SeasonChangeController Module (\mref{Controller21})}
+\begin{description}
+\item[Secrets:] The operation of changing the season between summer and winter after users click on the seasonal change button.
+\item[Services:] This module will add snow effects and remove all the leaves except for pine trees.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{Move the panel}}
+\subsubsection{movePanelController Module (\mref{Controller22})}
+\begin{description}
+\item[Secrets:] The operation of minimizing or expanding the user interface when users click on the icons.
+\item[Services:] This module will control the transform of UI panel.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{plant trees}}
+\subsubsection{treePlantingController Module (\mref{Controller23})}
+\begin{description}
+\item[Secrets:] The operation of generating trees when users enter the scene.
+\item[Services:] This module put game objects of trees on the terrain with unique scales and coordinates.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{TreeSwitch}}
+\subsubsection{TreeSwitchButtonController Module (\mref{Controller24})}
+\begin{description}
+\item[Secrets:] The operations of the system under the click of the button
+\item[Services:] Provide a button to switch tree parameters to leaf parameters
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{pieChartController}}
+\subsubsection{pieChartButtonController Module (\mref{Controller25})}
+\begin{description}
+\item[Secrets:] The operations of calling \bt  after users click the 
+\item[Services:] Provide a button to display the pie chart.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{pieChartController}}
+\subsubsection{pieChartController Module (\mref{Controller26})}
+\begin{description}
+\item[Secrets:] The operations of generating a pie chart after called.
+\item[Services:] Generate a pie chart for current plot.
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{SeasonChange}}
+\subsubsection{SeasonChangeButtonController Module (\mref{Controller27})}
+\begin{description}
+\item[Secrets:] The operations of switching between Summer view and Winter view after the users click the \bt button.
+\item[Services:] Show Summer view if showing Winter view. Show Winter view if showing Summer View. 
+\item[Implemented By:] \progname{}
+\end{description}
+
+\renewcommand{\bt}{\textbf{TreeSwitch}}
+\subsubsection{TreeSwitchController Module (\mref{Controller28})}
+\begin{description}
+\item[Secrets:] The operations of switching between tree parameters and leaf information after users click the \bt button.
+\item[Services:] The panel shows the leaf information if it currently shows the tree parameters. The panel shows the tree parameters if it currently shows the leaf information.
+\item[Implemented By:] \progname{}
+\end{description}
 
 \subsection{Model Modules}
 
@@ -510,7 +823,8 @@ information, quitting the software.
 \end{description}
 
 
-\newcommand\bt{\textbf{Start }}
+
+\renewcommand{\bt}{\textbf{Start}}
 \subsubsection{StartButton Module (\mref{Viwer2})}
 \begin{description}
 \item[Secrets:] A GUI of the \bt button.
@@ -727,194 +1041,27 @@ clicking it.
 \item[Implemented By:] \UUI
 \end{description}
 
-\subsection{Controller Modules}
-
-\subsubsection{JsonFileReader Module (\mref{Controller1})}
+\subsubsection{SeasonChangeButton Module (\mref{Viwer24})}
 \begin{description}
-\item[Secrets:] Algorithms to read data from Json files.
-\item[Services:] Provide service of reading data from Json files and store them into 
-corresponding objects. When users click \textbf{Show Environmental Data} button and 
-\textbf{Show Tree Parameters} button, this module will be executed. Then, data will be read
-from corresponding Json files, stored in corresponding objects and waiting for future 
-processing. 
-\item[Implemented By:] \progname{}
+\item[Secrets:] A GUI of the \textbf{Season Change} button.
+\item[Services:] Provide a button GUI for users to switch between Summer view and Winter view.
+\item[Implemented By:] \UUI
 \end{description}
 
-\subsubsection{JsonFileWriter Module (\mref{Controller2})}
+\subsubsection{pieChartButton Module (\mref{Viwer25})}
 \begin{description}
-\item[Secrets:] Algorithms to write data to Json files.
-\item[Services:] Provide service of reading data from the input box and write them into 
-corresponding files. When users click \textbf{Save} button in \textbf{Update Data} page, 
-this module will be executed.
-\item[Implemented By:] \progname{}
+\item[Secrets:] A GUI of the \textbf{pie Chart} button.
+\item[Services:] Provide a button GUI for users to switch between pie chart and environmental data.
+\item[Implemented By:] \UUI
 \end{description}
 
-\subsubsection{PauseManager Module (\mref{Controller3})}
+\subsubsection{TreeSwitchButton Module (\mref{Viwer26})}
 \begin{description}
-\item[Secrets:] Algorithm to control the time flow of the software.
-\item[Services:] When users want to check the environmental data or tree parameters, they
-have the option to pause the system. When the system is paused, mouse and first person view
-are disconnected, therefore, users can feel more convenient to click on different buttons
-to display different information.  
-\item[Implemented By:] \progname{}
+\item[Secrets:] A GUI of the \textbf{TreeSwitch} button.
+\item[Services:] Provide a button GUI for users to switch between tree parameters and leaf information. 
+\item[Implemented By:] \UUI
 \end{description}
 
-\subsubsection{PlayerMovement Module (\mref{Controller4})}
-\begin{description}
-\item[Secrets:] Algorithms to control the first person view movement.
-\item[Services:] Allow users to move in the forest by using keyboards \verb|W, S, A, D| and 
-adjust view angle by using the mouse.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\subsubsection{NewDataInputBoxController Module (\mref{Controller5})}
-\begin{description}
-\item[Secrets:] Algorithm of accepting user inputs from the input box.
-\item[Services:] This module will be responsible for accepting inputs and verify that inputs
-are appropriate(For our software, we need to make sure that users only enter integers or
-decimal numbers). After that, new entered data will be stored in this module.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Start }}
-\subsubsection{StartButtonController Module (\mref{Controller6})}
-\begin{description}
-\item[Secrets:] The operations of displaying virtual
-forest after users click the \bt button.
-\item[Services:] Change scene to forest after clicking \bt button.
-\item[Implemented By:] \progname{} and Unity(Scene Manager)
-\end{description}
-
-\renewcommand{\bt}{\textbf{Instruction }}
-\subsubsection{InstructionButtonController Module (\mref{Controller7})}
-\begin{description}
-\item[Secrets:] The operations of displaying instructions after users click the \bt button.
-\item[Services:] The screen will change from main page to instruction page after clicking
- \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Update Data }}
-\subsubsection{UpdateDataButtonController Module (\mref{Controller8})}
-\begin{description}
-\item[Secrets:] The operations of displaying update data page after users click the \bt
- button.
-\item[Services:] The screen will change from main page to Update data page after clicking
- \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Contact Us }}
-\subsubsection{ContactUsButtonController Module (\mref{Controller9})}
-\begin{description}
-\item[Secrets:] The operations of displaying developers' contact information
- after users click the \bt button.
-\item[Services:] The screen will change from main page to developers' contact information page
- after clicking \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Quit }}
-\subsubsection{QuitButtonController Module (\mref{Controller10})}
-\begin{description}
-\item[Secrets:] The operations of quitting the software after users click the \bt button.
-\item[Services:] The software will be closed after clicking \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Back }}
-\subsubsection{BackButtonController Module (\mref{Controller11})}
-\begin{description}
-\item[Secrets:] The operations of going back to the main page after users click the \bt
- button.
-\item[Services:] The screen will show main page after clicking \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Plot Selection Drop Down Menu}}
-\subsubsection{PlotSelectionDropDownController Module (\mref{Controller12})}
-\begin{description}
-\item[Secrets:] The operations of selecting different plots after users click buttons 
-from the \bt.
-\item[Services:] By selecting plots, users can check environmental data and tree parameters
-from different plots.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Tree Type Selection Drop Down Menu}}
-\subsubsection{TreeTypeSelectionDropDownController Module (\mref{Controller13})}
-\begin{description}
-\item[Secrets:] The operations of selecting different tree types after users click buttons 
-from the \bt.
-\item[Services:] By selecting tree types, users can check tree parameters of different 
-types of trees.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Show Environmental Data }}
-\subsubsection{ShowEnvDataButtonController Module (\mref{Controller14})}
-\begin{description}
-\item[Secrets:] The operations of displaying environmental data
- after users click the \bt button.
-\item[Services:] Environmental data will be displayed on the screen after clicking \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Show Tree Parameters }}
-\subsubsection{ShowTreeParamButtonController Module (\mref{Controller15})}
-\begin{description}
-\item[Secrets:] The operations of displaying tree parameters after users click the \bt button.
-\item[Services:] Tree parameters will be displayed on the screen after clicking \bt button.
-\item[Implemented By:] \progname{}
-\end{description}
-
-
-\renewcommand{\bt}{\textbf{Environmental Data }}
-\subsubsection{EnvDataSelectionButtonController Module (\mref{Controller16})}
-\begin{description}
-\item[Secrets:] The operations of displaying different environmental data types
- after users click the \bt button in \textbf{Update Data} page.
-\item[Services:] The software will display all environmental data types for users to choose
-in order to update one specific environmental data.
-\item[Implemented By:] \progname{}
-\end{description}
-
-\subsubsection{DataTypeSelectionButtonsController Module (\mref{Controller17})}
-\begin{description}
-\item[Secrets:] The operations of choosing different data types in order to update data.
-\item[Services:]  
-\begin{itemize}
-\item If users click \bt button, the following buttons will be displayed:
-
-\begin{itemize}
-\item Humility
-\item Temperature
-\item Soil C content
-\item Soil N content
-\item LAI
-\end{itemize}
-
-\item If users select a specific type of tree, the following buttons will be displayed:
-\begin{itemize}
-\item Density
-\item Age
-\item Height
-\item DBH
-\end{itemize}
-
-\end{itemize}
-\item[Implemented By:] \progname{}
-\end{description}
-
-\renewcommand{\bt}{\textbf{Save }}
-\subsubsection{SaveButtonController Module (\mref{Controller18})}
-\begin{description}
-\item[Secrets:] The operations of saving newly entered data after users click the \bt button
- in \textbf{Update Data} page.
-\item[Services:] This module will first access newly entered data from \mref{Controller5},
-and then call corresponding methods from \mref{Controller2} to store data in Json files.
-\item[Implemented By:] \progname{}
-\end{description}
 
 \newpage
 
@@ -932,17 +1079,17 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Functional Req.} & \textbf{Modules}\\
 \midrule
-FR1 & \mref{Viwer1}, \mref{Viwer3}, \mref{Viwer6}, \mref{Controller7}\\
+FR1 &  \mref{Controller7}, \mref{Viwer1}, \mref{Viwer3}, \mref{Viwer6}\\
 FR2 & \mref{Viwer1}, \mref{Viwer2}, \mref{Controller6}\\
 FR3 & \mref{Viwer1}, \mref{Viwer2}, \mref{Controller6}\\
-FR4 & None(see notes below)\\
+FR4 & \mref{Controller22}\\
 FR5 & \mref{Model1}, \mref{Model2}, \mref{Model3}, \mref{Viwer18}\\
 FR6 & \mref{Viwer15}, \mref{Viwer16}, \mref{Viwer19}, \mref{Viwer20}\\
 FR7 & \mref{Model4}, \mref{Model5}, \mref{Model6}, \mref{Model7}, \mref{Model8}, 
 \mref{Model9}, \mref{Model10}, \mref{Model11}, \mref{Model12}, \mref{Model14}, 
 \mref{Viwer15}, \mref{Viwer16}, \mref{Viwer19}, \mref{Viwer20}, \mref{Viwer21}, 
 \mref{Viwer22}, \mref{Controller1}\\
-FR8 & None(see notes below)\\
+FR8 & \mref{Controller4}\\
 FR9 & \mref{Viwer23}, \mref{Controller3}\\
 FR10 & \mref{Model13}, \mref{Controller4}\\
 FR11 & \mref{Model13}, \mref{Controller4}\\
@@ -954,31 +1101,9 @@ FR16 & \mref{Model14}, \mref{Viwer9}, \mref{Viwer10}, \mref{Viwer11}, \mref{Viwe
 \mref{Viwer13}, \mref{Viwer14}, \mref{Viwer15}, \mref{Viwer16}, \mref{Viwer17}, 
 \mref{Controller2}, \mref{Controller5}, \mref{Controller8}, \mref{Controller12},
 \mref{Controller13}, \mref{Controller16}, \mref{Controller17}, \mref{Controller18}\\
-FR17 & \mref{Viwer3}, \mref{Viwer6}, \mref{Controller7}\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\textcolor{red}{Some notes about FR4 and FR8}
-\begin{itemize}
-\item For FR4, the requirement is the following:\\
- 	The product shall display the percentage of progress while the forest models are being
- 	 loaded. \\
-	\textbf{Rationale}: 
-	 During the development, we found out that forest models can be loaded pretty fast,
-	 therefore, this requirement can be removed.
-
-\item For FR8, the requirement is the following:\\
-	The product shall allow users to select a specific tree in order to view related
-	 information (Tree Parameters).\\
-	\textbf{Rationale}: 
-	  During the development, we found out that this requirement is not attainable. The 
-	  reason is that it is impossible to measure all the trees in the forest. Instead, after
-	  discussing with out stakeholders, we decided the use panels to display tree parameters
-	  for different types of trees. In order to display tree parameters of different types
-	  of trees via panels, we need \mref{Model14}, \mref{Viwer16}, \mref{Viwer20}, 
-	  \mref{Viwer22}, \mref{Controller1}, \mref{Controller13}, \mref{Controller15}.
-\end{itemize}
 
 \newpage
 
@@ -1001,8 +1126,7 @@ FR17 & \mref{Viwer3}, \mref{Viwer6}, \mref{Controller7}\\
 \toprule
 \textbf{Non-Functional Req.} & \textbf{Modules}\\
 \midrule
-LF 1.1 & \ALLM \\
-LF 1.2 & \mref{Model1}, \mref{Model2}, \mref{Model3}\\
+LF 1.1 & \mref{Model1}, \mref{Model2}, \mref{Model3}\\
 LF 2.1 & \mref{Model1}, \mref{Model2}, \mref{Model3}\\
 LF 2.2 & \ALLVM \\
 UH 1.1 & \mref{Viwer3}, \mref{Viwer6}, \mref{Controller7}\\
@@ -1039,10 +1163,6 @@ PR 4.2 & \ALLCM \\
 PR 5.1 & \ALLCM \\
 
 PR 6.1 & \mref{Model1}, \mref{Model2}, \mref{Model3} \\
-
-PR 7.1 & N/A (Our MVC Design can be helpful for this requirement.) \\
-
-PR 8.1 & N/A (This depends on our maintenance work.) \\
 
 OE 1.1 & N/A (Unity Game Engine helps to achieve this goal.) \\
 
@@ -1086,6 +1206,8 @@ MS 3.2 & N/A (This is not related to software design.)\\
 
 SR 1.1 & N/A (This is not related to software design.)\\
 
+SR 1.2 & N/A (This is not related to software design.)\\
+
 SR 2.1 & \ALLCM \\
 
 SR 2.2 & \ALLCM \\
@@ -1095,8 +1217,6 @@ SR 2.3 & \mref{Controller5} \\
 SR 2.4 & \mref{Controller1} \\
 
 SR 2.5 & \mref{Viwer21}, \mref{Viwer22}\\
-
-SR 2.6 & \mref{Model14} \\
 
 SR 3.1 & \ALLM \\
 
@@ -1120,12 +1240,12 @@ LR 2.1 & \ALLVM \\
 \toprule
 \textbf{AC} & \textbf{Modules}\\
 \midrule
-\acref{acMainUI} & \mref{Viwer1}, \mref{Viwer2}, \mref{Viwer3}, \mref{Viwer4}, \mref{Viwer5}
+\acref{acMainUI} & \mref{Viwer1}, \mref{Viwer2}, \mref{Viwer3}, \mref{Viwer4}, \mref{Viwer5}, \mref{Viwer6}
 , \mref{Viwer17}\\
 
-\acref{acDataDisplay} & \mref{Viwer21}, \mref{Viwer22}\\
+\acref{acDataValue} & \mref{Viwer21}, \mref{Viwer22}\\
 
-\acref{acDataValue} & \mref{Model14}\\
+\acref{acDataStructure} & \mref{Model14}\\
 
 \acref{acTreeParam} & \mref{Model4}, \mref{Model5}, \mref{Model6}, \mref{Model7},
 \mref{Model8}, \mref{Model9}, \mref{Model10}, \mref{Model12}, \mref{Model14}, 
@@ -1134,6 +1254,8 @@ LR 2.1 & \ALLVM \\
 \acref{acEnvData} &  \mref{Model11}, \mref{Model12}, \mref{Model14}, \mref{Controller1},
  \mref{Controller2}\\
 
+ \acref{acUpdateData} & \mref{Controller8},\mref{Viwer9},\mref{Viwer12},\mref{Viwer17}\\
+ \acref{acDataModified}& \mref{Model1},\mref{Model2},\mref{Model2},\mref{Model3},\mref{Model4},\mref{Model5},\mref{Model6},\mref{Model7},\mref{Model8},\mref{Model9},\mref{Model10} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1158,7 +1280,7 @@ and Controller modules.
 \centering
 \caption{Relationships within Model modules}
 \label{FigRelaModels}
-\includegraphics[scale=0.65]{Model-Modules.png}
+\includegraphics[scale=0.65]{MG_Pictures/Model-Modules.png}
 \end{figure}
 
 \newpage
@@ -1168,7 +1290,7 @@ and Controller modules.
 \centering
 \caption{Relationships within Viewer modules}
 \label{FigRelaViewers}
-\includegraphics[scale=0.65]{Viewer-Modules.png}
+\includegraphics[scale=0.65]{MG_Pictures/Viewer-Modules.png}
 \end{figure}
 
 \newpage
@@ -1178,7 +1300,7 @@ and Controller modules.
 \centering
 \caption{Relationships within Controller modules}
 \label{FigRelaControllers}
-\includegraphics[scale=0.65]{Controller-Modules.png}
+\includegraphics[scale=0.65]{MG_Pictures/Controller-Modules.png}
 \end{figure}
 
 \newpage
@@ -1190,9 +1312,9 @@ of the MVC architecture.
 \centering
 \caption{MVC Architecture}
 \label{MVCArchitecture}
-\includegraphics[scale=0.8]{MVC.png}
+\includegraphics[scale=0.8]{MG_Pictures/MVC.png}
 \end{figure}
-\noindent Reference: Click \href{https://developer.mozilla.org/en-US/docs/Glossary/MVC}{here}.
+\noindent Reference: \href{https://developer.mozilla.org/en-US/docs/Glossary/MVC}{MVC pattern}.
 
 \noindent Drawing graphs to represent relationships between Model modules, Viewer modules, and 
 Controller modules is too complicated since we have many modules. Therefore, we chose to 
