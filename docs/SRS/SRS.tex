@@ -19,7 +19,6 @@
 \usepackage{tikz}
 
 
-
 \title{SRS\\Digital Twin Forest}
 \author{Yichen Jiang, Bowen Zhang, Jiacheng Wu, Junhong Chen, Tingyu Shi\\Team 8}
 
@@ -55,8 +54,6 @@ original template:
 \begin{itemize}
     \item We added traceability matrices to show relationships between
     functional requirements and non-functional requirements.
-    \item We added traceability matrices to show relationships between requirements and 
-    use cases.
     \item We added Likely changes and Unlikely changes.
     \item We added priorities and 
     completion timelines for each functional requirement.
@@ -125,18 +122,18 @@ according to the modification of the data.
 The hands-on users of this product are the same as the customers mentioned in section 1.2.2. Users'
 responsibilities are also mentioned in section 1.2.2. For subject matter experience, these 
 users are masters. For both forest owners and meteorologists, they are definitely
-familiar with the real forest and our product can help them better do
+familiar with the real forest, and our product can help them better do
 their jobs. From the point of technology, we assume that they 
 have little experience with virtual representation
 technologies.
 
 \subsubsection{Personas}
 \begin{itemize}
-    \item Dr. Aly is a 55-year-old assistant professor working in a university, living with his family near his lab. His research mainly focuses on remote sensing of vegetation, global change ecology, and climate change impact. His research is supported by an association of several forest owners, who are willing to let Dr. Aly locate part of the research and collect needed information in their forest. If he needs to go to the field that day, the typical schedule of him is to get up at 6 am, take 90 minutes to commute to the target forest with some students he supervises, collect and record data there, and come back to his lab with another 90 minutes. 
+    \item Dr. Aly is a 55-year-old assistant professor working in a university, living with his family near his lab. His research mainly focuses on remote sensing of vegetation, global change ecology, and climate change impact. His research is supported by an association of several forest owners, who are willing to let Dr. Aly locate part of the research and collect needed information in their forest. If he needs to go to the field that day, his typical schedule is to get up at 6 am, take 90 minutes to commute to the target forest with some students he supervises, collect and record data there, and come back to his lab with another 90 minutes. 
     
-    Dr. Aly's goals are to find a convenient way to free him from frequent commuting and to look for a new method to manage and visualize all the significant data for a purpose of teaching. 
+    Dr. Aly's goals are to find a convenient way to free him from frequent commuting and to look for a new method to manage and visualize all the significant data for the purpose of teaching. 
     
-    \item Mrs. Miller owns 40-acre land including a 2-acre forest. She is now 36 years old and lives with her husband, who works as a financial analyzer, in Toronto. She runs a coffee house as a full-time job and drives to her forest every two months to check everything's fine. Though she cares about her forest, spending over three days every two months going through every area seems impossible for her, she would love to have a new method to manage her forest and get updated information regularly, in order to make better strategies for the forest. 
+    \item Mrs. Miller owns 40-acre land, including a 2-acre forest. She is now 36 years old and lives with her husband, who works as a financial analyzer, in Toronto. She runs a coffee house as a full-time job and drives to her forest every two months to check everything's fine. Though she cares about her forest, spending over three days every two months going through every area seems impossible for her. She would love to have a new method to manage her forest and get updated information regularly, in order to make better strategies for the forest. 
 \end{itemize}
 
 \subsubsection{Priorities Assigned to Users}
@@ -148,7 +145,7 @@ technologies.
 \subsubsection{User Participation}
 \begin{itemize}
     \item Dr. Gonsamo: Dr. Gonsamo will provide business knowledge(forest data), 
-    interface prototyping and usability requirements for this project. Since Dr. Gonsamo is 
+    interface prototyping, and usability requirements for this project. Since Dr. Gonsamo is 
     a meteorologist, he can also provide suggestions for meteorologists.
     \item Lab members: Lab members will help this project by providing some business knowledge
     about the forest.
@@ -166,12 +163,12 @@ The project members will be responsible for maintaining and changing the product
 \subsection{Mandated Constraints}
 \subsubsection{Solution Constraints}
 \begin{itemize}
-\item Modeling Technology: Our team will use Unity for
-the modeling task. The Unity version will be 2021.3. Our
+\item modelling Technology: Our team will use Unity for
+the modelling task. The Unity version will be 2021.3. Our
 team members use different platforms(Windows or MacOS).
 Unity is suitable for our team because it is a 
 cross-platform software. Also, Unity has existing
-packages that can speed up our modeling process.
+packages that can speed up our modelling process.
     
 \item Project Documents Technology: Our team will use
 \LaTeX for our documents.
@@ -190,12 +187,12 @@ N/A(Our product is an independent product)
 \subsubsection{Off-the-Shelf Software}
 \begin{itemize}
 \item LiDAR: iPad Pro LiDAR should be used to scan the
-forest and collect data for modeling.
-\item Unity: Unity should be used for modeling and 
+forest and collect data for modelling.
+\item Unity: Unity should be used for modelling and 
 post-processing.
 \item ArcGIS: An online tool to visualize forest 
 distribution and tree data. The team can calculate the
-the density of different tree species and the formulas 
+density of different tree species and the formulas 
 according to the tree distribution based on the
 satellite pictures.
 \end{itemize}
@@ -455,16 +452,18 @@ on the user interface after the software is launched. \\
 \textbf{Supporting Materials}: All requirements using the contact us page.\\
 \textbf{Dependencies}: N/A\\
 	
-\item The product shall load the forest model when users access the model
+\item The product shall load the forest model when users click
+`Start' button.
 page.\\
-\textbf{Rationale}: The clicking of `start' indicates the
-user has been through the instruction and is ready to use
+\textbf{Rationale}: The clicking of `Start' indicates the user has 
+been through the instruction and is ready to use
 our product. The product can now initialize the functions
 by loading the model.\\
 \textbf{Fit Criterion}: The software loads the data and 
-models of the forest once the users select the `start' 
+models of the forest once the users click the `Start' 
 button.\\
-\textbf{Supporting Materials}: All requirements using the forest model.\\
+\textbf{Supporting Materials}: All requirements using the forest 
+model.\\
 \textbf{Dependencies}: N/A\\
 
 
@@ -637,16 +636,16 @@ close to the real forest.\\
 \subsubsection{Style Requirements}
 \begin{enumerate}[LF2.1]
     \item The product shall appear authoritative based on the real forest.\\
-    \textbf{Rationale}: The product is reliable only if it's based on real world data.\\
+    \textbf{Rationale}: The product is reliable only if it's based on real-world data.\\
     \textbf{Fit criterion}: The data in our project will not exceed a relative error of 
     5\%.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}: All requirements about data accuracy.\\
     
     \item The UI design of our product shall appear professional.\\
-    \textbf{Rationale}: The UI design should appear professional to fit the scenario where the product is used, as the product is mainly used in the scientific research.\\
-    \textbf{Fit criterion}: Among 10 samples of users all sample users during the 
-    testing phase, at least 80\% of them think the system is professional.\\
+    \textbf{Rationale}: The UI design should appear professional to fit the scenario where the product is used, as the product is mainly used in scientific research.\\
+    \textbf{Fit criterion}: Among 10 samples of users, all sample users during the 
+    the testing phase, at least 80\% of them think the system is professional.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}: All requirements about user interfaces.\\
 
@@ -657,7 +656,7 @@ close to the real forest.\\
     \item The product instructions shall be easy to understand.\\
     \textbf{Rationale}: Clear instructions can take users less time to learn how to use the product.\\
     \textbf{Fit criterion}: Among all the sample users during the 
-    testing phase, at least 80\% of them can learn how to use the system within half an hour.\\
+    the testing phase, at least 80\% of them can learn how to use the system within half an hour.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}: All requirements about instructions.\\
 
@@ -719,7 +718,7 @@ close to the real forest.\\
 \begin{enumerate}
     \item[PR1.1] The product shall respond to user requests quickly.\\
     \textbf{Rationale}: Quick response can improve users' experience.\\
-    \textbf{Fit Criterion}: The system can respond within 2 seconds for all the user requests.\\
+    \textbf{Fit Criterion}: The system can respond within 2 seconds to all user requests.\\
 \textbf{Supporting Materials}:N/A\\
 \textbf{Dependencies}:FR3\\
     
@@ -740,7 +739,7 @@ close to the real forest.\\
 N/A
 \subsubsection{Precision or Accuracy Requirements}
 \begin{enumerate}[PR3.1]
-    \item The forest data that displayed on the screen shall be accurate.\\
+    \item The forest data displayed on the screen shall be accurate.\\
     \textbf{Rationale}: The data is supposed to be reliable and match the real world data.\\
     \textbf{Fit Criterion}: All the data in the system should have at most 5\% relative errors compared with the target
     forest data.\\
@@ -751,9 +750,9 @@ N/A
 \end{enumerate}
 \subsubsection{Reliability and Availability Requirements}
 \begin{enumerate}[PR4.1]
-    \item The product shall be available whenever users access to it.\\
+    \item The product shall be available whenever users access it.\\
     \textbf{Rationale}: The product is reliable if it's available most of the time.\\
-    \textbf{Fit criterion}: The system is required to work any time of a day.\\
+    \textbf{Fit criterion}: The system is required to work any time of the day.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:FR3,FR8,FR9\\
     
@@ -801,7 +800,7 @@ N/A
 \textbf{Dependencies}:FR8, FR9\\
    
     \item[OE1.2] The product shall be used with a mouse and a keyboard.\\
-    \textbf{Rationale}: Some of the functions of this product, like switching plot, are designed to be used with a mouse. And the movement within the model are designed to be used with a keyboard. The product must be used with one and take the input from both mouse and keyboard.\\
+    \textbf{Rationale}: Some of the functions of this product, like switching plots, are designed to be used with a mouse. And the movement within the model are designed to be used with a keyboard. The product must be used with one and take input from both the mouse and keyboard.\\
     \textbf{Fit criterion}: The devices with a mouse and a keyboard should be able to successfully realize the designed functions.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:FR8,FR9,FR13\\
@@ -810,8 +809,8 @@ N/A
 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
 \begin{enumerate}[OE2.1]
-    \item The product shall be able to run on the devices with Windows 10, macOS 12 or any later version.\\
-    \textbf{Rationale}: Windows 10 and macOS 12 are mainstream operating systems which are running on most target devices. The developer team will ensure the product work on these operating system with the highest priority.\\
+    \item The product shall be able to run on devices with Windows 10, macOS 12, or any later version.\\
+    \textbf{Rationale}: Windows 10 and macOS 12 are mainstream operating systems that are running on most target devices. The developer team will ensure the product work on these operating system with the highest priority.\\
     \textbf{Fit criterion}: The product shall be able to launch and complete all the functions as this document describes on the devices with Windows 10, macOS 12 or any later version.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:FR8, FR9\\
@@ -905,14 +904,14 @@ N/A
     \item The product shall only be accessed by users who download the product from our
      GitHub website.\\
     \textbf{Rationale}: The product is supposed to be used through a proper approach.\\
-    \textbf{Fit criterion}: Testers cannot download the product in any way other than the GitHub.\\
+    \textbf{Fit criterion}: Testers cannot download the product in any way other than GitHub.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:N/A\\
     
     \item[SR1.2]Forest
-    data shall only be modified through the interface provided by developers.
-    \textbf{Rationale}: Modifying the data through the interface provided by developers is the only safe method to update data. Some errors which would leads to crash like unintentionally deleting the stored data might occur if failing to do so.\\
-    \textbf{Fit criterion}: The users shall not be able to modify the data anywhere else except the update data interface provided by the developers.\\
+    data shall only be modified through the interface provided by developers.\\
+    \textbf{Rationale}: Modifying the data through the interface provided by developers is the only safe method to update data. Some errors which would lead to crashes, like unintentionally deleting the stored data, might occur if failing to do so.\\
+    \textbf{Fit criterion}: The users shall not be able to modify the data anywhere else except the updated data interface provided by the developers.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}: FR12\\
 
@@ -935,7 +934,7 @@ N/A
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:FR3, FR8, FR9\\
 
-    \item[SR2.3] The product shall check if user
+    \item[SR2.3] The product shall check if the user
     updates(user inputs) are legal before updating them to the system.\\
     \textbf{Rationale}: The invalid input should be refused when updated or input by the users to keep consistency and normal performance of the product.\\
      \textbf{Fit criterion}: The product should fail to update the data when the input is invalid.\\
@@ -960,18 +959,18 @@ N/A
 \subsubsection{Privacy Requirements}
 \begin{enumerate}[SR3.1]
 \item The product shall not ask the users to provide personal 
-information. (personal information refers to users' name, 
-contact information and location, etc).\\
+information. (personal information refers to users' names, 
+contact information, location, etc).\\
 \textbf{Rationale}: Users will feel uncomfortable when they expose their information.\\
 \textbf{Fit criterion}: 100\% of the actions will not require personal information from users.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:N/A\\
 
     \item The product shall not send notifications to the users 
-    without permissions.\\
+    without permission.\\
     \textbf{Rationale}: Sending notifications without permissions will
     interrupt users' other activities.\\
-    \textbf{Fit criterion}: None user shall receive notification without permission.\\
+    \textbf{Fit criterion}: None user shall receive a notification without permission.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:N/A\\
 
@@ -999,7 +998,7 @@ N/A
 \subsubsection{Standards Requirements}
 \begin{enumerate}[LR2.1]
     \item The product shall abide by all Canadian laws and regulations.\\
-    \textbf{Rationale}: The product must obey all legal rules so that it could be published or used.\\
+    \textbf{Rationale}: The product must obey all legal rules so that it can be published or used.\\
     \textbf{Fit criterion}: None of the users shall notice any part lawfully unreasonable.\\
 \textbf{Supporting Materials}: N/A\\
 \textbf{Dependencies}:FR5, FR6\\
@@ -1013,12 +1012,12 @@ N/A
 %%%%%%%%%%%%%%%%%%% Project Issues %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Issues}
 \subsection{Open Issues}
-The process of collecting data, building models, and eventually generating a product takes a long time. During this process, real-world data may have changed due to environmental factors and human factors. Environmental factors such as thunderstorms, conflagrations, earthquakes, floods, and the natural growth of plants and human factors such as cutting and planting might change the data of trees and the structure and density of the forest. When we are modelling the actual forests, The data that we use is non-real-time, which will lead to the data shown in the virtual forest that we model being different from the actual data in the real world. This might cause inaccuracy in the actual use of the product.
+The process of collecting data, building models, and eventually generating a product takes a long time. During this process, real-world data may have changed due to environmental factors and human factors. Environmental factors such as thunderstorms, conflagrations, earthquakes, floods, and the natural growth of plants and human factors such as cutting and planting might change the data of trees and the structure and density of the forest. When we are modelling the actual forests, The data that we use is non-real-time, which will lead to the data shown in the virtual forest that we model is different from the actual data in the real world. This might cause inaccuracy in the actual use of the product.
 \subsection{Off-the-Shelf Solutions}
-Our product does not use any other softwares as off-the-shelf solutions. 
+Our product does not use any other software as off-the-shelf solution. 
 
 %%We get data and solutions from Dr.Gonsamo's lab members.
-%%We also referred to some public unity tutorials online and a \href{https://reader.elsevier.com/reader/sd/pii/S1569843222001881?token=0FD852C628FAE19CABA5E197E8D7ACFF3F2161E405D1A2EC950EE68C39EE00A59ACE7E27C22E4B86F3E04611242D7160&originRegion=us-east-1&originCreation=20220925224650}{paper}  to design our project. 
+%%We also referred to some public unity tutorials online, and a \href{https://reader.elsevier.com/reader/sd/pii/S1569843222001881?token=0FD852C628FAE19CABA5E197E8D7ACFF3F2161E405D1A2EC950EE68C39EE00A59ACE7E27C22E4B86F3E04611242D7160&originRegion=us-east-1&originCreation=20220925224650}{paper}  to design our project. 
 \subsection{New Problems}
 \begin{enumerate}
     \item Our project may provide a new method for meteorologists to obtain information, which influences the traditional workflow. 
@@ -1045,7 +1044,7 @@ N/A
     \item Budget might not cover the cost.
     \item Excessive schedule pressure.
     \item The trees might be too high to scan all aspects of the trees or result in poor precision.
-    \item The project might occupy too much memory of the devices.
+    \item The project might occupy too much memory on the devices.
     \item The natural forest continuously changes, which brings high maintenance costs to update related information or misleads the forest owner to make decisions. 
 \end{enumerate}
 \subsection{Costs}
@@ -1058,7 +1057,7 @@ User manuals with a few lines of instructions.
 virtual forest and then update data automatically. 
 \end{enumerate}
 \subsection{Ideas for Solutions}
-The representation of the overall data of the forest might be realized in a separate module. And the same for the recorded significant data. Our current project is designed to run locally on a certain device, while a possible solution could be, to design an online mode for the users to access to the latest information. The users might click a certain button to browse the overall data of the forest and its historical versions. 
+The representation of the overall data of the forest might be realized in a separate module. And the same for the recorded significant data. Our current project is designed to run locally on a certain device, while a possible solution could be, to design an online mode for the users to access the latest information. The users might click a certain button to browse the overall data of the forest and its historical versions. 
 %%%%%%%%%%%%%%%%% Project Issues End %%%%%%%%%%%%%%%%%%%
 
 \newpage
@@ -1341,19 +1340,19 @@ may update the data. Secondly, data types may change since the developing team m
 delete some data types.
 \item The way to update data could be changed. Users can update the data in the product manually, but it is likely that the data can be changed automatically through sensors in the future.  
 \item User interface may change since the development team may add, adjust or delete some elements on the user interface. 
-\item Other contents apart from trees in the virtual representation may change. For instance, the development team may introduce new models such as grass, bushes, and so on to the virtual representation.
+\item Tree models are likely to change. For instance, the development team may introduce new models, such as grass, bushes etc., to the virtual representation.
 \end{enumerate}
 %%%%%%%%%%%%%%% Likely Changes End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%% Unlikely Changes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Unlikely Changes}
 \begin{enumerate}
-\item The product must display basic instructions when users access the product.\\
-Justification: According to our user characterises, most of our target users may not have 
-experience with digital twin technologies. Therefore, instructions are essential.
-\item Including tree models 
-as a part of the virtual forest is unlikely to change.\\ Justification: Trees are the most important
-part of a real forest.
+\item input devices of the software are unlikely to change.\\
+Justification: The software runs on desktops or laptops, so the input devices should be a keyboard and a mouse.
+\item The way of viewing forest models.\\
+Justification: The forest models should be viewed from the computer screens.
+\item The operating system the software runs on.\\
+Justification: The software is only designed for Windows or macOS systems.\\
 \end{enumerate}
 %%%%%%%%%%%% Unlikely Changes End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1363,9 +1362,9 @@ part of a real forest.
 \appendix
 \section{Reflection Appendix}
 
-The preparation of our project includes collecting data, scanning on field, and recording and organizing the data for later use. Before we determined our project, our group reached Dr.Gonsamo for possible collaboration. With help of members in his lab, we gained basic experience of scanning models on field and determined a target forest. In the data-collecting phase, we would need to keep fluent communication with Dr.Gonsamo and the members in his lab. We also need to handle the huge amount of measurements to get all the data we need later and try to manage the data in a reasonable and convenient way, which should be easy to both manage and use, to make the next phase easier. The measurement work might take days and could be heavy labour, which means we need to do a detailed plan before we go to the target forest, maintain a concise team, and make a reasonable division of labour during it. After the measurements, we need to process and reorganize the data for modelling. We will need data-processing skills in this phase. Besides, as the project relates to the domain of the ecosystem, related knowledge is also required. 
+The preparation of our project includes collecting data, scanning on the field, and recording and organizing the data for later use. Before we determined our project, our group reached Dr.Gonsamo for possible collaboration. With the help of members in his lab, we gained basic experience in scanning models on the field and determined a target forest. In the data-collecting phase, we would need to keep fluent communication with Dr.Gonsamo and the members of his lab. We also need to handle the huge amount of measurements to get all the data we need later and try to manage the data in a reasonable and convenient way, which should be easy to both manage and use, to make the next phase easier. The measurement work might take days and could be heavy labour, which means we need to do a detailed plan before we go to the target forest, maintain a concise team, and make a reasonable division of labour during it. After the measurements, we need to process and reorganize the data for modelling. We will need data-processing skills in this phase. Besides, as the project relates to the domain of the ecosystem, related knowledge is also required. 
 
-In the modeling part, the work will be finished in Unity. We will need to get familiar with Unity to construct 3D models and develop a user interface. As we will construct the model based on the data we collect in the former phase, we will use C\# to import the data. We will achieve this purpose with a relatively small amount of codes, while the expertise C\# knowledge is still required. To share the model and get everyone synchronized, we will use Git in our project. 
+In the modelling part, the work will be finished in Unity. We will need to get familiar with Unity to construct 3D models and develop a user interface. As we will construct the model based on the data we collect in the former phase, we will use C\# to import the data. We will achieve this purpose with a relatively small amount of codes, while the expertise C\# knowledge is still required. To share the model and get everyone synchronized, we will use Git in our project. 
 
 We are going to keep working on the capstone for over six months, and this is the first time that we manage a relatively large project involving five individuals. Team management skills are essential for us. During the whole process, we will continuously work on documentations, and will present our project three times (proof of concept; revision 0; and EXPO). We will treat our project as a serious business case, and try to make it both formal and attractive. This purpose requires outstanding skills in writing and delivering presentations. 
 
