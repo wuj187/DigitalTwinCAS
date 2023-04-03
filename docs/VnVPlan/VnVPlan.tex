@@ -37,8 +37,11 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 October 29th & 1.0 & Initial Document\\
+\hline
 March 7th & 2.0 & Modify some test cases, finish Design Doc Verification
 Plan\\
+\hline
+April 2 & 3.0 & Final Version\\
 \bottomrule
 \end{tabularx}
 
@@ -51,76 +54,88 @@ Plan\\
 \newpage
 
 \section{Symbols, Abbreviations and Acronyms}
-The follow are some naming conventions and definitions from SRS:
+The following are some naming conventions and definitions from SRS:
 \begin{itemize}
-    \item LiDAR: Light Detection and Ranging(Scanning Technology)
-    \item Plot: A square shaped area in the forest. There are 13 plots in
-    total. 
-    \item Target Forest: The natural forest modelled in this product.
-    \item Digital Twin Forest: The virtual representation of the target
-    forest.
-    \item Update local data: The users are allowed to update any data on their
-    own device. The update made by a user will not be updated to the other
-    users.
-    \item Update official data: The developing team would release updates
-    regularly. The update made by the developing team can be updated to all
-    users if they accept the latest version.
-    \item Overall forest data: These are data for the whole forest. For
-    example, these data may include overall $CO_2$ concentration or plant
-    density of the whole forest.
-    \item Forest plot data: The target forest is separated into 13 plots. Plot
-    forest data has the same data types as the overall forest data, however,
-    all the data are for a specific forest plot.
-    \item Tree parameters: Tree parameters include data such as tree ages,
-    perimeters, heights, species, etc.
-    \item Main page: This is the first user interface when users just lunch the 
-    system.
+\item LiDAR: Light Detection and Ranging(Scanning Technology)
+\item Plot: A square-shaped area in the forest. There are 14 plots in total. 
+\item LAI: Leaf Area Index
+\item DBH: Diameter at Breast Height
+\item Target Forest: Target forest refers to the natural forest located at Turkey
+Point in Ontario.
+\item Digital Twin Forest: The virtual representation of the target forest.
+\item Forest Data: Forest Data include environmental data and tree parameters.
+\item Environmental Data:
+\begin{itemize}
+    \item Humidity
+    \item Temperature
+    \item Soil Carbon Content
+    \item Soil Nitrogen Content
+    \item LAI 
+\end{itemize}
+\item Tree parameters: 
+\begin{itemize}
+    \item Density
+    \item Height
+    \item Age
+    \item DBH 
+\end{itemize}
+\item Tree types. There are 7 different types of trees,
+the following are the details:
+\begin{itemize}
+    \item Red Pine
+    \item Oak
+    \item Birch 
+    \item Beech
+    \item White Pine
+    \item Red Maple
+    \item Red Oak
+\end{itemize}
 \end{itemize}
 \newpage
 
 \pagenumbering{arabic}
-\section{General Information}
 
+
+
+\section{General Information}
 \subsection{Summary}
-The software being tested is called \textit{Digital Twin Forest}. This isa
-virtual representation of the target forest. The product will provide the 
-following general functions:
+The software being tested is called \textit{Digital Twin Forest}. 
+This is a virtual representation of the target forest. The product 
+will provide the following general functions:
 \begin{itemize}
-    \item Provide 3D models to simulate trees, soil, terrain, atmosphere, etc,
-    in the target forest.
-    \item Provide User Interface to present forest data(Overall forest
-    data and Forest plot data) and tree parameters.
-    \item Allow users to update local forest data and the virtual forest
-    should present the changes.
-    \item Allow users to update official data provided by the developing
-    team.
+\item A virtual representation of the real forest,
+allowing monitoring and analyzing from distance.
+\item Visualizing important data related to scientific 
+research and decision-making.
+\item A forest model that can change dynamically 
+according to the modification of the data.
 \end{itemize}
 
 \subsection{Objectives}
 
-This document will perform as a guide of examining the quality of our software. The
-first objective to be accomplished is to make sure correctness of the software.
-Testing will allow our team to examine all the functions of our product. The software
-should be executed properly, perform as designed, represent the expected data, and
-show the model we constructed. The second objective is to examine the usability. The
-possible methods might include manual testings by the testing team, questionnaires and
-user interviews. 
+This document will perform as a guide for examining the quality of
+our software. The first objective to be accomplished is to make sure
+correctness of the software. Testing will allow our team to examine 
+all the functions of our product. The software should be executed 
+properly, perform as designed, represent the expected data, and
+show the model we constructed. The second objective is to examine 
+usability. The possible methods might include manual testing by the 
+testing team, questionnaires, and user interviews. 
 
 \subsection{Relevant Documentation}
-The System Verification Plan and Validation Plan mainly focuses 
-on testing functional and non-functional requirements in the SRS documents. After the first 
-submission of the SRS document, our team revised some SRS contents. You
-can find the latest SRS document
-\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{\textcolor{red}{here}}. 
+\begin{itemize}
+\item \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{SRS}
+
+\item \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/DevelopmentPlan/DevelopmentPlan.pdf}{Development Plan}
+
+\item \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Detailed-Design/MIS.pdf}{MIS}
+
+\item \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Architecture-Design/MG.pdf}{MG}
+\end{itemize}
+
+\newpage
 
 \section{Plan}
-This section refers to the general testing plan of the project \textit{Digital Twin Forest}. 
-To start with, it assigns different roles to the team members. Then, it contains the
-SRS verification plan, which is divided into review by supervisor, reviewed by classmates
-and reviewed by teammates. Then, it introduces the design verification which will be
-completed later. This section also introduced how the team will test codes. Automated
-testing tools are also given. Last, this section contains the plan for software
-validation.
 
 \subsection{Verification and Validation Team}
 \begin{table}[H]
@@ -150,68 +165,87 @@ validation.
 \end{table}
 
 \subsection{SRS Verification Plan}
-SRS testing refers to the review the functional and non functional requirements mentioned
-in the SRS document. In general, an SRS checklist will be created to verify if each
-requirement has been met. The SRS may be revised by adding or removing requirements
-based on new users' needs and constraints.
+SRS testing refers to the review of the functional and 
+non-functional requirements mentioned in the SRS document. In 
+general, a SRS checklist will be created to verify if each
+requirement has been met. The SRS may be revised by adding or
+removing requirements based on new users' needs and constraints.
 
 \subsubsection{Review by Supervisor}
-The project is supervised by Dr. Gonsamo and his lab members. Our team meets weekly
-with graduate students in Dr. Gonsamo's lab and reviews the progress of the project.
-At the end of the semester, our team will have a formal meeting with Dr. Gonsamo, and
-the project will be verified to see if it accomplishes all his expectations. 
-Dr. Gonsamo will take the project and do a task-based inspection. For example, the application will be installed on lab computers and functions like measuring distance
-between trees will be tested to see if it has an acceptable accuracy.
+The project is supervised by Dr. Gonsamo and his lab members. Our 
+team meets weekly with graduate students in Dr. Gonsamo's lab and 
+reviews the progress of the project.
+At the end of the semester, our team will have a formal meeting
+with Dr. Gonsamo, and the project will be verified to see if it 
+accomplishes all his expectations.  Dr. Gonsamo will take the 
+project and do a task-based inspection. For example, the 
+application will be installed on lab computers, and functions like 
+measuring the distance between trees will be tested to see if it has 
+an acceptable accuracy.
 
 \subsubsection{Review by Classmates}
-Classmates from other groups will be considered users who have no training
-. Non-functional requirements in SRS can be tested by these reviewers, and
-they will provide feedback. For example, it is clear that the application is
-easy to learn if the reviewers successfully access the virtual forest in one minute.
+Classmates from other groups will be considered users who have no 
+training. Non-functional requirements in SRS can be tested by 
+these reviewers, and they will provide feedback. For example, it 
+is clear that the application is easy to learn if the reviewers 
+successfully access the virtual forest in one minute.
 
 \subsubsection{Review by teammates}
-Team members are the reviewers who are most familiar with the project. The team will
-go through the SRS document and carry out both system tests and unit tests. The SRS
-checklist will be filled to see if all the functional and non-functional requirements
-have been accomplished.
+Team members are the reviewers who are most familiar with the 
+project. The team will
+go through the SRS document and carry out both system tests and 
+unit tests. 
+The SRS checklist will be filled to see if all the functional and
+non-functional requirements have been accomplished.
 
 \subsection{Design Verification Plan}
-Our design will be continuously improved with the implementation work heading on the final version. Our design will be discussed with our supervisor before, during and after we implement our product. The design will be modified according to the discussion with our supervisor and the advice given by course coordinator in the demonstrations within next months.
+Our design will be continuously improved with the implementation
+work heading on the final version. The design documents will be
+verified using the following way:
+\begin{itemize}
+\item Take the feedback from the teaching assistant and peer
+reviews 
+\item Make sure that design documents are consistent with the 
+SRS
+\item Make sure that design documents are consistent with the code
+(During implementation, we cannot make sure that the actual code 
+can follow design documents strictly. Therefore, we also 
+need to make sure that design documents are consistent with 
+the source code)
+\end{itemize}
 
 \subsection{Verification and Validation Plan Verification Plan}
-The verification and validation plan verification plan aims at documenting how this verification and validation plan will be verified. The VnV plan will be reviewed by classmates from other groups and TAs and we will collect feedback and questions from them. The VnV plan will also be verified by the ForestMirror team when team members perform tests for the functional and non-functional requirements mentioned in SRS, and any modifications of the testing plans will be recorded. 
-
-
+The verification and validation plan verification plan aims at 
+documenting how this verification and validation plan will be 
+verified. The VnV plan will be reviewed by classmates from other 
+groups and TAs, and we will collect feedback and questions from 
+them. The VnV plan will also be verified by the ForestMirror team 
+when team members perform tests for the functional and 
+non-functional requirements mentioned in SRS, and any 
+modifications of the testing plans will be recorded. 
 
 \subsection{Implementation Verification Plan}
-Implementation verification refers to the high quality code of the application. Code
-testing is mentioned in the system test description of this document, especially in
-the tests for nonfunctional requirements. For example, a dynamic testing will be done
+Implementation verification refers to the high-quality code of the 
+application. Code testing is mentioned in the system test 
+description of this document, especially in the tests for
+nonfunctional requirements. For example, dynamic testing will be done
 for performance requirements, and the team will perform individual code
 walkthroughs. The team will follow the module guide and the traceability matrix to see
-if the system follow low coupling and high cohesion principles
-, another team member will help him/her do the
+if the system follows low coupling and high cohesion principles, and another team member will help him/her do the
 verification.
 If the test fails, the code needs to be revised
 before committing.\\
 \noindent
-Besides that, we will use static testing to ensure the code and documents are following good quality and our design. During the development, we will contact with our stakeholders to make sure we are doing the right products.
+Besides that, we will use static testing to ensure the code and documents are following good quality and our design. During the development, we will contact our stakeholders to make sure we are making the right products.
 
 \subsection{Automated Testing and Verification Tools}
 
-Automated testing tools, code coverage metrics, and linters have been mentioned in the
-\href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/DevelopmentPlan/DevelopmentPlan.pdf}{\textcolor{red}{development plan}}. \\
-The team will use Visual Studio 2019 as the IDE of the project. The project is
-implemented in C sharp language, and the built-in linter of VS2019 is good enough to
-analyze the code and improve the quality. In VS2019, a unit test project of .NET
-The framework that contains MSTest unit tests will be used for the unit testing. The
-JetBrains dotCover will be installed as a plugin to check the code coverage. It can do
-coverage analysis for the unit testing plan.
+Automated testing tools will not be used in our project. As the team uses the visual studio as the IDE and the scripts will be automatically compiled. Unity will respond to the modification as a system. Therefore, all the tests will be done manually in Unity.
 
 \subsection{Software Validation Plan}
 Software validation is to guarantee SRS captures the right requirements.  As a
 Meteorologist, Dr. Gonsamo, is not only the supervisor of the project but also a
-stakeholder. As mentioned in the SRS verification section, Dr. Gonsamo will do a task-based inspection with the team. The functions of the application will be tested by trying to accomplish a range of task just to see if the requirements are necessary.
+stakeholder. As mentioned in the SRS verification section, Dr. Gonsamo will do a task-based inspection with the team after the Rev 0 demo. The functions of the application will be tested by trying to accomplish a range of tasks just to see if the requirements are necessary.
 
 \newpage
 
@@ -222,103 +256,71 @@ are divided into two subsets. The first subset is about
 testing presentations(what
 contents will be presented to users). The second subset is about
 testing if users can interact successfully with the product.
-According to the newly revised SRS document mentioned in section 3.3, we have
-18 functional requirements in total. The following are the
+According to the SRS document, we have
+16 functional requirements in total. The following are the
 corresponding requirements within  two subsets
 \begin{itemize}
-    \item Presentation = \{FR1, FR4, FR5, FR9, FR12\}
-    \item Users' interactions with the product = \{FR2, FR3, FR6, FR7, FR8
-    FR10, FR11, FR13, FR14, FR15, FR16, FR17\}
+\item Presentation = \{FR1, FR2, FR3, FR7, FR10, FR13, FR14, FR15,
+FR16\}
+\item Users' interactions with the product = \{FR4, FR5, FR6, 
+FR8, FR9, FR11, FR12\}
 \end{itemize}
-\subsubsection{Presentation}
-This section focuses on what contents are presented to users. 
-From the SRS, there are 5 requirements related to the presentations, which
-are FR1, FR4, FR5, FR9 and FR12. Each functional requirement will have at least one 
-corresponding system test. The following are the system tests for requirements
-related to presentations.
 
+\subsubsection{Presentation}
 \begin{enumerate}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Test-FR1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Test-FR1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item{Test-FR1\\}
 Control: Manual\\ 
 
-Initial State: The product is just launched and running. Main page
-is presented to users.\\
+Initial State: The product is just launched and running. The main 
+page is presented to users.\\
 
 Input: A click event on \verb|Instruction| button on the main page.\\
 
-Output: Instruction page will open and instructions about how to use 
-the product will be presented in the instruction page.\\
+Output: The instruction page will open, and instructions about how 
+to use the product will be presented on the instruction page.\\
 
-Test Case Derivation: \verb|Instruction| button is designed for opening 
-instruction page that contains instructions. Therefore, a click event on
-\verb|Instruction| button will open instruction page.\\
+Test Case Derivation: \verb|Instruction| button is designed for 
+opening the instruction page that contains instructions. Therefore, 
+a click event on \verb|Instruction| button will open the instruction
+page.\\
 					
-How test will be performed: Let testers lunch the software and click on 
-\verb|Instruction| button, instruction page with instructions should appear on the 
-screen. After the instruction page has been displayed, testers set the system to the 
-initial state(Main page) and retest the \verb|Instruction| button. Testers need to 
-repeat this process 10 times.
-%%%%%%%%%%%%%%%%%%%%%%%% Test-FR1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+How test will be performed: Let testers lunch the software and click
+on  \verb|Instruction| button. The instruction page with 
+instructions should appear on the  screen. After the instruction 
+page has been displayed, testers set the system to the 
+initial state(Main page) and retest the \verb|Instruction| button. 
+Testers need to repeat this process 10 times.
+%%%%%%%%% Test-FR1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%% Test-FR4.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Test-FR4.1 will test from (main page --> overall forest view)
-\item{Test-FR4.1\\}
+%%%%% Test-FR2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR2\\}
 Control: Manual\\ 
 
-Initial State: The product is just launched and running. Main
+Initial State: The product is just launched and running. The main 
 page is presented to users.\\
 
-Input: A click event for \verb|Start| button on the main page.\\
+Input: A click event on \verb|Contact Us| button on the main page.\\
 
-Output: A progress bar will appear on the screen to indicate how many
-percentages of forest models are being loaded.\\
+Output: The contact us page will open, and developers' names and
+emails should appear on the screen.\\
 
-Test Case Derivation: Sometimes forest models can be large and they take
-time to be loaded and presented to users. A progress bar can bring better
-user experience to users by allowing them to know what is happening within the 
-system. Clicking \verb|Start| will trigger the loading process of forest models.
-While the forest models are being loaded, the progress bar should show on the screen.\\
+Test Case Derivation: \verb|Contact Us| button is designed for 
+opening the Contact Us page. Therefore, 
+a click event on \verb|Contact Us| button will open the Contact 
+Us information page.\\
 					
-How test will be performed: Let testers lunch the software and click on 
-\verb|Start| button 10 times, the progress bar 
-shall always appear on the screen after clicking
-\verb|Start|.\\
+How test will be performed: Let testers lunch the software and click
+on  \verb|Contact Us| button. The Contact Us information page with 
+developers' names and emails should appear on the  screen. 
+After the instruction page has been displayed, testers set the 
+system to the initial state(Main page) and retest the 
+\verb|Contact Us| button. Testers need to repeat this process 10 times.
+%%%%%%%%% Test-FR2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textcolor{red}{Forest models in this test case mean overall 
-digital twin forest view.}
-%%%%%%%%%%%%%%%%%%%%%%%% Test-FR4.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%% Test-FR4.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Test-FR4.1 will test from (overall forest view --> a specific forest plot)
-\item{Test-FR4.2\\}
-Control: Manual\\ 
-
-Initial State: The overall digital twin forest view with 14 plots 
-and overall forest data is presented to users.\\
-
-Input: A click event on any forest plot.\\
-
-Output: A progress bar will appear on the screen to indicate how many
-percentages of forest models are being loaded.\\
-
-Test Case Derivation: Sometimes forest models can be large and they take
-time to be loaded and presented to users. A progress bar can bring better
-user experience to users by allowing them to know what is happening within the 
-system. Clicking a specific forest plot will trigger the loading process of 
-forest models. While the forest models are being loaded, the progress bar 
-should show on the screen.\\
-					
-How test will be performed: Let testers click on each forest plots for 10 times(140 
-times in total), the progress bar shall always appear on the screen after clicking
-a forest plot.\\
-
-\textcolor{red}{Forest models in this test case mean trees 
-models within a specific forest plot.}
-%%%%%%%%%%%%%%%%%%%%%%% Test-FR4.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%% Test-FR5 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR5\\}
+%%%%%%%%%%%%%%%%%%%%%%% Test-FR3 %%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR3\\}
 Control: Manual\\ 
 
 Initial State: The product is just launched and running. Main page
@@ -326,28 +328,25 @@ is presented to users.\\
 
 Input: A click event on \verb|Start| button on the main page.\\
 
-Output: After the progress bar reaches 100\%, full view of overall digital 
-twin forest is presented. Full view here includes 14 forest plots and overall forest
-data. \\
+Output: The full view of forest plot 1 should be displayed. \\
 
-Test Case Derivation: The product will present the digital twin forest in a 
-hierarchical way. It will first display full view of the overall digital twin
-forest. Then users can choose to display a specific forest plot. Therefore, after 
-clicking \verb|Start|, full view of the overall digital twin forest should
-appear on the screen after all the models are loaded. \\
+Test Case Derivation: Our system can present forest models of
+14 plots and overall forest. The initial forest model presentation
+is set to be plot 1. Therefore, after clicking \verb|Start|, 
+the forest model of plot 1 should be displayed.\\
 					
-How test will be performed: Let testers lunch the product and click \verb|Start| button
-for 10 times, full view of the digital twin forest should always appear after the 
-progress bar reaches 100\%. Also, testers need to make sure 14 forest plots and 
-overall forest data can be displayed.
+How test will be performed: Let testers lunch the product and click 
+\verb|Start| button 10 times, full view of plot 1 should be 
+displayed. After each click, reset the system to the initial 
+state.
+%%%%%%%%%%%%%%%%%%%% Test-FR3 End %%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%% Test-FR5 End %%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%% Test-FR9.1 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR9.1\\}
+%%%%%%%%%%%%%%%%%%%%%%% Test-FR7.1 %%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR7.1\\}
 Control: Manual\\ 
 
-Initial State: The forest model is presented to users and 
+Initial State: The forest model is presented to users, and 
 environmental data are not displayed.\\
 
 Input: A click event on \verb|Environmental Data| button.\\
@@ -363,13 +362,13 @@ How test will be performed: Let testers click
 \verb|Environmental Data| button 10 times. After each click, testers 
 should reset the system to the initial state. Environmental data 
 should display on the left side of the screen 10 times.
-%%%%%%%%%%%%%%%%%%%% Test-FR9.1 End %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% Test-FR7.1 End %%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%% Test-FR9.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR9.2\\}
+%%%%%%%%%%%%%%%%%%% Test-FR7.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR7.2\\}
 Control: Manual\\ 
 
-Initial State: The forest model is presented to users and 
+Initial State: The forest model is presented to users, and 
 tree parameters are not displayed.\\
 
 Input: A click event on \verb|Tree Parameters| button.\\
@@ -385,10 +384,10 @@ How test will be performed: Let testers click
 \verb|Tree Parameters| button 10 times. After each click, testers 
 should reset the system to the initial state. Tree parameters
 should display on the right side of the screen 10 times.
-%%%%%%%%%%%%%%% Test-FR9.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Test-FR7.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR12.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR12.1\\}
+%%%%%%%%%%%%%%% Test-FR10.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR10.1\\}
 Control: Manual\\ 
 
 Initial State: Environmental data are presented.\\
@@ -402,73 +401,134 @@ part is not applicable.\\
 					
 How test will be performed: Let testers observe and record all the 
 environmental data. Then testers need to check if the data observed
-from the UI are exactly the same as data stored in the software. 
-If data observed are the same as data stored in the UI, test passes.
-Otherwise test fails. Testers can check the JSON files stored 
-\href{https://github.com/tingyushi/DTForest-DS}{here}
-as the data to be compared against. 
-%%%%%%%%%%%%%%% Test-FR12.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+from the UI are exactly the same as the data stored in the software. 
+If the data observed are the same as the data stored in the UI, 
+the test passes. Otherwise, the test fails. Testers can check the JSON
+files stored \href{https://github.com/tingyushi/DTForest-DS}{here}
+as the data to be compared. 
+%%%%%%%%%%%%%%% Test-FR10.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR12.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR12.2\\}
+%%%%%%%%%%%%%%% Test-FR10.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR10.2\\}
 Control: Manual\\ 
 
-Initial State: Tree parameters are presented.\\
+Initial State: Tree Parameters are presented.\\
 
 Input: Testers record all the tree parameters.\\
 
 Output: N/A\\
 
-Test Case Derivation: Since this test does not have any output, this part is
-not applicable.\\
+Test Case Derivation: Since this test does not have any output, this 
+part is not applicable.\\
 					
 How test will be performed: Let testers observe and record all the 
 tree parameters. Then testers need to check if the data observed
-from the UI are exactly the same as data stored in the software. 
-If data observed are the same as data stored in the UI, test passes.
-Otherwise test fails. Testers can check the JSON files stored 
-\href{https://github.com/tingyushi/DTForest-DS}{here}
-as the data to be compared against. 
-%%%%%%%%%%%%%%% Test-FR12.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+from the UI are exactly the same as the data stored in the software. 
+If the data observed are the same as the data stored in the UI, 
+the test passes. Otherwise, the test fails. Testers can check the JSON
+files stored \href{https://github.com/tingyushi/DTForest-DS}{here}
+as the data to be compared. 
+%%%%%%%%%%%%%%% Test-FR10.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%% Test-FR13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR13\\}
+Control: Manual\\ 
+
+Initial State: Forest model is presented.\\
+
+Input: Testers update tree parameters, including tree density, tree
+height, and tree DBH.\\
+
+Output: Tree models should change correspondingly according to newly
+updated data. For example, if we update the tree height to a larger
+value, the tree models should appear higher.\\
+
+Test Case Derivation: Tree model and tree parameter synchronization
+means that tree  models should be consistent with the tree parameters.
+Therefore, if tree models can change accordingly after  entering 
+new tree parameters, we can prove that the synchronization is 
+successful.\\
+					
+How test will be performed: Let testers modify tree parameters for 
+all 7 types of trees in 14 plots. After each modification, testers need
+to check if the tree models have been updated correctly.
+%%%%%%%%%%%%%%% Test-FR13 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR14 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR14\\}
+Control: Manual\\ 
+
+Initial State: Forest model is presented.\\
+
+Input: Testers click on the \verb|seasonal change| button at the top 
+center of the screen.\\
+
+Output: 
+\begin{itemize}
+\item If the current season is summer, all the trees except pine trees
+should lose leaves after clicking the \verb|seasonal change| button.
+Also, the snow effect should appear.
+\item If the current season is winter, all the trees will have leaves 
+after clicking the \verb|seasonal change| button. Also, the snow 
+effect should disappear.
+\end{itemize}
+
+Test Case Derivation: \verb|Seasonal change| button is designed for 
+simulating different seasons. Therefore, 
+a click event on \verb|seasonal change| button will make the system 
+simulate different seasons.\\
+					
+How test will be performed: Let testers click on \verb|seasonal change|
+button 10 times in succession, the summer season and winter season 
+should appear 5 times, respectively.
+%%%%%%%%%%%%%%% Test-FR14 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR15\\}
+Control: Manual\\ 
+
+Initial State: Environmental data are displayed.\\
+
+Input: Testers click on the \verb|switch| button located in the 
+panel that contains environmental data.\\
+
+Output: A pie chart indicating percentages of different tree 
+types should appear on the left side of the screen.\\
+
+Test Case Derivation: \verb|Switch| button is designed for 
+displaying the pie chart. Therefore,  a click event on \verb|switch| 
+button will visualize the pie chart.\\
+					
+How test will be performed: Let testers click on \verb|switch|
+button 10 times, the pie chart should appear 10 times. After each 
+click event, testers need to reset the system to the initial state.
+%%%%%%%%%%%%%%% Test-FR15 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR16\\}
+Control: Manual\\ 
+
+Initial State: The forest model of a plot is loaded and presented.\\
+
+Input: Testers move to the top view of this forest plot.\\
+
+Output: N/A\\
+
+Test Case Derivation: Testers need to verify that tree 
+distribution is the same as the satellite pictures provided. \\
+					
+How test will be performed: Let testers move to the top view of each 
+plot and check if the tree distribution is consistent with the 
+satellite picture provided. Figure \ref{fig:SP} is a sample satellite picture.
+%%%%%%%%%%%%%%% Test-FR16 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{enumerate}
 
+
 \subsubsection{Users' interactions with the product}
-This section focuses on users' interactions with the system. 
-From the SRS, there are 13 requirements related to users' interactions
-with the system, which
-are FR2, FR3, FR6, FR7, FR8, FR10, FR11, FR13, FR14, FR15, FR16, FR17 and FR18.
-Each functional requirement will have at least one 
-corresponding system test. The following are the system tests for requirements
-related to users' interactions with the system.
-
 \begin{enumerate}
- %%%%%%%%%%%%%%% Test-FR23 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR2\&3\\}
-Control: Manual\\ 
-
-Initial State: The product is launched and running. Main page is
-presented to users.\\
-
-Input: A click event on \verb|Start| button.\\
-
-Output: The screen should change from the main page
-interface to the view of the forest model. \\
-
-Test Case Derivation: If clicking \verb|Start| button can change the 
-main page to the forest model view. Then we can prove that \verb|Start|
-button provides a way to allow users to start the virtual tour of the 
-digital twin forest.\\
-					
-How test will be performed:  Let testers launch the product and click 
-\verb|Start| button 10 times, forest model view should always appear.
-After forest model appeared, testers should reset the system to the 
-initial state, which is the main page.
-%%%%%%%%%%%%%%% Test-FR23 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR6.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR6.1\\}
+%%%%%%%%%%%%%%% Test-FR4.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR4.1\\}
 Control: Manual\\ 
 
 Initial State: Environmental data are displayed.\\
@@ -482,13 +542,13 @@ screen, this proves that data GUI can be minimized.\\
      
 How test will be performed: Let testers click 
 \verb|Environmental Data| button 10 times when environmental data 
-are displayed, environmental data display should disappear 10 times.
+are displayed. Environmental data display should disappear 10 times.
 After each click, testers need to reset the system to the initial 
 state.
-%%%%%%%%%%%%%%% Test-FR6.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Test-FR4.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR6.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR6.2\\}
+%%%%%%%%%%%%%%% Test-FR4.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR4.2\\}
 Control: Manual\\ 
 
 Initial State: Tree parameters are displayed.\\
@@ -502,105 +562,102 @@ screen, this proves that data GUI can be minimized.\\
      
 How test will be performed: Let testers click 
 \verb|Tree Parameters| button 10 times when tree parameters 
-are displayed, tree parameters display should disappear 10 times.
+are displayed. Tree parameters display should disappear 10 times.
 After each click, testers need to reset the system to the initial 
 state.
-%%%%%%%%%%%%%%% Test-FR6.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Test-FR4.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR7\\}
+%%%%%%%%%%%%%%% Test-FR5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR5\\}
 Control: Manual\\ 
 
-Initial State: Overall digital twin forest view is presented. This view includes
-14 forest plots and overall forest data.\\
+Initial State: Forest model is loaded and presented.\\
 
-Input: A click event on any forest plot.\\
+Input: A click event on \verb|Environmental Data| button.\\
 
-Output: Windows to present forest plot data should appear on two sides of the 
-screen.\\
+Output: The panel to present environmental data should appear on the left side 
+of the screen.\\
 
-Test Case Derivation: If clicking any forest plot can make windows to present forest
-plot data appear on two sides of the screen. Then we can prove that the system is able
-to present forest plot data.\\
+Test Case Derivation: If clicking on \verb|Environmental Data| button can 
+visualize environmental data, we can prove that our system has provided 
+a way to visualize environmental data.\\
 					
-How test will be performed:  Let testers click each forest plot for 10 times(140 times
-in total), windows to present forest plot data should always appear on two sides of
-the screen.
-%%%%%%%%%%%%%%% Test-FR7 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+How test will be performed:  Let testers click \verb|Environmental Data| button
+10 times, environmental data should be displayed 10 times. After 
+each click event, testers need to reset the system to the initial state.
+%%%%%%%%%%%%%%% Test-FR5 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Test-FR6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR6\\}
+Control: Manual\\ 
+
+Initial State: Forest model is loaded and presented.\\
+
+Input: A click event on \verb|Tree Parameters| button.\\
+
+Output: The panel to present tree parameters should appear on the 
+right side of the screen.\\
+
+Test Case Derivation: If clicking on \verb|Tree Parameters| 
+button can  visualize tree parameters, we can prove that our 
+system has provided a way to visualize .\\
+					
+How test will be performed:  Let testers click 
+\verb|Tree parameters| button
+10 times, tree parameters should be displayed 10 times. After 
+each click event, testers need to reset the system to the initial state.
+%%%%%%%%%%%%%%% Test-FR6 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%% Test-FR8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item{Test-FR8\\}
 Control: Manual\\ 
 
-Initial State: Various tree models are presented on the screen.\\
+Initial State: Forest model is loaded and presented.\\
 
-Input: A click event on any tree model.\\
+Input: Testers press \verb|WASD| keys.\\
 
-Output: A pop-up window should appear to show related tree parameters.\\
+Output: 
+\begin{itemize}
+\item Users move forward after pressing \verb|W| key.
+\item Users move backward after press \verb|S| key.
+\item Users move left after pressing \verb|A| key.
+\item Users move right after pressing \verb|D| key.
+\end{itemize}
 
-Test Case Derivation: If clicking any tree model can make pop-up windows to present 
-tree parameters appear on the screen. Then we can prove that the system is able
-to present tree parameters.\\
+Test Case Derivation: In Unity, we can program \verb|WASD| keys
+so that they can control the movement of the camera. If the 
+camera can move around in the forest, users can move in the 
+forest equivalently.\\
 					
-How test will be performed:  Let testers randomly select 20 trees in each forest plot.
-Since there are 14 forest plots, 280 trees will be selected in total. By clicking on
-each tree, a pop-up window should always appear on the screen to show tree parameters.
+How test will be performed:
+\begin{itemize}
+\item Let testers press \verb|A| key 5 times in succession 
+and each key press should last 2 seconds.  The user's point of 
+view should move left after each key press.
+
+\item Let testers press \verb|D| key 5 times in 
+succession, and each key press should last 2 seconds. The user's
+point of view  should move right after each key press.
+
+\item Let testers press \verb|W| key 5 times in 
+succession, and each key press should last 2 seconds. The user's
+point of view  should move forward after each key press.
+
+\item Let testers press \verb|S| key 5 times in 
+succession, and each key press should last 2 seconds. The user's
+point of view  should move backward after each key press.
+\end{itemize}
 %%%%%%%%%%%%%%% Test-FR8 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR10\\}
-Control: Manual\\ 
-
-Initial State: Various tree models are presented on the screen.\\
-
-Input: Testers press \verb|W| key and \verb|S| key.\\
-
-Output: Tree models are zoomed in by pressing \verb|W| key, and zoomed out
-by pressing \verb|S| key.\\
-
-Test Case Derivation: In Unity, we can program \verb|W| and \verb|S| keys so that 
-they can control the camera to move forward and move backward. If the camera moves
-forward, which means getting closer to tree models, tree models are zoomed in 
-equivalently. If the camera moves backward, which means getting further to tree 
-models, tree models are zoomed out equivalently.\\
-					
-How test will be performed: Let testers press \verb|W| key 5 times in succession 
-and each key press should last 2 seconds. Tree models should be zoomed in after 
-each key press. After this, let testers press \verb|S| key 5 times in succession,
-and each key press should last 2 seconds. Tree models should be zoomed out after
-each key press.
-%%%%%%%%%%%%%%% Test-FR10 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR11.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR11.1\\}
+%%%%%%%%%%%%%%% Test-FR9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR9\\}
 Control: Manual\\ 
 
 Initial State: The forest model is presented on the screen.\\
 
-Input: Testers press \verb|A| key and \verb|D| key.\\
-
-Output: Users' first view should move left after pressing \verb|A| key. Users'
-first view should move right after press \verb|D| key.\\
-
-Test Case Derivation: In Unity, we can program \verb|A| and \verb|D| keys so that 
-they can control the camera to move left and move right. If the camera's position 
-can change, user's point of view can also change.\\
-					
-How test will be performed: Let testers press \verb|A| key 5 times in succession 
-and each key press should last 2 seconds.  The user's point of view should move left
-after each key press. After this, let testers press \verb|D| key 5 times in 
-succession, and each key press should last 2 seconds. The user's point of view 
-should move right after each key press.
-%%%%%%%%%%%%%%% Test-FR11.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR11.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR11.2\\}
-Control: Manual\\ 
-
-Initial State: The forest model is presented on the screen.\\
-
-Input: Users move the mouse in 4 different directions, which are left, right, 
-forward, and backward.\\
+Input: Users move the mouse in 4 different directions, which are
+left, right, forward, and backward.\\
 
 Output:
 \begin{itemize}
@@ -621,77 +678,10 @@ How test will be performed: \\ The test will be performed in 4 steps:
     \item Let testers move the mouse forward, the point of view should rotate up.
     \item Let testers move the mouse backward, the point of view should rotate down.
 \end{enumerate}
-%%%%%%%%%%%%%%% Test-FR11.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Test-FR9 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR13.1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR13.1\\}
-Control: Manual\\ 
-
-Initial State: Environmental data are displayed.\\
-
-Input: A click event on \verb|turn page| button. A sample \verb|turn page| button
-can be found in \textcolor{red}{section 7.3}.\\
-
-Output: A pie chart indicating percentages of different tree types
-should appear in the same window.\\
-
-Test Case Derivation: \verb|Turn page| button is designed for turning pages, so 
-clicking \verb|turn page| button should make a new page appear in the same window.
-If a new page can appear on the screen by clicking \verb|turn page| button, then we 
-can prove that the product allows users to turn pages if the interface has multiple
-pages.\\
-					
-How test will be performed: Let testers click \verb|turn page| button on the 
-window showing environmental data 10 times. The pie chart should
-appear in the same window 10 times. 
-Meanwhile, before each click, testers need to reset the system to the initial state.
-%%%%%%%%%%%%%%% Test-FR13.1 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR13.2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR13.2\\}
-Control: Manual\\ 
-
-Initial State: Tree parameters are displayed.\\
-
-Input: A click event on \verb|turn page| button. A sample \verb|turn page| button
-can be found in \textcolor{red}{section 7.3}.\\
-
-Output: Leaf information should appear in the same window.\\
-
-Test Case Derivation: \verb|Turn page| button is designed for turning pages, so 
-clicking \verb|turn page| button should make a new page appear in the same window.
-If a new page can appear on the screen by clicking \verb|turn page| button, then we 
-can prove that the product allows users to turn pages if the interface has multiple
-pages.\\
-					
-How test will be performed: Let testers click \verb|turn page| button on the 
-window showing tree parameters 10 times. Leaf information should appear in the same 
-window 10 times. Meanwhile, before each click, testers need to reset the system to 
-the initial state.
-%%%%%%%%%%%%%%% Test-FR13.2 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR14 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR14\\}
-Control: Manual\\ 
-
-Initial State: A forest plot view is presented to users.\\
-
-Input: A click event on \verb|Back| button located at the left bottom of the screen.\\
-
-Output: Overall view of digital twin forest should appear on the screen.\\
-
-Test Case Derivation: \verb|Back| button is designed for returning to the 
-previous user interface, so clicking \verb|Back| button should show overall digital
-twin forest view. \\
-					
-How test will be performed:  Let testers click \verb|Back| button located at the left 
-bottom of the screen when they are viewing forest plot models. After clicking \verb|Back|
-button, overall digital twin forest should appear on the screen. 
-This test should be done for 14 forest plots.
-%%%%%%%%%%%%%%% Test-FR14 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR15\\}
+%%%%%%%%%%%%%%% Test-FR11 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR11\\}
 Control: Manual\\ 
 
 Initial State: Main page is presented to users.\\
@@ -700,15 +690,16 @@ Input: A click event on \verb|Quit| button.\\
 
 Output: Software should close.\\
 
-Test Case Derivation: \verb|Quit| button is designed for quitting the software,
-so clicking \verb|Quit| button quit the software.\\
+Test Case Derivation: \verb|Quit| button is designed for quitting
+the software, so clicking \verb|Quit| button quit the software.\\
 					
-How test will be performed:  Let testers click \verb|Quit| button located in the main
-page. After clicking \verb|Quit| button, the software should close.
-%%%%%%%%%%%%%%% Test-FR15 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+How test will be performed:  Let testers click \verb|Quit| button 
+located in the main page. After clicking \verb|Quit| button, the
+software should close.
+%%%%%%%%%%%%%%% Test-FR11 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% Test-FR16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR16\\}
+%%%%%%%%%%%%%%% Test-FR12 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{Test-FR12\\}
 Control: Manual\\ 
 
 Initial State: Update data page is presented.\\
@@ -731,25 +722,7 @@ choose to update tree parameters, testers also need to choose a tree type.)
 appear in the environmental data display or tree parameters display. 
 \item Repeat the above steps for all 14 plots and 7 tree types.
 \end{enumerate}
-%%%%%%%%%%%%%%% Test-FR16 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%% Test-FR17 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item{Test-FR17\\}
-Control: Manual\\ 
-
-Initial State: New version of the software is not downloaded.\\
-
-Input: Users go to GitHub to download the new version.\\
-
-Output: A new version product should be ready to use.\\
-
-Test Case Derivation: Newly released version of Digital Twin Forest will be released
-on GitHub. If users want to use the new version of the product with latest forest data
-or some new features/functions, they can go to GitHub to download.\\
-					
-How test will be performed:  Let testers go to GitHub and download a new version.
-The downloaded new version of the software should work properly.
-%%%%%%%%%%%%%%% Test-FR17 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Test-FR12 End %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{enumerate}
 
 
@@ -760,15 +733,9 @@ The downloaded new version of the software should work properly.
 \begin{enumerate}
 
 \item{Test-NFR-LF1.1\\}
-
-Type: Static.\\
-How test will be performed: Testers open the Module Guide document and check the Traceability Matrix to see if each function trace over 8 modules.\\\\
-Expected result: Each function trace over 8 modules.					
-\item{Test-NFR-LF1.2\\}
-
 Type: Static\\
 
-How test will be performed: We will conduct interview random people for the feedback by providing the questionnaire in the Appendix, over 80 percent of the users answer the forest is lifelike.\\
+How test will be performed: Testers conduct interviews with random people to gather feedback by providing the questionnaire in the Appendix and expect that over 80 percent of the users will agree that the forest model is close to the real forest.\\
 
 Expected result: Over 80 percent of the users choose A or B in the first question in the questionnaire.
 
@@ -776,15 +743,15 @@ Expected result: Over 80 percent of the users choose A or B in the first questio
 
 Type: Static\\
 
-How test will be performed: Testers will collect all the data and parameters of our forest and compare the data to the physical measurements. After that calculate the relative error of the data\\
+How test will be performed: Testers compared the forest data stored in the software with physical measurements and then calculated the relative errors of the data.\\
 
-Expected result: All environmental data and tree parameters have relative errors less than 0.1 comparing to the actual data our clients provide us.
+Expected result: All the forest data have errors less than 0.1 compared to the actual data provided by our client. 
 
 \item{Test-NFR-LF2.2\\}
 
 Type: Static\\
 
-How test will be performed: We will conduct interview random people for the feedback by providing the questionnaire in the Appendix, over 80 percent of the users answer the system look professional.\\
+How test will be performed: Testers conduct interviews with random people to gather feedback by providing the questionnaire in the Appendix and expect that over 80 percent of the users will answer that the system looks professional.\\
 
 Expected result: Over 80 percent of the users choose A or B in the second question in the questionnaire.
 
@@ -793,7 +760,7 @@ Expected result: Over 80 percent of the users choose A or B in the second questi
 
 Type: Static\\
 
-How test will be performed:  We will conduct interview random people for the feedback by providing the questionnaire in the Appendix, over 80 percent of the users answer the instructions are easy.\\
+How test will be performed: Testers conduct interviews with random people to gather feedback by providing the questionnaire in the Appendix, and expect that over 80 percent of the users will answer that the instructions are easy to understand. \\
 
 Expected result: Over 80 percent of the users choose A or B in the third question in the questionnaire.
 
@@ -805,27 +772,27 @@ Initial State: The system is launched\\
 
 Input: Testers inspect all the texts on every UI component in the software \\
 
-Result: All of the texts are in English.\\
+Output: All of the texts are in English\\
 
-How test will be performed: Testers open the software and inspect all the components containing texts in the software. 100 percent of the texts should be used in English.
+How test will be performed: Testers launch the software and inspect all the components containing texts in the software.
 
 \item{Test-NFR-UH3.1\\}
 
 Type: Manual\\
 
-Initial State: The system is launched and it is in the main page.\\
+Initial State: The system is launched and it is on the main page\\
 
 Input: A click event is made on the instructions option\\
 
 Output: Instructions are displayed after the event\\
 
-How test will be performed: Testers click on the instruction option and observe the response. Instructions are displayed on the screen.
+How test will be performed: Testers click on the instruction option, observe the response and expect that instructions will be displayed on the screen. \\
 
 \item{Test-NFR-UH4.1\\}
 
 Type: Static\\
 
-How test will be performed: We will conduct interview random people for the feedback by providing the questionnaire in the Appendix, over 80 percent of the users answer they notice and understand all the icons.\\
+How test will be performed: Testers conduct interviews with random adults to gather feedback by providing the questionnaire in the Appendix and expect that over 80 percent of the users will answer that they notice and understand all icons.\\
 
 Expected result: Over 80 percent of the users choose A or B in the fourth question in the questionnaire.
 
@@ -833,7 +800,7 @@ Expected result: Over 80 percent of the users choose A or B in the fourth questi
 
 Type: Static\\
 
-How test will be performed: We will conduct interview random people for the feedback by providing the questionnaire in the Appendix, over 80 percent of the users answer they think the icons used in the software are appealing.\\
+How test will be performed: Testers conduct interviews with random adults to gather feedback by providing the questionnaire in the Appendix and expect that over 80 percent of the users will answer that they think the icons used in the software are appealing.\\
 
 Expected result: Over 80 percent of the users choose A or B in the fifth question in the questionnaire.
 
@@ -845,15 +812,15 @@ Initial State: The system is launched\\
 
 Input: Input from mouse and keyboard from users\\
 
-Output: All interactive components like button and sliding bar can be used normally by mouse and keyboard.\\
+Output: All interactive components, such as buttons and sliding bars, can be controlled by both mouse and keyboard\\
 
-How test will be performed: Testers open the software and try to access all the interactive components in the software using a mouse and keyboard. Testers should end up completing all the actions without any trouble.
+How test will be performed: Testers launch the software and try to access all the interactive components in the software using a mouse and keyboard. Testers should be able to complete all the actions without any trouble.
 
 \item{Test-NFR-UH5.2\\}
 
 Type: Static\\
 
-How test will be performed: We will conduct interview random people for the feedback by providing the questionnaire in the Appendix, over 80 percent of the users answer they can learn how to use the system within half an hour.\\
+How test will be performed: Testers conduct interviews with random adults to gather feedback by providing the questionnaire in the Appendix. We expect that over 80 percent of the users will answer that they can learn how to use the system within half an hour.\\
 
 Expected result: Over 80 percent of the users choose A or B in the sixth question in the questionnaire.
 
@@ -866,53 +833,53 @@ Initial State: The system is launched\\
 
 Input: Input from mouse or keyboard to make an action in the application\\
 
-Output: The system handles all the inputs from mouse or keyboard within 2 seconds\\
+Output: The system responds to all mouse or keyboard inputs within 2 seconds\\
 
-How test will be performed: Testers open the system and give input to the system. For example, the tester clicks the start button. The system should respond to any request within 2 seconds.
+How test will be performed: Testers launch the system and test its responsiveness by performing actions such as clicking the start button. The system should respond to any request within 2 seconds.
 
 \item{Test-NFR-PR1.2\\}
 
 Type: Manual\\
 
-Initial State: The system is launched and goes to forest page\\
+Initial State: The system is launched and on the forest page\\
 
 Input: None\\
 
 Output: The system is running at over 30 FPS for 90 percent of the time\\
 
-How test will be performed:  The system should run at over 30 FPS for 90 percent of the time in the forest page.
+How test will be performed: Testers record FPS and time. The system should run at over 30 FPS for 90 percent of the time on the forest page.
 
 \item{Test-NFR-PR1.3\\}
 
 Type: Manual\\
 
-Initial State: The system is launched and the system is in main page\\
+Initial State: The system is launched and on the main page\\
 
 Input: A click event is triggered on the start option\\
 
 Output: The system loads all the models within 10 seconds\\
 
-How test will be performed: Testers open the system and click the start option, the testers should wait for less than 10 seconds for the models to show up.
+How test will be performed: Testers launch the system and click the start option. They should wait for the models to appear in less than 10 seconds.
 
 \item{Test-NFR-PR3.1\\}
 
 Type: Static\\
 
-How test will be performed: Testers will record all the data and parameters in the system and compare the data to the physical measurements. After that, testers calculate the relative error of the data\\
+How the test will be performed: Testers record all the forest data in the system and compare it to the physical measurements, and then calculate the relative errors of the data\\
 
-Expected result: All the data of the forest have relative errors less than 0.1.
+Expected result: All the forest data have relative errors of less than 0.1.
 
 \item{Test-NFR-PR4.1\\}
 
 Type: Manual\\
 
-Initial State: System is not opened\\
+Initial State: The system is not launched\\
 
 Input: Testers give inputs to open the system\\
 
-Output:The system opens normally 100 percent of the time\\
+Output: The system launches successfully 100 percent of the time\\
 
-How test will be performed: Testers open the system and observe the system. the system should open normally 100 percent of the time.
+How the test will be performed: Testers launch the system and observe the system. The system should open successfully 100 percent of the time.
 
 \item{Test-NFR-PR4.2\\}
 
@@ -922,9 +889,9 @@ Initial State: The system is launched\\
 
 Input: Screen recording to record the system\\
 
-Output: The system is working normally 24 hours a day\\
+Output: The system is working all the time for 24 hours \\
 
-How test will be performed: Testers open the system and run the application in the background for 24 hours.
+How the test will be performed: Testers launch the software in the background for 24 hours and expect that the software will not crash within the duration.
 
 \item{Test-NFR-PR5.1\\}
 
@@ -932,18 +899,18 @@ Type: Manual\\
 
 Initial State: The system is launched without an internet connection\\
 
-Input: Testers give inputs for different actions\\
+Input: Input from the mouse and the keyboard
 
-Output: The system responds to all the input actions normally\\
+Output: The response of the system to the mouse and keyboard inputs. \\
 
-How test will be performed: Testers open the system without an internet connection. Testers do different actions in the system and see if the system responds normally, the system should finish 100 percent of the actions without any error.
+How the test will be performed: Testers open the system without an internet connection, then click all the buttons in the system, press the keyboard keys, and move the mouse on the forest page. All the buttons should respond correctly, and the system should give the correct response to the keyboard and the mouse inputs. 
 
 
 \item{Test-NFR-PR6.1\\}
 
 Type: Static\\
 
-How test will be performed: Testers will assess the size of the system after the system is implemented\\
+How the test will be performed: Testers will assess the size of the system after the system is implemented.\\
 
 Expected result: The size of the software is less than 10 GB.
 
@@ -954,11 +921,11 @@ Type: Manual\\
 
 Initial State: The system is launched on desktops and laptops\\
 
-Input: Inputs for different actions(click, type) in the system\\
+Input: Inputs of the keyboard and the mouse\\
 
 Output: The system operates normally on desktops and laptops\\
 
-How test will be performed: Testers will run the system on desktops and laptops. The system should respond to each given input without any errors.
+How the test will be performed: Testers will run the system on desktops and laptops, then click all the buttons in the system, press the keyboard keys, and move the mouse on the forest page. All the buttons should respond correctly, and the system should give the correct response to the keyboard and the mouse inputs. 
 
 \item{Test-NFR-OE1.2\\}
 
@@ -970,7 +937,7 @@ Input: Input from mouse and keyboard from users\\
 
 Output: All tasks are accomplished normally with mouse and keyboard\\
 
-How test will be performed: Testers open the software and try to do all the actions in the software using a mouse and keyboard. Testers should end up finishing all the actions without any trouble.
+How the test will be performed: Testers open the software, then click all the buttons in the system, press the keyboard keys, and move the mouse on the forest page. Testers should end up finishing all the actions without any trouble, and all the buttons should respond correctly, and the system should give the correct response to the keyboard and the mouse inputs. 
 
 \item{Test-NFR-OE2.1\\}
 
@@ -982,7 +949,7 @@ Input:  Input from mouse and keyboard from users\\
 
 Output: The system is running normally\\
 
-How test will be performed: Testers open the software and try to give inputs from mouse and keyboard in the software on Windows 10 or later version or MacOS 12 or later version. The system can run normally without breaking down.
+How the test will be performed: The testers click all the buttons in the system, press the keyboard keys, and move the cursor on the forest page on Windows 10 or later version or MacOS 12 or later version. The system should run normally, all the buttons should respond correctly, and the system should respond correctly to the keyboard and the mouse inputs without breaking down.
 
 \item{Test-NFR-OE3.1\\}
 
@@ -994,33 +961,33 @@ Input: Click on the download button.
 
 Output: The application is downloaded to testers' computers.
 
-Expected result: The system is downloaded and installed successfully and runs without any errors and bugs.
+Expected result: The system is downloaded, installed, and runs without any errors and bugs.
 
-How test will be performed: Testers try to download and install the application from GitHub and record the operations of the application to see if they operate normally.
+How the test will be performed: Testers try to download and install the application from GitHub and observe the process to see if it operates normally.
 
 \item{Test-NFR-OE4.1\\}
 
 Type: Static\\
 
-Initial State: Git commit history of this application .\\
+Initial State: Git commit history of this application\\
 
-Output: Some monthly updates.
+Output: Some monthly updates
 
-Expected result: There are some monthly updates in the git commit history.
+Expected result: There are some monthly updates in the git commit history
 
-How test will be performed: Testers will look at the git commit history and see if there are monthly updates.
+How the test will be performed: Testers check the git commit history and see if there are monthly updates.
 
 \item{Test-NFR-OE4.2\\}
 
 Type: Static\\
 
-Initial State: New version of the application released.
+Initial State: New versions of the application has been released
 
-Output: Test report of the existing functions.
+Output: Test report of the existing functions
 
-Expected result: Every test case should be passed.
+Expected result: Every test case should be passed
 
-How test will be performed: Testers perform tests on the existing functions after each update and record the test results in the test report.
+How the test will be performed: Testers perform tests on the existing functions after each update and expect that all the tests should pass.
 
 \subsubsection{Maintenance and Support Requirements Testing}
 
@@ -1028,7 +995,7 @@ How test will be performed: Testers perform tests on the existing functions afte
 
 Type: Static.\\
 
-How test will be performed: Testers check the documentation of the product to see if the new features, functions, and any modifications are added to the documentation or not.\\
+How the test will be performed: Testers check the documentation of the product to see if the new features, functions, and any modifications are added to the documentation or not.\\
 
 Expected result: new features and functions and modifications should be on the documentation.
 
@@ -1036,9 +1003,9 @@ Expected result: new features and functions and modifications should be on the d
 
 Type: Static.\\
 
-How test will be performed: Testers read the documentation of the product to see if the documentation specifies the functions clearly.\\
+How the test will be performed: Testers read the documentation of the product to see if the documentation specifies the functions clearly.\\
 
-Expected result: All functions are clearly documented.
+Expected result: All functions on the documents are clearly documented.
 
 \item{Test-NFR-MS1.3\\} 
 
@@ -1046,11 +1013,11 @@ Type: Manual\\
 
 Initial State: A bug is found in the program.\\
 
-Input: Hot fix.\\
+Input: GitHub commit history\\
 
 Output: The bug is fixed in three days.\\
 
-How test will be performed: Record the time from the bug occurs to the time when the bug is fixed. Measure the time to see if it is within three days. 
+How the test will be performed: Record the time from the bug occurs to the time when the bug is fixed. Measure the time to see if it is within three days. 
 
 \item{Test-NFR-MS2.1\\}
 
@@ -1062,31 +1029,31 @@ Input: Testers use the contact method to contact the developers.\\
 
 Output: Testers can contact the developer and be able to give feedback to them.\\
 
-How test will be performed: Testers first look for the contact method on the contact page, then use the contact method to contact the developers to see if they can contact the developers successfully or not.  
+How the test will be performed: Testers first look for the contact method on the contact page, then use the contact method to contact the developers to see if they can contact the developers successfully or not.  
 
 \item{Test-NFR-MS3.1\\}
 
 Type: Manual\\
 
-Initial State: The application can run on one operating system\\
+Initial State: None\\
 
-Input: Testers launch the application on a different operating system.\\
+Input: Testers launch the application on different operating systems.\\
 
-Output: The application can run on a different operating system.\\
+Output: The application can run on at least one operating system.\\
 
-How test will be performed: Testers try to launch the application on more than one operating system to see if it can be run successfully on a different system or not.  
+How the test will be performed: Testers try to launch the application on different operating systems to see if it can be run successfully on a system or not.  
 
 \item{Test-NFR-MS3.2\\}
 
 Type: Manual\\
 
-Initial State: The application is running on the device located indoors\\
+Initial State: None\\
 
-Input: Testers run the application on the device located outdoors.\\
+Input: Testers run the application on the device located indoors and outdoors.\\
 
-Output: The application can run on outdoor devices.\\
+Output: The application can run on both indoor and outdoor devices.\\
 
-How test will be performed: Testers try to launch the application on the devices located indoors and outdoors respectively to see if the application can be used both indoors and outdoors or not.  
+How the test will be performed: Testers try to launch the application on the devices located indoors and outdoors respectively to see if the application can be used both indoors and outdoors or not.  
 
 
 \subsubsection{Security Requirements Testing}
@@ -1095,7 +1062,7 @@ How test will be performed: Testers try to launch the application on the devices
 
 Type: Static.\\
 
-How test will be performed: Testers try to find and download the product from GitHub and any other website .\\
+How the test will be performed: Testers try to find and download the product from GitHub and any other website .\\
 
 Expected result: Testers can not download the product in other websites other than GitHub.
 
@@ -1118,7 +1085,7 @@ Input: 100 Errors injected into our software.\\
 
 Output: The scan results of the computer security application are still normal.\\
 
-How test will be performed: Testers inject 100 errors on purpose in our application and see if the scan results of the computer security application will detect the errors in the computer system or not.
+How the test will be performed: Testers inject 100 errors on purpose in our application and see if the scan results of the computer security application will detect the errors in the computer system or not.
 
 \item{Test-NFR-SR2.2\\}
 
@@ -1128,25 +1095,25 @@ Initial State: The application is running and behaving properly\\
 
 Input: The use of software for a long time and the constant interactions between the testers and the software.\\
 
-Output: The application is will running in a normal way.\\
+Output: The application will be running in a normal way.\\
 
-How test will be performed: Testers use the software and perform some complicated tasks such as zooming in and zooming out for a long time to see if the application will crash or not.
+How the test will be performed: Testers use the software and perform some complicated tasks such as zooming in and zooming out for a long time to see if the application will crash or not.
 
 \item{Test-NFR-SR2.3\\}
 
 Type: Manual\\
 
-Initial State: The product displays the \verb|Update Data| page.\\
+Initial State:The system is in \verb|Update Data| page.\\
 
 Input: Some invalid data.\\
 
-Output: Fail to update the data. And a warning message pops up indicating invalid update operation.\\
+Output: Fail to update the data. And a warning message pops up indicating an invalid update operation.\\
 
-How test will be performed: Testers input some invalid data in the \verb|Update Data| page. The product should pop a warning message to indicate invalid input and reject the update request.\\
+How the test will be performed: Testers input some invalid data in the \verb|Update Data| page. The product should pop up a warning message to indicate invalid input and reject the update request.\\
 
 
 
-\item{Test-NFR-SR2.4\&2.6\\}
+\item{Test-NFR-SR2.4\\}
 
 Type: Manual\\
 
@@ -1156,13 +1123,13 @@ Input: Update new data into the product. Reach the data just updated in the disp
 
 Output: Data displayed matches the data just updated.\\
 
-How test will be performed: Testers manually update some data into the product, take records, and find the data in the display. The data should be consistent with the data just updated.
+How the test will be performed: Testers manually update some data into the product, take records, and compare the update with he data currently displayed. The data should be consistent with the data just updated.
 
 \item{Test-NFR-SR2.5\\}
 
 Type: Manual\\
 
-How test will be performed: Testers manually compare the GUI and data files. Each data should have one unique position to display in the GUI and each GUI should correspond to a unique data. 
+How the test will be performed: Testers manually compare the GUI and data files. Each data should have one unique position to display in the GUI and each GUI should correspond to unique data. 
 
 Expected result: The product shows a one-to-one mapping relationship between data and GUI. 
 
@@ -1172,7 +1139,7 @@ Expected result: The product shows a one-to-one mapping relationship between dat
 
 Type: Static\\
 
-How test will be performed: Referring to the feedback of the questionnaire we provided in the Appendix, all of the users answer the product did not ask them to provide their personal information.
+How the test will be performed: Referring to the feedback of the questionnaire we provided in the Appendix, all of the users answered the product did not ask them to provide their personal information.
 
 Expected result: All the users choose B in the ninth question in the questionnaire.
 
@@ -1180,7 +1147,7 @@ Expected result: All the users choose B in the ninth question in the questionnai
 
 Type: Static\\
 
-How test will be performed: Referring to the feedback of the questionnaire we provided in the Appendix, all of the users answer they didn't receive notifications from the application after they turned off the notification in the application.\\
+How the test will be performed: Referring to the feedback of the questionnaire we provided in the Appendix, all of the users answered they didn't receive notifications from the application after they turned off the notification in the application.\\
 
 Expected result: All the users choose B in the seventh question in the questionnaire.\\
 
@@ -1191,9 +1158,9 @@ Expected result: All the users choose B in the seventh question in the questionn
 
 Type: Static\\
 
-How test will be performed: Referring to the feedback of the questionnaire we provided in the Appendix, all the users answer that the contents of the product are not offensive to them.\\
+How the test will be performed: Referring to the feedback of the questionnaire we provided in the Appendix, all the users answered that the contents of the product are not offensive to them.\\
 
-Expected result: 100 percent of the users choose B for the eighth question in the questionnaire.
+Expected result: All of the users chose B for the eighth question in the questionnaire.
 
 
 \subsubsection{Legal Requirements Testing}
@@ -1202,10 +1169,12 @@ Expected result: 100 percent of the users choose B for the eighth question in th
 
 Type: Static.\\
 
-How test will be performed: Testers ask the users that if any part appears lawfully unreasonable when spread the questionnaires.\\
+How the test will be performed: Testers ask the users if any part appears lawfully unreasonable when spreading the questionnaires.\\
 
-Expected result: A typical citizen should not notice any part lawfull unreasonable. 
+Expected result: A typical citizen should not notice any part lawful unreasonable. 
 \end{enumerate}
+
+\newpage
 
 \subsection{Traceability Between Test Cases and Requirements}
 \begin{table}[H]
@@ -1216,29 +1185,29 @@ Expected result: A typical citizen should not notice any part lawfull unreasonab
     \hline
     FR1     & Test-FR1\\
     \hline
-    FR2 & Test-FR2\&3\\
+    FR2 & Test-FR2\\
     \hline
-    FR3 & Test-FR2\&3\\
+    FR3 & Test-FR3\\
     \hline
      FR4 & Test-FR4.1, Test-FR4.2\\
     \hline
      FR5 & Test-FR5\\
     \hline
-     FR6 & Test-FR6.1, Test-FR6.2\\
+     FR6 & Test-FR6\\
     \hline
-     FR7 & Test-FR7\\
+     FR7 & Test-FR7.1, Test-FR7.2\\
     \hline
      FR8 & Test-FR8\\
     \hline
-     FR9 & Test-FR9.1, Test-FR9.2\\
+     FR9 & Test-FR9\\
     \hline
-     FR10 & Test-FR10\\
+     FR10 & Test-FR10.1, Test-FR10.2\\
     \hline
-     FR11 & Test-FR11.1, Test-FR11.2\\
+     FR11 & Test-FR11\\
     \hline 
-     FR12 & Test-FR12.1, Test-FR12.2\\
+     FR12 & Test-FR12\\
     \hline
-    FR13 & Test-FR13.1, Test-FR13.2\\
+    FR13 & Test-FR13.1\\
     \hline
     FR14 & Test-FR14\\
     \hline
@@ -1246,12 +1215,11 @@ Expected result: A typical citizen should not notice any part lawfull unreasonab
     \hline
     FR16 & Test-FR16\\
     \hline
-    FR17 & Test-FR17\\
-    \hline
     \end{tabular}
     \caption{Traceability between Functional Requirements and Tests}
 \end{table}
-\newpage
+
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
@@ -1259,8 +1227,6 @@ Expected result: A typical citizen should not notice any part lawfull unreasonab
     Non-functional Requirement & Test Case ID\\
     \hline
     NFR-LF1.1 & Test-NFR-LF1.1\\
-    \hline
-    NFR-LF1.2 & Test-NFR-LF1.2\\
     \hline
     NFR-LF2.1 & Test-NFR-LF2.1\\
     \hline
@@ -1296,14 +1262,11 @@ Expected result: A typical citizen should not notice any part lawfull unreasonab
     \hline
     NFR-PR6.1 & Test-NFR-PR6.1\\
     \hline
-    NFR-PR7.1 & Test-NFR-PR7.1\\
-    \hline
-    NFR-PR8.1 & Test-NFR-PR8.1\\
-    \hline
     \end{tabular}
     \caption{Traceability between Non-Functional Requirements and Tests Part 1}
 \end{table}
-\newpage
+
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
@@ -1348,8 +1311,6 @@ Expected result: A typical citizen should not notice any part lawfull unreasonab
     \hline
     NFR-SR2.5 & Test-NFR-SR2.5\\
     \hline
-    NFR-SR2.6 & Test-NFR-SR2.4\&2.6\\
-    \hline
     NFR-SR3.1 & Test-NFR-SR3.1\\
     \hline
     NFR-SR3.2 & Test-NFR-SR3.2\\
@@ -1361,13 +1322,15 @@ Expected result: A typical citizen should not notice any part lawfull unreasonab
     \end{tabular}
     \caption{Traceability between Non-Functional Requirements and Tests Part 2}
 \end{table}
+
 \newpage
+
 \section{Unit Test Description}
-Unit testing does not accommodate Unity's workflow. Each script is 
-automatically compiled by Unity. If the team wants to test a particular
-module, they still have to run the whole system and check the Unity 
-console. As a result, all unit testing are included in the system 
-testing. 
+Unit testing does not accommodate Unity's workflow. Each script
+is  automatically compiled by Unity. If the team wants to test a 
+particular module, they still have to run the whole system and
+check the Unity console. As a result, all unit testing are
+included in the system testing. 
 
 \newpage
 
@@ -1379,11 +1342,77 @@ This is where you can place additional information.
 N/A
 
 \subsection{Usability Survey Questionnaire}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale = 0.9]{VnV_Pictures/Usability Survey Quesntionnarie.png}
-    \caption{Usability Survey Questionnaire}
-\end{figure}
+\centering
+
+\begin{enumerate}
+    \item The virtual forest is lifelike compared to the real forest
+\begin{enumerate}[a.]
+        \item Strongly Agree
+        \item Agree
+        \item Neutral
+        \item Disagree
+        \item Strongly Disagree
+    \end{enumerate}
+    \item Digital Twin Forest is professional
+    \begin{enumerate}[a.]
+        \item Strongly Agree
+        \item Agree
+        \item Neutral
+        \item Disagree
+        \item Strongly Disagree
+    \end{enumerate}
+    \item The product instructions are easy to understand
+    \begin{enumerate}[a.]
+        \item Strongly Agree
+        \item Agree
+        \item Neutral
+        \item Disagree
+        \item Strongly Disagree
+        \end{enumerate}
+    \item You noticed the highlighted icons and understand their functionalities
+        \begin{enumerate}[a.]
+            \item Strongly Agree
+            \item Agree
+            \item Neutral
+            \item Disagree
+            \item Strongly Disagree
+            \end{enumerate}
+    \item The icons on the user interface are appealing to you
+        \begin{enumerate}[a.]
+            \item Strongly Agree
+            \item Agree
+            \item Neutral
+            \item Disagree
+            \item Strongly Disagree
+            \end{enumerate}
+
+    \item How much time did you spend learning to use our product?
+        \begin{enumerate}[a.]
+            \item Strongly Agree
+            \item Agree
+            \item Neutral
+            \item Disagree
+            \item Strongly Disagree
+            \end{enumerate}
+
+    \item Did you receive any notification from the application after you disabled the notifications on the setting page of the application?
+        \begin{enumerate}[a.]
+            \item Yes
+            \item No
+            \end{enumerate}
+
+    \item Are there any contents like texts, icons and modules in the products that you think are offensive to you?
+        \begin{enumerate}[a.]
+            \item Yes
+            \item No
+            \end{enumerate}
+
+    \item Did your product ask you to provide your personal information?
+        \begin{enumerate}[a.]
+            \item Yes
+            \item No
+            \end{enumerate}
+\end{enumerate}
 
 \newpage
 
@@ -1406,6 +1435,13 @@ The following is a sample turn page button:
     \centering
     \includegraphics[scale = 0.5]{VnV_Pictures/environmental_data.png}
     \caption{Show/Minimize Environmental Data Button}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{VnV_Pictures/Satallite-Pic.png}
+    \caption{Sample Satellite Picture}
+    \label{fig:SP}
 \end{figure}
 
 \newpage
