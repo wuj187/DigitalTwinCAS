@@ -211,9 +211,7 @@ H2-2  \\ \hline
 
 \begin{table}[H]
 \centering
-
 \resizebox{\textwidth}{!}{
-
 \begin{tabular}{|p{5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{1cm}|p{1cm}|}
 \hline
 Component& Failure Modes& Effects of Failure& Causes of Failure & 
@@ -227,17 +225,18 @@ Data Storage classes were unintentionally deleted.
 \item User interfaces fail to represent data
 \end{itemize}
 &
+
 Missing data storage
+
 &
 Users can download the backup data storage  from GitHub of our
 project.(As we cannot prevent the users from deleting the data.)
 &
-SR1.1, SR1.2 SR2.2 SR2.3
+SR1.1 SR1.2 SR2.2 SR2.3
 &
-H 3-1 \\ \hline
-\end{tabular} 
-
-}
+H 3-1
+\\ \hline
+\end{tabular}}
 \caption{FMEA Data Storage}
 \end{table}
 
@@ -255,11 +254,13 @@ Inappropriate user inputs
 & 
 \begin{itemize}
 \item  Possible application crash  caused by invalid data input.
-\item b. Invalid data input may  disable some of the features like
+\item Invalid data input may  disable some of the features like
 pie charts, due to the failure of necessary calculations
 \end{itemize}
 &
+
 Invalid input with wrong data type
+
 &
 Implement a feature to check the data type of the input before
 forwarding it to the storage.
@@ -268,8 +269,7 @@ SR2.2 SR2.3
 &
 H 4-1
 \\ \hline
-\end{tabular}
-}
+\end{tabular}}
 \caption{FMEA Data Update}
 \end{table}
 
