@@ -1,4 +1,4 @@
-# Project Name
+# Digital Twin Forest
 
 Developer Names:
 1. Yichen Jiang
@@ -13,8 +13,8 @@ This project is: Digital Twin Forest
 
 The folders and files for this project are as follows:
 
-docs - Documentation for the project
-refs - Reference material used for the project, including papers
-src - Source code
-test - Test cases
+docs - Documentation for the project 
+refs - Reference material used for the project, including papers 
+src - Source code 
+test - Test cases 
 etc.
