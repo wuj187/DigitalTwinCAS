@@ -84,20 +84,19 @@ See SRS Documentation at \href{https://github.com/wuj187/DigitalTwinCAS/blob/mai
   \midrule 
   AC & Anticipated Change\\
   DAG & Directed Acyclic Graph \\
-  M & Module \\
-  MG & Module Guide \\
-  OS & Operating System \\
-  R & Requirement\\
+  DBH & Diameter at breast height\\
   FR & Functional Requirement\\
-  NFR & Non-Functional Requirement\\
-  SC & Scientific Computing \\
-  SRS & Software Requirements Specification\\
-  \progname & Explanation of program name\\
-  UC & Unlikely Change \\
-  MVC & Model, Viewer, Controller\\
   GUI & Graphical User Interface\\
   LAI & Leaf Area Index\\
-  DBH & Diameter at breast height\\
+  M & Module \\
+  MG & Module Guide \\
+  MVC & Model, Viewer, Controller\\
+  NFR & Non-Functional Requirement\\
+  OS & Operating System \\
+  R & Requirement\\
+  SC & Scientific Computing \\
+  SRS & Software Requirements Specification\\
+  UC & Unlikely Change \\
   \bottomrule
 \end{tabular}\\
 \newpage
@@ -110,24 +109,18 @@ See SRS Documentation at \href{https://github.com/wuj187/DigitalTwinCAS/blob/mai
 
 \section{Introduction}
 
-The following document details the Module Interface 
-Specifications for \progname{}. A digital twin is a virtual 
+The following document outlines the Module Interface 
+Specifications for \progname{}, which is a virtual 
 representation of the real world, including physical objects, 
-processes, relationships, and behaviors. Elements of a 
-digital twin include data capture
+processes, relationships, and behaviors. Components of a 
+digital twin encompass data capture
 and integration, visualization, and advanced analysis 
-including AI, automation, and information sharing and 
-collaboration. This project can be beneficial for two groups 
-of users.  The first group of users is forest owners. This 
-project can help them to manage the forest. The second group 
-of users is meteorologists. This project can help them to 
-do research. 
+including AI, automation, information sharing and 
+collaboration. This project can benefit two groups 
+of users: forest owners who can utilize the software for forest management and meteorologists who can use it for research purposes. 
 
-\noindent Complementary documents include the System 
-Requirement Specifications and Module Guide.  The full 
-documentation and implementation can be
-found at \href{https://github.com/wuj187/DigitalTwinCAS}
-{here}. 
+\noindent Complementary documents include the \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/SRS/SRS.pdf}{System 
+Requirement Specifications} and \href{https://github.com/wuj187/DigitalTwinCAS/blob/main/docs/Design/Software-Architecture-Design/MG.pdf}{Module Guide}. 
 
 \section{Notation}
 
@@ -149,6 +142,7 @@ The following table summarizes the primitive data types used by \progname.
 \toprule 
 \textbf{Data Type} & \textbf{Notation} & \textbf{Description}\\ 
 \midrule
+string & String & a sequence of characters\\
 character & char & a single symbol or digit\\
 integer & $\mathbb{Z}$ & a number without a fractional component in (-$\infty$, $\infty$) \\
 natural number & $\mathbb{N}$ & a number without a fractional component in [1, $\infty$) \\
@@ -170,98 +164,9 @@ described by giving their type signature followed by their specification.
 
 \section{Module Decomposition}
 
-\begin{table}[H]
-\caption{Module Hierarchy(Models)}
-\label{TblModels}
-
-\centering
-\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-\toprule
-\textbf{Level 1} & \textbf{Level 2}\\
-\midrule
-
-\multirow{14}{0.3\textwidth}{Model Modules}
-& \refstepcounter{mnum} \mthemnum \label{Model1}: ForestTrees \\
-& \refstepcounter{mnum} \mthemnum \label{Model2}: ForestSky  \\
-& \refstepcounter{mnum} \mthemnum \label{Model3}: ForestTerrain \\
-& \refstepcounter{mnum} \mthemnum \label{Model4}: RedPine  \\
-& \refstepcounter{mnum} \mthemnum \label{Model5}: Oak   \\
-& \refstepcounter{mnum} \mthemnum \label{Model6}: Beech  \\
-& \refstepcounter{mnum} \mthemnum \label{Model7}: Birch  \\ 
-& \refstepcounter{mnum} \mthemnum \label{Model8}: WhitePine  \\
-& \refstepcounter{mnum} \mthemnum \label{Model9}: RedMaple \\
-& \refstepcounter{mnum} \mthemnum \label{Model10}: RedOak  \\
-& \refstepcounter{mnum} \mthemnum \label{Model11}: EnvData  \\
-& \refstepcounter{mnum} \mthemnum \label{Model12}: PlotData  \\
-& \refstepcounter{mnum} \mthemnum \label{Model13}: FirstPersonPlayer  \\
-& \refstepcounter{mnum} \mthemnum \label{Model14}: JsonFile  \\
-\bottomrule
-
-\end{tabular}
-\end{table}
-
-\newpage
 
 \begin{table}[H]
-\caption{Module Hierarchy(First Viewers Table)}
-\label{TblViewers1}
-
-\centering
-\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-\toprule
-\textbf{Level 1} & \textbf{Level 2}\\
-\midrule
-
-\multirow{13}{0.3\textwidth}{Viewer Modules}
-& \refstepcounter{mnum} \mthemnum \label{Viwer1}: MainPageDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer2}: StartButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer3}: InstructionButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer4}: ContactUsButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer5}: QuitButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer6}: InstructionInfoDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer7}: ContactUsInfoDisplay \\ 
-& \refstepcounter{mnum} \mthemnum \label{Viwer8}: BackButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer9}: UpdateDataDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer10}: EnvDataSelectionButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer11}: DataTypeSelectionButtons \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer12}: NewDataInputBox \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer13}: SaveButton \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\newpage
-
-
-\begin{table}[H]
-\caption{Module Hierarchy(Second Viewers Table)}
-\label{TblViewers2}
-
-\centering
-\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-\toprule
-\textbf{Level 1} & \textbf{Level 2}\\
-\midrule
-
-\multirow{10}{0.3\textwidth}{Viewer Modules}
-& \refstepcounter{mnum} \mthemnum \label{Viwer14}: CurrentDataDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer15}: PlotSelectionDropDown \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer16}: TreeTypeSelectionDropDown \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer17}: UpdateDataButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer18}: ForestDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer19}: ShowEnvDataButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer20}: ShowTreeParamButton \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer21}: EnvDataDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer22}: TreeParamDisplay \\
-& \refstepcounter{mnum} \mthemnum \label{Viwer23}: PauseIndicatorDisplay \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\newpage
-
-\begin{table}[H]
-\caption{Module Hierarchy(Controllers)}
+\caption{Module Hierarchy(First Controller Table)}
 \label{TblControllers}
 
 \centering
@@ -292,20 +197,839 @@ described by giving their type signature followed by their specification.
 \bottomrule
 
 \end{tabular}
+
+\end{table}
+
+\newpage
+\begin{table}[H]
+\caption{Module Hierarchy(Second Controller Table)}
+\label{TblControllers}
+
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+\multirow{18}{0.3\textwidth}{Controller Modules}
+
+& \refstepcounter{mnum} \mthemnum \label{Controller19}: FileWriter \\
+& \refstepcounter{mnum} \mthemnum \label{Controller20}: FileReader \\
+& \refstepcounter{mnum} \mthemnum \label{Controller21}: SeasonChangeController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller22}: movePanelController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller23}: treePlantingController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller24}: TreeSwitchButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller25}: pieChartButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller26}: pieChartController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller27}: SeasonChangeButtonController \\
+& \refstepcounter{mnum} \mthemnum \label{Controller28}: TreeSwitchController \\
+\bottomrule
+
+\end{tabular}
+
 \end{table}
 
 \newpage
 
-%%%%%%%%%%% Forest Trees starts %%%%%%%%%%%%%%%%%%
-\section{MIS of Forest Trees (\mref{Model1})} 
+\begin{table}[H]
+\caption{Module Hierarchy(Models)}
+\label{TblModels}
+
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+\multirow{14}{0.3\textwidth}{Model Modules}
+& \refstepcounter{mnum} \mthemnum \label{Model1}: ForestTrees \\
+& \refstepcounter{mnum} \mthemnum \label{Model2}: ForestSky  \\
+& \refstepcounter{mnum} \mthemnum \label{Model3}: ForestTerrain \\
+& \refstepcounter{mnum} \mthemnum \label{Model4}: RedPine  \\
+& \refstepcounter{mnum} \mthemnum \label{Model5}: Oak   \\
+& \refstepcounter{mnum} \mthemnum \label{Model6}: Beech  \\
+& \refstepcounter{mnum} \mthemnum \label{Model7}: Birch  \\ 
+& \refstepcounter{mnum} \mthemnum \label{Model8}: WhitePine  \\
+& \refstepcounter{mnum} \mthemnum \label{Model9}: RedMaple \\
+& \refstepcounter{mnum} \mthemnum \label{Model10}: RedOak  \\
+& \refstepcounter{mnum} \mthemnum \label{Model11}: EnvData  \\
+& \refstepcounter{mnum} \mthemnum \label{Model12}: PlotData  \\
+& \refstepcounter{mnum} \mthemnum \label{Model13}: FirstPersonPlayer  \\
+& \refstepcounter{mnum} \mthemnum \label{Model14}: JsonFile  \\
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+
+\newpage
+
+\begin{table}[H]
+\caption{Module Hierarchy(First Viewers Table)}
+\label{TblViewers1}
+
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+\multirow{13}{0.3\textwidth}{Viewer Modules}
+& \refstepcounter{mnum} \mthemnum \label{Viwer1}: MainPageDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer2}: StartButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer3}: InstructionButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer4}: ContactUsButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer5}: QuitButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer6}: InstructionInfoDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer7}: ContactUsInfoDisplay \\ 
+& \refstepcounter{mnum} \mthemnum \label{Viwer8}: BackButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer9}: UpdateDataDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer10}: EnvDataSelectionButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer11}: DataTypeSelectionButtons \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer12}: NewDataInputBox \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer13}: SaveButton \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{table}[H]
+\caption{Module Hierarchy(Second Viewers Table)}
+\label{TblViewers2}
+
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+\toprule
+\textbf{Level 1} & \textbf{Level 2}\\
+\midrule
+
+\multirow{10}{0.3\textwidth}{Viewer Modules}
+& \refstepcounter{mnum} \mthemnum \label{Viwer14}: CurrentDataDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer15}: PlotSelectionDropDown \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer16}: TreeTypeSelectionDropDown \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer17}: UpdateDataButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer18}: ForestDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer19}: ShowEnvDataButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer20}: ShowTreeParamButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer21}: EnvDataDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer22}: TreeParamDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer23}: PauseIndicatorDisplay \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer24}: SeasonChangeButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer25}: pieChartButton \\
+& \refstepcounter{mnum} \mthemnum \label{Viwer26}: TreeSwitchButton \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+\newcommand{\bref}{\href{https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Button.html}{here}}
+\section{MIS of Json File Reader (\mref{Controller1})} 
+
+\subsection{Module}
+JsonFileReader
+\subsection{Uses}
+UnityEngine\\
+System.IO\\
+UnityEngine.UI\\
+\mref{Viwer22}\\
+\mref{Viwer21}\\
+\mref{Controller23}\\
+\mref{Controller26}\\
+\mref{Model12}
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ Awake& &  & \\
+\hline
+ Start& &  & \\
+\hline
+ readfile& $\mathbb{Z}$ &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+ treeParamDisplay: TreeParamDisplay\\
+ envDataDisplay: EnvDataDisplay\\
+ graphMaker: pieChartMaker\\
+treePlanter: treePlanting\\
+DataModelObj: DataModel\\
+JsonModelObj: JsonModel\\
+plotNumber: $\mathbb{Z}$\\
+filePath: string\\
+plotJsonData: string\\
+\subsubsection{Environment Variables}
+overalldata.json\\
+plot1data.json\\
+plot2data.json\\
+plot3data.json\\
+plot4data.json\\
+plot5data.json\\
+plot6data.json\\
+plot7data.json\\
+plot8data.json\\
+plot9data.json\\
+plot10data.json\\
+plot11data.json\\
+plot12data.json\\
+plot13data.json\\
+plot14data.json
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+Awake():
+\begin{itemize}
+    \item transition: readfile(0)
+    \item output: None
+    \item exception: None
+\end{itemize}
+Start():
+\begin{itemize}
+    \item transition: None
+    \item output: None
+    \item exception: None
+\end{itemize}
+readfile(value):
+\begin{itemize}
+    \item transition: Open the JSON file according to value, read all the content from the JSON file, update tree parameters of treeParamDisplay, update environemntal data in envDataDisplay, invoke the markChart() function of graphMaker, and invoke plantTrees() function of treePlanter 
+    \item output: None
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Json File Writer (\mref{Controller2})} 
+
+\subsection{Module}
+JsonFileWriter
+\subsection{Uses}
+UnityEngine\\
+TMPro\\
+Text\\
+UnityEngine.UI\\
+\mref{Controller1}
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ Awake& &  & \\
+\hline
+ updateHandler& &  & InvalidInputException\\
+\hline
+ writeFile& String&  & \\
+\hline
+ removeMsg& &  & \\
+\hline
+ isValid& String&  Boolean& \\
+\hline
+ isIN&char, List\textless char\textgreater &Boolean  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+ indicator: ValueIndicator\\
+ inputField: TMP\_InputField\\
+notify: Text \\
+FR: FileReader 
+\subsubsection{Environment Variables}
+overalldata.json\\
+plot1data.json\\
+plot2data.json\\
+plot3data.json\\
+plot4data.json\\
+plot5data.json\\
+plot6data.json\\
+plot7data.json\\
+plot8data.json\\
+plot9data.json\\
+plot10data.json\\
+plot11data.json\\
+plot12data.json\\
+plot13data.json\\
+plot14data.json
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+Awake():
+\begin{itemize}
+    \item transition: Invoke removeMsg()
+    \item output: None
+    \item exception: None
+\end{itemize}
+updateHandler():
+\begin{itemize}
+    \item transition: Validate the input of the text field and invoke writeFile function
+    \item output: None
+    \item exception: Throw InvalidInputException if the inputs are invalid
+\end{itemize}
+writeFile(newValue):
+\begin{itemize}
+    \item transition: Import the data from the text field and use it to rewrite the data stored in the JSON files based on the attributes of the indicator
+    \item output: None                             
+    \item exception: None
+\end{itemize}
+removeMsg():
+\begin{itemize}
+    \item transition: notify.text :=``"
+    \item output: None
+    \item exception: None
+\end{itemize}
+isValid(s):
+\begin{itemize}
+    \item transition: Check whether all the characters in s are in the pool
+    \item output: True if all the characters in s are in the pool. False otherwise
+    \item exception: None
+\end{itemize}
+isIN(target, pool):
+\begin{itemize}
+    \item transition: Find an element of pool that matches target
+    \item output: True if that element exists. False otherwise
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Pause Manager (\mref{Controller3})} 
+
+\subsection{Module}
+PauseManager
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ Start& &  & \\
+ \hline
+ Update& &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isPaused: Boolean\\
+pauseIndicator: Image 
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+Start():
+\begin{itemize}
+    \item transition: enable the visibility of the Pause image
+    \item output: None
+    \item exception: None
+\end{itemize}
+Update():
+\begin{itemize}
+    \item transition: Capture the event of pressing the K-key, change the value of isPaused, and enable or disable the visibility of the Pause image  
+    \item output: None
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Player Movement(\mref{Controller4})} \subsection{Module}
+PlayerMovement
+\subsection{Uses}
+UnityEngine
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ Update& &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+controller: CharacterController
+speed: $\mathbb{R}$
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+\begin{itemize}
+    \item transition: Change the position of the camera in each frame
+    \item output: None
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of New Data Input Box Controller  (\mref{Controller5})} 
+
+\subsection{Module}
+NewDataInputBoxController
+\subsection{Uses}
+UnityEngine
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+None
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+None
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+None
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Start Button Controller (\mref{Controller6})} 
+
+\subsection{Module}
+StartButtonController
+\subsection{Uses}
+UnityEngine
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ OnClick& &  & \\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Semantics}
+\subsubsection{State Variables}
+None
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+OnClick():
+\begin{itemize}
+    \item transition: Enable the visibility of \mref{Viwer18} 
+    \item output: None
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Instruction Button Controller (\mref{Controller7})} 
+
+\subsection{Module}
+InstructionButtonController
+
+\subsection{Uses}
+None
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ onClick& &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+None
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+onClick():
+\begin{itemize}
+    \item transition: Enable the visibility of  \mref{Viwer6}
+    \item output: None
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Update Data Button Controller (\mref{Controller8})} 
+
+\subsection{Module}
+UpdateDataButtonController
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+Json File Reader\\
+Value Indicator\\
+\mref{Controller1}\\
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{6cm}|p{3cm}|p{3cm}| p{4cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ UpdateEnvDataButtonHandle& &  & \\
+ UpdateTreeParamHande& &  & \\
+ onClick & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+ EnvDataOptions: Canvas\\
+ TreeParamOptions: Canvas\\
+ treeSelection: Dropdown\\
+ indicator: ValueIndicator\\
+ FR: FileReader
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+UpdateEnvDataButtonHandle():
+\begin{itemize}
+\item transition: Change the isEnvData and isTreeParam variables in the indicator. 
+\item output: None
+\item exception: None
+\end{itemize}
+UpdateTreeParamHande():
+\begin{itemize}
+\item transition: Change the isTreeParam and isEnvData, in the indicator, and also change the TreeType attribute in the indicator according to the value of the Dropdown class. 
+\item output: None
+\item exception: None
+\end{itemize}
+onClick():
+\begin{itemize}
+\item transition: Invoke UpdateEnvDataButtonHandle() and UpdateTreeParamHande()
+\item output: None
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Contact Us Button Controller (\mref{Controller9})} 
+
+\subsection{Module}
+ContactUsButtonController
+\subsection{Uses}
+UnityEngine
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{6cm}|p{3cm}|p{3cm}| p{4cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ onClick & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+None
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+onClick():
+\begin{itemize}
+    \item transition: Enable the visibility of  \mref{Viwer7}
+    \item output: None
+    \item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+\section{MIS of Quit Button Controller (\mref{Controller10})} 
+
+\subsection{Module}
+QuitButtonController
+\subsection{Uses}
+UnityEngine
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ QuitSoftware & &  & \\
+\hline
+ onClick & &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+\subsubsection{State Variables}
+None
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+QuitSoftware():
+\begin{itemize}
+\item transition: Quit the software.
+\item output: None
+\item exception: None
+\end{itemize}
+onClick():
+\begin{itemize}
+\item transition: Invoke QuitSoftware()
+\item output: None
+\item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+\newpage
+
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MIS of Back Button Controller (\mref{Controller11})}  
+
+\subsection{Module}
+BackButtonController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.SceneManagement\\
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{|l|l|l|p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+Back & &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+viewState\\
+upperLevelPage
+
+\subsubsection{Environment Variables}
+Mouse
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent Back():
+\begin{itemize}
+\item transition: upperLevelPage $\mathit{\implies}$(viewState := upperLevelPage)
+\item output: None
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MIS of Plot Selection Drop Down Controller (\mref{Controller12})} 
+
+\subsection{Module}
+PlotSelectionDropDownController
+
+\subsection{Uses}
+UnityEngine.UI\\
+UnityEngine.SceneManagement\\
+System.Threading\\
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+displayMenu &&&\\
+\hline
+extractTreeParam & s: int &  &  \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean\\
+s1: String\\
+s2: String\\
+s3: String\\
+s4: String\\
+s5: String\\
+curIndex: int
+
+\subsubsection{Environment Variables}
+Mouse\\
+DataModelObj: The gameobject of the current script\\
+EnvDisp: Interface that will be displayed in Unity\\
+dropDown: Drop down menu to select plot\\
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent displayMenu():
+\begin{itemize}
+\item transition: isActive$\mathit{:= \neg }$ isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\noindent extractTreeParam(s):
+\begin{itemize}
+\item transition: Get the mouse click, assign different values to s1,s2,s3,s4,s5 based on the value of curIndex
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MIS of Tree Type Selection Drop Down Controller(\mref{Controller13})} 
 
 \subsection{Module}
 
-ForestTrees
+TreeTypeSelectionDropDownController
 
 \subsection{Uses}
-
-UnityPlaceTreeWizard
+UnityEngine.UI\\
+UnityEngine.SceneManagement\\
+System.Threading\\
 
 \subsection{Syntax}
 
@@ -314,13 +1038,15 @@ None
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{|l| l | l | p{5cm}|}
+\begin{tabular}{| l | l | l | p{5cm}|}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-GenerateTree & s: Int; t: Double & TreeModels & IllegalArgumentException \\
+onClick & mouse click  &   & \\
 \hline
-DeleteTree & s: Int &  &  \\
+displayMenu &&&\\
+\hline
+extractTreeParam & s: int &  &  \\
 \hline
 \end{tabular}
 \end{center}
@@ -328,29 +1054,1159 @@ DeleteTree & s: Int &  &  \\
 \subsection{Semantics}
 
 \subsubsection{State Variables}
+isActive: Boolean\\
+curIndex: int\\
+s1: String\\
+s2: String\\
+s3: String\\
+s4: String\\
+
+
+\subsubsection{Environment Variables}
+Mouse\\
+DataModelObj: The gameobject of the current script\\
+TreeParamDisp: Interface that will be displayed in Unity\\
+dropdown: The drop down menu to select tree type
+\subsubsection{Assumptions}
 None
+\subsubsection{Access Routine Semantics}
+
+\noindent displayMenu():
+\begin{itemize}
+\item transition: isActive$\mathit{:= \neg }$ isActive
+\item output: None
+\item exception: None
+
+\end{itemize}
+
+
+\noindent extractTreeParam(s):
+\begin{itemize}
+\item transition: Get the mouse click, assign different values to s1,s2,s3,s4 based on the value of curIndex
+\item output: None
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MIS of Show Environmental Data Button Controller (\mref{Controller14})} 
+
+\subsection{Module}
+
+ShowEnvDataButtoController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+EnvDataDispHandle &&&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+displayEnvData: Boolean
+
+\subsubsection{Environment Variables}
+Mouse
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent EnvDataDispHandle():
+\begin{itemize}
+\item transition: displayEnvData $\mathit {:= \neg}$ displayEnvData
+\item output: None
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+None
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MIS of Show Tree Parameter Button Controller(\mref{Controller15})}  
+
+\subsection{Module}
+
+ShowTreeParamButtonController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+TreeParamDispHandle &&&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean
+
+\subsubsection{Environment Variables}
+Mouse
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent TreeParamDispHandle():
+\begin{itemize}
+\item transition: isActive $\mathit{:= \neg}$ isActive
+\item output: None
+\item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Environmental Selection Button Controller(\mref{Controller16})} 
+
+\subsection{Module}
+EnvDataSelectionButtonController
+
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+displayEnvSel &&&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean
+
+\subsubsection{Environment Variables}
+Mouse
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent displayEnvSel():
+\begin{itemize}
+\item transition: isActive $\mathit{:= \neg}$ isActive
+\item output: None
+\item exception: None
+\end{itemize}
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MIS of Data Type Selection Buttons Controller(\mref{Controller17})}  
+
+\subsection{Module}
+DataTypeSelectionButtonsController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+displayDataTypeSel &&&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean
+
+\subsubsection{Environment Variables}
+Mouse
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent displayDataTypeSel():
+\begin{itemize}
+\item transition: isActive $\mathit{:= \neg}$ isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Save Button Controller(\mref{Controller18})}  
+
+\subsection{Module}
+
+SaveButtonController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+\mref{Controller19}
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick & mouse click &  &  \\
+\hline
+Save & updatedData: float &&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+originalData: float\\
+updatedData: float
+\subsubsection{Environment Variables}
+Mouse
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent Save():
+\begin{itemize}
+\item transition: originalData := updatedData
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of File Writer(\mref{Controller19})}  
+
+\subsection{Module}
+
+FileWriter
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+TMPro\\
+System.IO\\
+Newtonsoft.Json\\
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+Awake &  &  &  \\
+\hline
+updateHandler &  & & InvalidInput\\
+\hline
+writeFile & inputText: String &&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+indicator: Forest data type of the input\\
+inputField: Textbox of the input\\\
+inputText: input to the textbox\\
+notify: text\\
+FR: FileReader\\
+JSON file\\
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent Awake():
+\begin{itemize}
+\item transition: notify := NULL
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent updateHandler():
+\begin{itemize}
+\item transition: notify := ``Updated"\\
+inputField := NULL\\
+Update the JSON file if the input is valid.\\
+\item output: None\\
+\item exception: $inputText == NULL \lor inputText \in \{(a,A), (z,Z)\}$
+\end{itemize}
+
+\noindent writeFile(inputText):
+\begin{itemize}
+\item transition: Use inputText to update the JSON files\\
+\item output: None\\
+\item exception: $inputText == NULL \lor inputText \in \{(a,A), (z,Z)\}$
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+\noindent removemsg():
+\begin{itemize}
+\item transition: notify := NULL\\
+\item output: None\\
+\item exception: None\\
+\end{itemize}
+
+\noindent isValid(s: string):
+\begin{itemize}
+\item transition: None\\
+\item output: Boolean\\
+\item exception: None\\
+\end{itemize}
+
+\noindent isIN(target: char, pool: char[]):
+\begin{itemize}
+\item transition: None\\
+\item output: Boolean\\
+\item exception: None\\
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of File Reader(\mref{Controller20})}  
+
+\subsection{Module}
+
+FileWriter
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+TMPro\\
+System.IO\\
+Newtonsoft.Json\\
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+readEnvData &  &  &  \\
+\hline
+readTreeParam &  & & \\
+\hline
+clearText &&&\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+indicator: Forest data type of the input\\
+JsonModelObj: \\
+currentValueDisp: Output shown
+JSON file\\
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent readEnvData():
+\begin{itemize}
+\item transition: filePath := "./dataCenter/plot" + plotNumber.ToString() + "data.json";\\
+plotJsonData := File.ReadAllText(filePath);\\
+JsonModelObj := Newtonsoft.Json.JsonConvert.DeserializeObject<JsonModel>(plotJsonData);\\
+EnvDataType := indicator.EnvDataType;\\
+currentValueDisp.text := currentValueDisp.text + JasonModelObj.envDataType.EnvDataType\\
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent readTreeParam():
+\begin{itemize}
+\item transition: filePath := "./dataCenter/plot" + plotNumber.ToString() + "data.json";\\
+plotJsonData := File.ReadAllText(filePath);\\
+JsonModelObj := Newtonsoft.Json.JsonConvert.DeserializeObject<JsonModel>(plotJsonData);\\
+TreeType := indicator.TreeType;\\
+TreeParamType := indicator.TreeParamType;\\
+currentValueDisp.text := currentValueDisp.text + JasonModelObj.TreeType.TreeParamType\\
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent clearText():
+\begin{itemize}
+\item transition:  currentValueDisp.text := None;
+\item output: None
+\item exception: None
+\end{itemize}
+
+\subsubsection{Local Functions}
+None
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{MIS of Season Change Controller(\mref{Controller21})}  
+
+\subsection{Module}
+
+SeasonChangeController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+treePlantingController\\
+SeasonChangeButtonController
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+Awake &  &  &  \\
+\hline
+changeSeason &  & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+haveLeaves: If the trees have leaves\\
+seasonChangeBut: Season Change button\\
+Snow: Particle System for snowing effects
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent Awake():
+\begin{itemize}
+\item transition: seasonChangeBut.image.sprite := summerImage;\\
+        Snow.gameObject.SetActive(false)
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent changeSeason():
+\begin{itemize}
+\item transition: haveLeaves := !haveLeaves;\\
+(haveLeaves $\implies$ Snow.gameObject.SetActive(false)$\land$
+             (seasonChangeBut.image.sprite := summerImage));\\
+(!haveLeaves $\implies$Snow.gameObject.SetActive(true)$\land$(seasonChangeBut.image.sprite := winterImage))\\
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+
+
+\subsubsection{Local Functions}
+None
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+
+\section{MIS of move Panel Controller(\mref{Controller22})}  
+
+\subsection{Module}
+movePanelController
+
+
+\subsection{Uses}
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ myClick&  &  &  \\
+\hline
+ Update&  & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+
+\subsubsection{Environment Variables}
+float speed = 2000f;\\
+float speed2 = -2000f;\\
+bool isActive = false;\\
+bool isShown = false;\\
+bool isActive2 = false;\\
+bool isShown2 = false;\\
+int l\_boundary = -400;\\
+int r\_boundary = 350;\\
+int l\_boundary2 = 3100;\\
+int r\_boundary2 = 3850;\\
+GameObject go;\\
+GameObject go2;
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent myClick():
+\begin{itemize}
+\item transition: (atBoundary()$\implies$(isActive := true $\land $ isShown := false))\\$\land$(!atBoundary()$\implies$(isActive := false $\land $ isShown := true))
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent Update():
+\begin{itemize}
+\item transition: 
+((isActive $\land$ !isShown) $\implies$ go.transform.Translate(speed * Time.deltaTime, 0, 0) $\land$
+((go.transform.position.x $\leqslant$ r$\_$boundary) $\implies$ (isShown:=true)))\\
+
+((!isActive $\land$ !isShown) $\implies$  go.transform.Translate(-speed * Time.deltaTime, 0, 0); $\land$
+((go.transform.position.x $\leqslant$ l$\_$boundary) $\implies$ (isShown:=true)))\\
+
+((isActive2 $\land$ !isShown2) $\implies$ go2.transform.Translate(speed2 * Time.deltaTime, 0, 0) $\land$
+((go2.transform.position.x $\leqslant$ l$\_$boundary2) $\implies$ (isShown:=true)))\\
+
+((!isActive2 $\land$ !isShown2) $\implies$  go2.transform.Translate(-speed2 * Time.deltaTime, 0, 0); $\land$
+((go2.transform.position.x $\leqslant$ r$\_$boundary2) $\implies$ (isShown:=true)))
+
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+
+\subsubsection{Local Functions}
+
+\noindent atBoundary():
+\begin{itemize}
+\item transition: x := go.transform.position.x\\
+\item output: x$\leqslant$ l\_boundary\\
+\item exception: None\\
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{MIS of Tree Planting Controller(\mref{Controller23})}  
+
+\subsection{Module}
+
+treePlantingController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+seasonController\\
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ plantTrees& plotNumberIndex  &  &  \\
+\hline
+ cleanTrees&  & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+
+\subsubsection{Environment Variables}
+\textbf{Related measures in unity tree editor:}
+
+\noindent double redPineHSR = 25.0;\\
+double oakHSR = 17.2 / 2;\\
+double beechHSR = 35.47 / 2;\\
+double birchHSR = 22.18 / 2;\\
+double redMapleHSR = 14.12 / 2;   \\
+double whitePineHSR = 64.4 / 2;\\
+double redOakHSR = 18.95 / 2\\
+
+\noindent\textbf{Plot Information}:\\
+double sideLength = 100.0;\\
+float startingCoordinate = 1f;\\
+float endingCoordinate = 99f\\
+
+\noindent\textbf{Collection of tree positions:}\\
+Vector3[] treelocal\\
+
+\noindent\textbf{Treefabs with leaves:}\\
+List$<GameObject>$treeprefabsWL\\
+
+\noindent\textbf{Treefabs without leaves:}\\
+List$<GameObject>$ treeprefabsWOL\\
+
+\noindent \textbf{ListOfCircles}
+circles[plotNumberIndex]\\
+
+
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent plantTrees(plotNumberIndex):
+\begin{itemize}
+\item transition: generateCircleLocation(circles(plotNumberIndex),differentTreeNumbers.Sum());\\
+(seasonController.haceLeaves $\implies$ treeprefabWL);\\
+(!seasonController.haveLeaves $\implies$ treeprefabWOL);\\
+($\forall$ species $\implies$ standardScale := data.species.Height/HSR $\land$ lowerBound := 0.9 * standardScale $\land$ upperBound := 1.1 * standardScale);\\
+($\forall$ species $\implies$ trees.Add(Instantiate(treeprefabs $|$ treeinstance.transform.localscale = Vectror3(randomScale, randomScale, randomScale)))\\
+
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent cleanTrees():
+\begin{itemize}
+\item transition: $\forall$ tree $\in$ trees $\implies$ Destroy(tree);
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+
+\subsubsection{Local Functions}
+\noindent calculatedTreeNumbers():
+\begin{itemize}
+\item transition: area := sideLength *sideLength;\\
+(int) treenumbers =$\sum_{species}$ density*area
+
+\item output: treenumbers
+\item exception: None
+\end{itemize}
+
+\noindent generateSquareLocation(numberOfPoints):
+\begin{itemize}
+\item transition: 
+treelocal[i] = Vector3(UnityEngine.Random.Range(startingCoordinate, endingCoordinate), 0f, UnityEngine.Random.Range(startingCoordinate, endingCoordinate))
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\noindent generateCirculeLocation(List<Circle> circles, int numberOfPoints):
+\begin{itemize}
+\item transition: 
+Point randomPoint := Point(UnityEngine.Random.Range(startingCoordinate, endingCoordinate), UnityEngine.Random.Range(startingCoordinate, endingCoordinate));\\
+(isPointInCircle $\implies$ treelocal[i] = Vector3((float)randomPoint.getX(),0f, (float) randomPoint.getY()));
+
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent isPointInCircles(List$<Circle>$ circles, Point point):
+\begin{itemize}
+\item transition: None
+
+\item output: ($\exists$ circle $\in$ circles $|$ circle.isIn(point) = true)
+
+\item exception: None
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{MIS of Tree Switch Button Controller(\mref{Controller24})}   
+
+\subsection{Module}
+
+TreeSwitchButtonController
+
+\subsection{Uses}
+
+UnityEngine\\
+UnityEngine.UI\\
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ onClick&  &  &  \\
+\hline
+ 
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean value indicating if the leaf information page is active. 
+
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent onClick():
+\begin{itemize}
+\item transition: isActive := !isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+None
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{MIS of Pie Chart Button Controller(\mref{Controller25})}  
+
+\subsection{Module}
+
+pieChartButtonController
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+onClick &  &  &  \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean value indicating if the pie chart is active. 
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent onClick():
+\begin{itemize}
+\item transition: isActive := !isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+None
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{MIS of Pie Chart Controller(\mref{Controller26})}  
+
+\subsection{Module}
+
+pieChartController
+
+\subsection{Uses}
+pieChartButtonController\\
+UnityEngine\\
+UnityEngine.UI
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ ChangeView&  &  &  \\
+\hline
+ markChart&  & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+isActive: Boolean value indicating if the pie chart is active. 
 
 \subsubsection{Environment Variables}
 
-TreeModdel: the asset bundle of different types of tree models.
-Brush: the built-in brush to erase the trees.
+GameObject graph\\
+Image legend\\
+EnvDataDisp\\
+
+\noindent\textbf{Data and Image for generating pieChart:}\\
+DataModel data\\
+Image regPinePortion\\
+Image oakPortion\\
+Image beechPortion\\
+Image birchPortion\\
+Image redMaplePortion\\
+Image whitePinePortion\\
+Image redOakPortion\\
+
+\noindent GameObject parentObject\\
 
 \subsubsection{Assumptions}
-
-The input parameters will match the given specification.
-
+None
 \subsubsection{Access Routine Semantics}
 
-\noindent GenerateTree(s, t):
+\noindent ChangeView():
 \begin{itemize}
-\item transition: Unity generates tree models randomly based on the given number and tree height.
+\item transition: graph.gameObejct.SetActive(!isActive) $\land$ legend.gameObject.SetActive(!isActive) $\land$ EnvDataDisp.gameObject.SetActive(isActive);\\
+isActive := !isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent markChart():
+\begin{itemize}
+\item transition: calculateValues();\\
+setImagePortions()
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+
+\subsubsection{Local Functions}
+\noindent calculateValues():
+\begin{itemize}
+\item transition: percentage$_{species}$ := number$_{species}$ / $\sum_{all species}$ number
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent setImagePortions():
+\begin{itemize}
+\item transition: pos := Vector3(150f,200f,0f);\\
+size := Vector2(600f, 600f);\\
+$\forall$ species $\implies$ (Portion$_{species}$.transform.locakPosition := pos \\
+$\land$ Portion$_{species}$.rectTransform.sizeData := size \\
+$\land$ Portion$_{species}$.fillAmount:= percentage$_{species}$ \\
+$\land$ Portion$_{species}$.transform.rotation := Quaternion.Euler (Vector3 (0f, 0f, totalRot)) \\
+$\land$ totalRot := totalRot(percentage$_{species}$))
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{MIS of Season Change Button Controller(\mref{Controller27})}  
+
+\subsection{Module}
+
+SeasonChangeButtonController
+
+\subsection{Uses}
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ onClick&  &  &  \\
+
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean value indicating if the current season is summer.
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent onClick():
+\begin{itemize}
+\item transition: isActive := !isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+None
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{MIS of Tree Switch Controller(\mref{Controller28})}  
+
+\subsection{Module}
+TreeSwitchController
+
+
+\subsection{Uses}
+UnityEngine\\
+UnityEngine.UI\\
+TreeSwitchButtonController
+
+\subsection{Syntax}
+\subsubsection{Exported Constants}
+None
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{| l | l | l | p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+ ChangeView&  &  &  \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+isActive: Boolean value indicating if leaf information is active. \\
+TreeParamDisplay: UI of Tree parameters display.\\
+LeafInfoDisplay: UI of Leaf information display.
+
+\subsubsection{Environment Variables}
+None
+\subsubsection{Assumptions}
+None
+\subsubsection{Access Routine Semantics}
+
+\noindent ChangeView():
+\begin{itemize}
+\item transition: (isActive $\implies$ (LeafInfoDisplay.gameObject.SetActive(false) $\land$ TreeParamDisplay.gameObject.SetActive(true);\\
+
+(!isActive $\implies$ (LeafInfoDisplay.gameObject.SetActive(true) $\land$ TreeParamDisplay.gameObject.SetActive(false);\\
+
+isActive := !isActive
+\item output: None
+\item exception: None
+\end{itemize}
+
+
+\subsubsection{Local Functions}
+None
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%% TS Starts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Forest Trees starts %%%%%%%%%%%%%%%%%%
+\section{MIS of Forest Trees (\mref{Model1})} 
+
+\subsection{Module}
+ForestTrees
+
+\subsection{Uses}
+\mref{Model4} , \mref{Model5}, 
+\mref{Model6}, \mref{Model7}, 
+\mref{Model8}, \mref{Model9},
+\mref{Model10}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+None
+
+\subsubsection{Exported Access Programs}
+\begin{center}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
+\hline
+new ForestTrees & & ForestTree & \\
+\hline
+addTree & GameObject(This is unity built-in type) & & \\ 
+\hline
+deleteTree & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+$\mathit{trees: GameObject\{\} }$
+
+\subsubsection{Environment Variables}
+None
+
+\subsubsection{Assumptions}
+None
+
+\subsubsection{Access Routine Semantics}
+\noindent new ForestTrees():
+\begin{itemize}
+\item transition: None
+\item output: $\mathit{out := self}$
+\item exception: None
+\end{itemize}
+
+\noindent addTree(tree):
+\begin{itemize}
+\item transition: $\mathit{trees := trees } \cup tree $ 
 \item output: None
 \item exception: None
 \end{itemize}
 
 \noindent DeleteTree(s):
 \begin{itemize}
-\item transition: Delete trees by clicking on the brush and erase the workspace.
+\item transition: $\forall tree: GameObject | tree \in trees : tree.destory()$
 \item output: None
 \item exception: None
 \end{itemize}
@@ -377,12 +2233,15 @@ UnityLightning
 None
 \subsubsection{Exported Access Programs}
 
+
 \begin{center}
-\begin{tabular}{|l| l | l | p{5cm}|}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-SetSkyBox & s: Texture &  &  \\
+new ForestSky & & ForestSky & \\
+\hline
+setSkyBox & Unity Texture & & \\ 
 \hline
 \end{tabular}
 \end{center}
@@ -393,14 +2252,18 @@ SetSkyBox & s: Texture &  &  \\
 None
 
 \subsubsection{Environment Variables}
-
 SkyTexture: imported picture of the skybox.
 
 \subsubsection{Assumptions}
-
 Unity only takes valid texture file type as input.
 
 \subsubsection{Access Routine Semantics}
+\noindent new ForestSky()
+\begin{itemize}
+\item transition: None
+\item output: None
+\item exception: None
+\end{itemize}
 
 \noindent SetSkybox(s):
 \begin{itemize}
@@ -418,12 +2281,10 @@ None
 %%%%%%%%%%% Forest Terrain starts %%%%%%%%%%%%%%%%%%
 \section{MIS of Forest Terrain (\mref{Model3})} 
 \subsection{Module}
-
 ForestTerrain
 
 \subsection{Uses}
-
-UnityTerrain
+Unity Terrain Tool
 
 \subsection{Syntax}
 
@@ -432,11 +2293,15 @@ None
 \subsubsection{Exported Access Programs}
 
 \begin{center}
-\begin{tabular}{|l| l | l | p{5cm}|}
+\begin{tabular}{|p{3cm}|p{4cm}|p{4cm}| p{5cm}|}
 \hline
 \textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
 \hline
-SetHeight &  &  &  \\
+new ForestTerrain & & ForestTerrain & \\
+\hline
+setLength & Double & & \\ 
+\hline
+setWidth & Double & & \\ 
 \hline
 \end{tabular}
 \end{center}
@@ -447,18 +2312,30 @@ SetHeight &  &  &  \\
 None
 
 \subsubsection{Environment Variables}
-
-Brush: brushes to set the shape and height of the terrain.
+None
 
 \subsubsection{Assumptions}
-
 None
 
 \subsubsection{Access Routine Semantics}
 
-\noindent SetHeight():
+\noindent new ForestTerrain():
 \begin{itemize}
-\item transition: Change the height of the current terrain with different Unity terrain brushes.
+\item transition: Create a new terrain in unity using the terrain tool
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent setLenght(x):
+\begin{itemize}
+\item transition: set the length of the terrain to be x meters
+\item output: None
+\item exception: None
+\end{itemize}
+
+\noindent setWidth(x):
+\begin{itemize}
+\item transition: set the width of the terrain to be x meters
 \item output: None
 \item exception: None
 \end{itemize}
@@ -470,6 +2347,20 @@ None
 \newpage
 
 %%%%%%%%%%%%%%%%%%% RedPine starts %%%%%%%%%%%
+\noindent 
+\textcolor{red}{
+We want to address the following two points regarding creating 
+different modules for different tree types:
+\begin{itemize}
+\item We created different modules for different types of 
+trees because this is necessary when it comes to reading from 
+JSON files by using the newtonsoft parser.
+\item Also, we deleted
+the ``isValidString'' local function here since we will check the validity 
+of the string when users input from the GUI
+\end{itemize}}
+
+
 \newcommand{\tn}{Red Pine }
 \newcommand{\tmn}{RedPine}
 \newcommand{\constn}{Red\ Pine}
@@ -496,19 +2387,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -539,67 +2430,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
-
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -608,13 +2486,7 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Red Pine ends %%%%%%%%%%%%%
 
 \newpage
@@ -646,19 +2518,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -689,67 +2561,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
-
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -758,18 +2617,12 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Oak ends %%%%%%%%%%%%%
 
 \newpage
 
-%%%%%%%%%%%%%%%%%%% Beeck starts %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% Beech starts %%%%%%%%%%%
 \renewcommand{\tn}{Beech }
 \renewcommand{\tmn}{Beech}
 \renewcommand{\constn}{Beech}
@@ -796,19 +2649,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -839,67 +2692,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
-
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -908,13 +2748,7 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Beech ends %%%%%%%%%%%%%
 
 \newpage
@@ -946,19 +2780,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -989,67 +2823,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
- 
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -1058,13 +2879,7 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Birch ends %%%%%%%%%%%%%
 
 \newpage
@@ -1096,19 +2911,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -1139,67 +2954,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
-
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -1208,13 +3010,7 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% White Pine ends %%%%%%%%%%%%%
 
  \newpage
@@ -1246,19 +3042,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -1289,67 +3085,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
-
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -1358,13 +3141,7 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Red Maple ends %%%%%%%%%%%%%
 
 \newpage
@@ -1396,19 +3173,19 @@ new \tmn & & \tmn & \\
 \hline
 getTreeName & &String & \\
 \hline 
-setDensity & String & & IllegalArgumentException\\
+setDensity & String & & \\
 \hline
 getDensity & & String & \\
 \hline
-setDBH & String & & IllegalArgumentException\\
+setDBH & String & & \\
 \hline
 getDBH & & String & \\
 \hline
-setHeight & String & & IllegalArgumentException\\
+setHeight & String & & \\
 \hline
 getHeight & & String & \\
 \hline
-setAge & String & & IllegalArgumentException\\
+setAge & String & & \\
 \hline
 getAge & & String & \\
 \hline
@@ -1439,67 +3216,54 @@ Age := ``\constn", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
-
 \noindent getTreeName():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Treename}$
 \item exception: None
 \end{itemize}
-
 \noindent setDensity(newDensity):
 \begin{itemize}
 \item transition: $\mathit{Density := newDensity}$
 \item output: None
-\item exception: $\neg$ isValidString(newDensity) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getDensity():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Density}$
 \item exception: None
 \end{itemize}
-
 \noindent setDBH(newDBH):
 \begin{itemize}
 \item transition: $\mathit{DBH := newDBH}$
 \item output: None
-\item exception: $\neg$ isValidString(newDBH) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-\newpage
 \noindent getDBH():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := DBH}$
 \item exception: None
 \end{itemize}
-
 \noindent setHeight(newHeight):
 \begin{itemize}
 \item transition: $\mathit{Height := newHeight}$
 \item output: None
-\item exception: $\neg$ isValidString(newHeight) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getHeight():
 \begin{itemize}
 \item transition: None
 \item output: $\mathit{out := Height}$
 \item exception: None
 \end{itemize}
-
 \noindent setAge(newAge):
 \begin{itemize}
 \item transition: $\mathit{Age := newAge}$
 \item output: None
-\item exception: $\neg$ isValidString(newAge) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 \noindent getAge():
 \begin{itemize}
 \item transition: None
@@ -1508,18 +3272,16 @@ IllegalArgumentException
 \end{itemize}
 
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Red Oak ends %%%%%%%%%%%%%
 
 \newpage
 
 %%%%%%%%%%%%%%%%%%% Environmental Data starts %%%%%%%%%%%
+\noindent
+\textcolor{red}{We deleted ``isValidString'' local 
+function here because we will 
+check the validity of string when users enter data from the GUI}
 \section{MIS of Environmental Data (\mref{Model11})}
 
 \subsection{Module}
@@ -1541,27 +3303,27 @@ None
 new EnvData & & EnvData & \\
 \hline
 
-setHumility & String & & IllegalArgumentException\\
+setHumidity & String & & \\
 \hline
-getHumility & &String & \\
+getHumidity & &String & \\
 \hline
 
-setTemp & String & & IllegalArgumentException\\
+setTemp & String & &\\
 \hline
 getTemp & &String & \\
 \hline
 
-setSC & String & & IllegalArgumentException\\
+setSC & String & & \\
 \hline
 getSC & &String & \\
 \hline
 
-setSN & String & & IllegalArgumentException\\
+setSN & String & & \\
 \hline
 getSN & &String & \\
 \hline
 
-setLAI & String & & IllegalArgumentException\\
+setLAI & String & & \\
 \hline
 getLAI & &String & \\
 \hline
@@ -1587,13 +3349,12 @@ None
 
 \noindent new EnvData():
 \begin{itemize}
-\item transition: $\mathit{Humility, Temp, SC, SN, LAI := ``", ``", ``", ``", ``"}$
+\item transition: $\mathit{Humidity, Temp, SC, SN, LAI := ``", ``", ``", ``", ``"}$
 \item output: $\mathit{out := self}$
 \item exception: None 
 \end{itemize}
 
-
-\newcommand{\attr}{Humility}
+\newcommand{\attr}{Humidity}
 \noindent get\attr():
 \begin{itemize}
 \item transition: None
@@ -1605,10 +3366,8 @@ None
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
-\item exception: $\neg$ isValidString(new\attr) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 
 \renewcommand{\attr}{Temp}
 \noindent get\attr():
@@ -1622,10 +3381,8 @@ IllegalArgumentException
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
-\item exception: $\neg$ isValidString(new\attr) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 
 \renewcommand{\attr}{SC}
 \noindent get\attr():
@@ -1639,10 +3396,8 @@ IllegalArgumentException
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
-\item exception: $\neg$ isValidString(new\attr) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 
 \renewcommand{\attr}{SN}
 \noindent get\attr():
@@ -1656,10 +3411,8 @@ IllegalArgumentException
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
-\item exception: $\neg$ isValidString(new\attr) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
-
 
 \renewcommand{\attr}{LAI}
 \noindent get\attr():
@@ -1673,19 +3426,11 @@ IllegalArgumentException
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
-\item exception: $\neg$ isValidString(new\attr) $\implies$
-IllegalArgumentException
+\item exception: None
 \end{itemize}
 
-
 \subsubsection{Local Functions}
-ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
-, ``8", ``9", ``0", ``."\}\\
-
-\noindent isValidString(S): String $\rightarrow$ $\mathbb{B}$ \\
-
-\noindent isValidString(S) = $\forall(i : \mathbb{Z} | 0 \leq
-i < |S| : S[i] \in $ ValidCharacters)
+None
  %%%%%%%%%%%%%%%%%%%%% Environmental data ends %%%%%%%%%%%%%
 
 \newpage
@@ -1806,15 +3551,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
-
 \renewcommand{\attr}{OakObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1822,15 +3564,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
-
 \renewcommand{\attr}{BeechObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1838,14 +3577,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
 \renewcommand{\attr}{BirchObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1853,16 +3590,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
-\newpage
-
 \renewcommand{\attr}{WhitePineObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1870,15 +3603,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
-
 \renewcommand{\attr}{RedMapleObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1886,15 +3616,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
-
 \renewcommand{\attr}{RedOakObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1902,16 +3629,12 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
 \item output: None
 \item exception: None
 \end{itemize}
-
-\newpage
-
 \renewcommand{\attr}{EnvDataObj}
 \noindent get\attr():
 \begin{itemize}
@@ -1919,7 +3642,6 @@ BirchObj := null, null, null, null}$
 \item output: $\mathit{out := \attr}$
 \item exception: None
 \end{itemize}
-
 \noindent set\attr(new\attr):
 \begin{itemize}
 \item transition: $\mathit{\attr := new\attr}$
@@ -2075,6 +3797,8 @@ ValidCharacters = \{``1", ``2", ``3", ``4", ``5", ``6", ``7"
 i < |S| : S[i] \in $ ValidCharacters)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Json File Ends %%%%%%%%%%
 
+%%%%%%%%%%%%%% TS Ends %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage
 
 %%%%%%%%%%%%%%%%% MainPage starts %%%%%%%%%%%%%%
@@ -2084,7 +3808,7 @@ i < |S| : S[i] \in $ ValidCharacters)
 MainPageDisplay
 
 \subsection{Uses}
-\mref{Controller6} , 
+\mref{Controller6} , \mref{Controller7}, \mref{Controller8}, \mref{Controller9}, \mref{Controller10}, \mref{Viwer2}, \mref{Viwer3}, \mref{Viwer4}, \mref{Viwer5}
 UnityEngine.UI
 
 \subsection{Syntax}
@@ -2111,7 +3835,8 @@ None
 \newpage
 
 
-\newcommand{\bref}{\href{https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Button.html}{here}}
+\renewcommand{\bref}{\href{https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-Button.html}{here}}
+
 %%%%%%%%%%%%%%%%% StartButton starts %%%%%%%%%%%%%%
 \section{MIS of Start Button (\mref{Viwer2})}
 
@@ -2133,7 +3858,7 @@ This module is used to display the UI of the StartButton. You can refer to Unity
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2165,7 +3890,7 @@ This module is used to display the UI of the InstructionButton.You can refer to 
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2196,7 +3921,7 @@ This module is used to display the UI of the ContactUsButton.You can refer to Un
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2214,7 +3939,7 @@ None
 QuitButton
 
 \subsection{Uses}
-\mref{Controller9} ,UnityEngine.UI 
+\mref{Controller10} ,UnityEngine.UI 
 
 \subsection{Syntax}
 \subsubsection{Exported Constants}
@@ -2227,7 +3952,7 @@ This module is used to display the UI of the QuitButton.You can refer to Unity B
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2245,7 +3970,7 @@ None
 InstructionInfoDisplay
 
 \subsection{Uses}
-\mref{Controller6} ,
+\mref{Controller7} ,
 UnityEngine.UI
 
 \subsection{Syntax}
@@ -2261,7 +3986,7 @@ You can refer to Unity Canvas Documentation by clicking
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2279,7 +4004,7 @@ None
 ContactUsInfoDisplay
 
 \subsection{Uses}
-\mref{Controller6} 
+\mref{Controller9} 
 UnityEngine.UI
 
 \subsection{Syntax}
@@ -2296,7 +4021,7 @@ You can refer to Unity Canvas Documentation by clicking
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2328,7 +4053,7 @@ This module is used to display the UI of the BackButton.You can refer to Unity B
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2346,7 +4071,7 @@ None
 UpdateDataDisplay
 
 \subsection{Uses}
-\mref{Controller6} 
+\mref{Controller8} 
 UnityEngine.UI
 
 \subsection{Syntax}
@@ -2362,7 +4087,7 @@ You can refer to Unity Canvas Documentation by clicking
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2395,7 +4120,7 @@ This module is used to display the UI of the EnvDataSelectionButton.You can refe
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2426,7 +4151,7 @@ This module is used to display the UI of the DataTypeSelectionButton.You can ref
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2443,8 +4168,7 @@ None
 \subsection{Module}
 NewDataInputBox
 
-\subsection{Uses}
-\mref{Controller6} ,
+\subsection{Uses} ,
 UnityEngine.UI
 
 \subsection{Syntax}
@@ -2460,7 +4184,7 @@ You can refer to Unity Input Field Documentation by clicking
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2492,7 +4216,7 @@ This module is used to display the UI of the SaveButton.You can refer to Unity B
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2527,7 +4251,7 @@ You can refer to Unity Text Documentation by clicking \tref.
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2564,7 +4288,7 @@ by clicking \dref.
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2601,7 +4325,7 @@ by clicking \dref.
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2633,7 +4357,7 @@ The module is used to display the UI of UpdateDataButton. You can refer to Unity
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2664,7 +4388,7 @@ None
 \subsubsection{State Variables}
 This module is used to display the forest models.
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2698,7 +4422,7 @@ clicking \bref.
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2735,7 +4459,7 @@ clicking \bref.
 None
 
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 
 \subsubsection{Assumptions}
 None
@@ -2773,7 +4497,7 @@ You can check Unity Text Documentation by clicking \tref.
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 
 \subsubsection{Assumptions}
 
@@ -2810,7 +4534,7 @@ You can check Unity Text Documentation by clicking \tref.
 \subsubsection{State Variables}
 None
 \subsubsection{Environment Variables}
-None
+windows: Computer screen used to display messages.
 \subsubsection{Assumptions}
 None
 \subsubsection{Access Routine Semantics}
@@ -2847,7 +4571,7 @@ None
 
 \subsubsection{Environment Variables}
 
-None
+windows: Computer screen used to display messages.
 
 \subsubsection{Assumptions}
 
@@ -2862,1384 +4586,119 @@ None
 
 \newpage
 
-%%%%%%%%%%%% reader starts
-\section{MIS of JSON File Reader Module  (\mref{Controller1})}
+\section{MIS of SeasonChangeButton (\mref{Viwer24})} 
 
 \subsection{Module}
-
-JsonFileReader
+SeasonChangeButton
 
 \subsection{Uses}
-
-System.Collections\\
-System.Collections.Generic\\
-UnityEngine\\
-System.IO\\
-UnityEngine.UI\\
-\mref{Viwer21}\\
-\mref{Viwer22}\\
-\mref{Model12}\\
-\mref{Model4}\\
-\mref{Model5}\\
-\mref{Model6}\\
-\mref{Model7}\\
-\mref{Model8}\\
-\mref{Model9}\\
-\mref{Model10}\\
-\mref{Model11}\\
-
+UnityEngine.UI , \mref{Controller27}
 
 \subsection{Syntax}
+
 \subsubsection{Exported Constants}
 None
 \subsubsection{Exported Access Programs}
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-Awake &  &  &  \\
-\hline
-Start& & & \\ 
-\hline
-readFile& $\mathbb{Z}$ & & \\
-\hline
-\end{tabular}
-\end{center}
+None
 
 \subsection{Semantics}
+This module is used to display the seasonal change of the models of the forest
+
 \subsubsection{State Variables}
-treeParamDisplay: TreeParamDisplay\\
-envDataDisplay: EnvDataDisplay\\
-dataModelObj: DataModel\\
-jsonModelObj: JsonModel\\
-plotNumber: $\mathbb{Z}$\\
-filePath: string\\
-plotJsonData: string
-\subsubsection{State Invariant}
-DEFAULT=``./dataCenter/overalldata.json"\\
-PATH = ``./dataCenter/plot"\\
-SUFFIX = ``data.json"
+None
+
 \subsubsection{Environment Variables}
-overalldata.json\\
-plot1data.json\\
-plot2data.json\\
-plot3data.json\\
-plot4data.json\\
-plot5data.json\\
-plot6data.json\\
-plot7data.json\\
-plot8data.json\\
-plot9data.json\\
-plot10data.json\\
-plot11data.json\\
-plot12data.json\\
-plot13data.json\\
-plot14data.json
+
+windows: Computer screen used to display messages.
 
 \subsubsection{Assumptions}
 
-Assume all the Json files are in the correct path.
+None
 
 \subsubsection{Access Routine Semantics}
+None
 
-\noindent Awake():
-\begin{itemize}
-\item transition: readFile(0)
-\item output: None 
-\item exception: None 
-\end{itemize}
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None 
-\item exception: None 
-\end{itemize}
-\noindent readFile(value):
-\begin{itemize}
-\item transition: plotNumber:= value + 1,\\
-(plotNumber=15) $\rightarrow$ (filePath:=DEFAULT) $\lor$ (plotNumber$\neq$15) $\rightarrow$ (filePath:=psx) WHERE p:=PATH, s:=plotNumber.ToString(), f:= SUFFIX,\\
-plotJsonData:= File.ReadAllText(filePath),\\
-JsonModelObj:= Newtonsoft.Json.JsonConvert.DeserializeObject<JsonModel>(plotJsonData),\\
-        DataModelObj.RedPineData:=JsonModelObj.redPine;\\
-        DataModelObj.OakData:=JsonModelObj.oak;\\
-        DataModelObj.BeechData:=JsonModelObj.beech;\\
-        DataModelObj.BirchData:=JsonModelObj.birch;\\
-        DataModelObj.RedMapleData:=JsonModelObj.redMaple;\\
-        DataModelObj.WhitePineData:=JsonModelObj.whitePine;\\
-        DataModelObj.RedOakData:=JsonModelObj.redOak;\\
-        DataModelObj.EnvData:=JsonModelObj.envData;\\
-        
-\item output: None 
-\item exception: None 
-\end{itemize}
 \subsubsection{Local Functions}
 None
-%%%%%%%%%%%%%%%% reader ends
 
 \newpage
 
-%%%%%%%%%%%%%%%% writer starts %%%%%%%%%%%%%%%%%
-\section{MIS of JSON File Writer Module (\mref{Controller2})}
+\section{MIS of pieChartButton (\mref{Viwer25})} 
 
 \subsection{Module}
-JsonFileWriter
+pieChartButton
 
 \subsection{Uses}
-JsonFileReader\\
-NewDataInpputBoxController\\
-System.Collections\\
-System.Collections.Generic\\
-UnityEngine\\
-System.IO\\
-UnityEngine.UI\\
-\mref{Viwer21}\\
-\mref{Viwer22}\\
-\mref{Model12}\\
-\mref{Model4}\\
-\mref{Model5}\\
-\mref{Model6}\\
-\mref{Model7}\\
-\mref{Model8}\\
-\mref{Model9}\\
-\mref{Model10}\\
-\mref{Model11}\\
-
-\subsection{Syntax}
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-updateData & string, $\mathbb{Z}$, string &  &  \\
-\hline
-getOldData& $\mathbb{Z}$ & & \\ 
-\hline
-changeData& $\mathbb{Z}$, string, string & & \\
-\hline
-writeAndSave & string, string  &   & \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-treeParamDisplay: TreeParamDisplay\\
-envDataDisplay: EnvDataDisplay\\
-dataModelObj: DataModel\\
-jsonModelObj: JsonModel\\
-plotNumber: $\mathbb{Z}$\\
-filePath: string\\
-plotJsonData: stri\\
-\subsubsection{State Invariant}
-DEFAULT=``./dataCenter/overalldata.json"\\
-PATH = ``./dataCenter/plot"\\
-SUFFIX = ``data.json"
-\subsubsection{Environment Variables}
-overalldata.json\\
-plot1data.json\\
-plot2data.json\\
-plot3data.json\\
-plot4data.json\\
-plot5data.json\\
-plot6data.json\\
-plot7data.json\\
-plot8data.json\\
-plot9data.json\\
-plot10data.json\\
-plot11data.json\\
-plot12data.json\\
-plot13data.json\\
-plot14data.json
-
-\subsubsection{Assumptions}
-
-Assume that all the JSON files are in the correct path.
-
-\subsubsection{Access Routine Semantics}
-
-\noindent findFilePath(value):
-\begin{itemize}
-\item transition: plotNumber:=value + 1,\\
-(plotNumber=15) $\rightarrow$ (filePath:=DEFAULT) $\lor$ (plotNumber$\neq$15) $\rightarrow$ (filePath:=psx) WHERE p:=PATH, s:=plotNumber.ToString(), f:= SUFFIX\\
-\item output: None
-\item exception: None
-\end{itemize}
-\noindent getOldData(value):
-\begin{itemize}
-\item transition: JsonFileReader.readFile(value)
-\item output: None
-\item exception: None
-\end{itemize}
-\noindent changeData(value, tree, p):
-\begin{itemize}
-\item transition: treeData:=(tree $\rightarrow$ RedPineData $\lor$ OakData
-$\lor$ BeechData
-$\lor$ RedPineData
-$\lor$ RedMapleData
-$\lor$ WhitePineData
-$\lor$ RedOakData),\\
-treeData.p:=value, plotJsonData:= set of treeData\\
-content:= serializeObject(plotJsonData);
-\item output: None
-\item exception: None
-\end{itemize}
-\noindent writeAndSave(content, filePath):
-\begin{itemize}
-\item transition: write(content)
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%% writer ends %%%%%%%%%%%%
-  \newpage
-
-%%%%%%%%%%%% Pause manager starts %%%%%%%%%%%%
-\section{MIS of Pause Manager Module (\mref{Controller3})}
-\subsection{Module}
-
-PauseManager
-
-\subsection{Uses}
-System.Collections\\
-System.Collections.Generic\\
-UnityEngine\\
-UnityEngine.UI\\
+UnityEngine.UI
 
 \subsection{Syntax}
 
 \subsubsection{Exported Constants}
 None
 \subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-Start &  &  &  \\
-\hline
-Update & & & \\
-\hline
-\end{tabular}
-\end{center}
+None
 
 \subsection{Semantics}
+This module is providing a button GUI for users to switch between a pie chart and environmental
+data.
 
 \subsubsection{State Variables}
-isPaused: Boolean\\
-pauseMessage: Text
-\subsubsection{State Invariant}
-PAUSE = ``Pause"\\
-BLANK = ``"
+None
+
 \subsubsection{Environment Variables}
 
-keyboard
+windows: Computer screen used to display messages.
 
 \subsubsection{Assumptions}
 
 None
 
 \subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: pauseMessage.text:= BLANK
-\item output: None 
-\item exception: None
-\end{itemize}
-\noindent Update():
-\begin{itemize}
-\item transition: Input.GetKeyDown(KeyCode.P) $\rightarrow$ (	$\neg$isPaused $\rightarrow$ (Time.timescale:= 0, pauseMessage.text = PAUSE, isPaused:= $\neg$~isPaused) $\lor$ (isPaused $\rightarrow$  (Time.timescale:= 1, pauseMessage.text = BLANK, isPaused:= $\neg$~isPaused)))
-\item output: None 
-\item exception: None
-\end{itemize}
+None
 
 \subsubsection{Local Functions}
 None
-
-%%%%%%%%%%%%%%%%%%%%%%%%% Pause manager ends %%%%%%%%%%
-
- \newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%% Player Movement starts %%%%%%%%
-\section{MIS of Player Movement Module (\mref{Controller4})}
-
-\subsection{Module}
-PlayerMovement
-
-\subsection{Uses}
-
-CharacterController\\
-System.Collections\\
-System.Collections.Generic\\
-UnityEngine\\
-Time\\
-Vector3
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-Update &  &  &  \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-speed: float\\
-controller: CharacterController
-transform: Transform
-\subsubsection{Environment Variables}
-
-mouse
-
-\subsubsection{Assumptions}
-Assume that users press the right keys.
-\subsubsection{Access Routine Semantics}
-
-\noindent Update():
-\begin{itemize}
-\item transition: x, z:= Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),\\
-direction:= transform.right * x + Camera.main.transform.forward * z,\\
-controller.Move(d,s,t): Vector3 $\times$ float $\times$ Time\\
-\item output: None
-\item exception: None 
-\end{itemize}
-
-\subsubsection{Local Functions}
-None 
-%%%%%%%%%%%%%%%%% Player Movement ends %%%%%%%%%%%%
 
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \section{MIS of New Data Input Box Controller Module (\mref{Controller5})}
- 
-\subsection{Module}
-NewDataInputBoxController
+\section{MIS of TreeSwitchButton (\mref{Viwer26})} 
 
+\subsection{Module}
+TreeSwitchButton
 \subsection{Uses}
-\mref{Controller2}
+UnityEngine.UI
 
 \subsection{Syntax}
 
 \subsubsection{Exported Constants}
 None
 \subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-isValid & string & & \\
-\hline
-storeData & string & &\\
-\hline
-\end{tabular}
-\end{center}
+None
 
 \subsection{Semantics}
-
-\subsubsection{State Variables}
-number: string
-
-\subsubsection{Environment Variables}
-None
-\subsubsection{Assumptions}
-
-Assume that the contents of the string type input are all numbers 
-\subsubsection{Access Routine Semantics}
-
-\noindent isValid(number):
-\begin{itemize}
-\item transition: check if the input is valid or not
-\item output: True if the input is valid, False otherwise
-\item exception: None 
-\end{itemize}
-\noindent storeData(number):
-\begin{itemize}
-\item transition: call isValid(number) and pass the new data to the Update Data Button Module.
-\item output: None
-\item exception: None 
-\end{itemize}
-
-\subsubsection{Local Functions}
-
-None
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \section{MIS of Start Button Controller Module (\mref{Controller6})}
- 
-\subsection{Module}
-StartButtonController
-
-\subsection{Uses}
-System.Collections\\
-System.Collections.Generic\\
-UnityEngine\\
-UnityEngine.SceneManagement\\
-LoadSceneMode
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-newData: String
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-
-Start & & & \\
-\hline
-Update & & & \\
-\hline
-goToForestScene & String, LoadSceneMode& &\\
-
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-\subsubsection{State Variables}
-None
-
-\subsubsection{Environment Variables}
-mouse\\
-Forest
-
-\subsubsection{Assumptions}
-
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None 
-\item output: None
-\item exception: None
-\end{itemize}
-\noindent Update():
-\begin{itemize}
-\item transition: None 
-\item output: None
-\item exception: None
-\end{itemize}
-\noindent goToForestScene():
-\begin{itemize}
-\item transition: timescale := 1, load the Forest scene
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\subsubsection{Local Functions}
-None
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  \newpage
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \section{MIS of Instruction Button Controller Module (\mref{Controller7})}
- 
-\subsection{Module}
-
-InstructionButtonController
-
-\subsection{Uses}
-None
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click & &\\
-\hline
-setActive & Boolean &  &  \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-value: Boolean\\
-active: Boolean
-\subsubsection{Environment Variables}
-Mouse\\
-InstructionPage
-
-\subsubsection{Assumptions}
-None
-
-\subsubsection{Access Routine Semantics}
-
-\noindent onClick():
-\begin{itemize}
-\item transition: value:= $\neg$ value
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent setActive(value):
-\begin{itemize}
-\item transition: active:= value
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-
-None
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \section{MIS of Update Data Button Controller Module (\mref{Controller8})}
-\subsection{Module}
-
-UpdateDataButtonController
-
-\subsection{Uses}
-JsonFileWriter
-\subsection{Syntax}
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click & & \\
-\hline
-updateData &  string, $\mathbb{Z}$, string &  &  \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-value: Boolean\\
-plot: $\mathbf{Z}$\\
-tree: string
-
-\subsubsection{Environment Variables}
-
-Mouse\\
-UpdateDataPage
-
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent onClick():
-\begin{itemize}
-\item transition: updateData(value, plot, tree)
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent updateData(value, plot, tree):
-\begin{itemize}
-\item transition: active:= JsonFileWriter.write(value, plot, tree)
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-None
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage  
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Contact Us Button Controller Module (\mref{Controller9})}
-\subsection{Module}
-
-ContactUsButtonController
-
-\subsection{Uses}
-None
-\subsection{Syntax}
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click & & \\
-\hline
-setActive & Boolean &  &  \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-value: Boolean\\
-active: Boolean
-\subsubsection{Environment Variables}
-
-Mouse\\
-TeamInfoPage
-
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent onClick():
-\begin{itemize}
-\item transition: value:= $\neg$ value
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent setActive(value):
-\begin{itemize}
-\item transition: active:= value
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-None 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Quit Button Controller (\mref{Controller10})} 
-
-\subsection{Module}
-
-QuitButtonController
-
-\subsection{Uses}
-UnityEngine.UI (UI Library)
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start & & & \\
-\hline
-Update & & & \\
-\hline
-QuitSoftware & & terminate program & \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
+This module provides a button GUI for users to switch between tree parameters and leaf infor
+mation
 
 \subsubsection{State Variables}
 None
 
 \subsubsection{Environment Variables}
-Mouse
+
+windows: Computer screen used to display messages.
+
 \subsubsection{Assumptions}
+
 None
+
 \subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent QuitSoftware():
-\begin{itemize}
-\item transition: Application.Quit()
-\item output: None
-\item exception: None
-\end{itemize}
-
-
+None
 
 \subsubsection{Local Functions}
 None
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Back Button Controller (\mref{Controller11})}  
-
-\subsection{Module}
-BackButtonController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-\subsection{Syntax}
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start & & & \\
-\hline
-Update & & & \\
-\hline
-Back & &  & \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-viewState\\
-upperLevelPage
-
-\subsubsection{Environment Variables}
-Mouse
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\noindent Back():
-\begin{itemize}
-\item transition: upperLevelPage $\mathit{\implies}$(viewState := upperLevelPage)
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Plot Selection Drop Down Controller (\mref{Controller12})} 
-
-\subsection{Module}
-PlotSelectionDropDownController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-\subsection{Syntax}
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-displayMenu &&&\\
-\hline
-extractTreeParam & s: int &  &  \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-isActive: Boolean\\
-s1: String\\
-s2: String\\
-s3: String\\
-s4: String\\
-s5: String\\
-curIndex: int
-
-\subsubsection{Environment Variables}
-Mouse\\
-DataModelObj: The gameobject of the current script\\
-EnvDisp: UI test that will be displayed in Unity
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent displayMenu():
-\begin{itemize}
-\item transition: isActive$\mathit{:= \neg }$ isActive
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\noindent extractTreeParam(s):
-\begin{itemize}
-\item transition: Get the mouse click, assign different values to s1,s2,s3,s4,s5 based on the value of curIndex
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Tree Type Selection Drop Down Controller(\mref{Controller13})} 
-
-\subsection{Module}
-
-TreeTypeSelectionDropDownController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click  &   & \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-displayMenu &&&\\
-\hline
-extractTreeParam & s: int &  &  \\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-isActive: Boolean\\
-curIndex: int\\
-s1: String\\
-s2: String\\
-s3: String\\
-s4: String\\
-s5: String\\
-
-
-\subsubsection{Environment Variables}
-Mouse\\
-DataModelObj: The gameobject of the current script\\
-TreeParamDisp: UI test that will be displayed in Unity\\
-dropdown: The drop down menu to select tree type
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None 
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Update():
-\begin{itemize}
-\item transition: None 
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent displayMenu():
-\begin{itemize}
-\item transition: isActive$\mathit{:= \neg }$ isActive
-\item output: None
-\item exception: None
-
-\end{itemize}
-
-
-\noindent extractTreeParam(s):
-\begin{itemize}
-\item transition: Get the mouse click, assign different values to s1,s2,s3,s4,s5 based on the value of curIndex
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Show Environmental Data Button Controller (\mref{Controller14})} 
-
-\subsection{Module}
-
-ShowEnvDataButtoController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-EnvDataDispHandle &&&\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-displayEnvData: Boolean
-
-\subsubsection{Environment Variables}
-Mouse
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent EnvDataDispHandle():
-\begin{itemize}
-\item transition: displayEnvData $\mathit {:= \neg}$ displayEnvData
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-None
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Show Tree Parameter Button Controller(\mref{Controller15})}  
-
-\subsection{Module}
-
-ShowTreeParamButtonController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-TreeParamDispHandle &&&\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-isActive: Boolean
-
-\subsubsection{Environment Variables}
-Mouse
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent TreeParamDispHandle():
-\begin{itemize}
-\item transition: isActive $\mathit{:= \neg}$ isActive
-\item output: None
-\item exception: None
-\end{itemize}
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{MIS of Environmental Selection Button Controller(\mref{Controller16})} 
-
-\subsection{Module}
-EnvDataSelectionButtonController
-
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-displayEnvSel &&&\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-isActive: Boolean
-
-\subsubsection{Environment Variables}
-Mouse
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent displayEnvSel():
-\begin{itemize}
-\item transition: isActive $\mathit{:= \neg}$ isActive
-\item output: None
-\item exception: None
-\end{itemize}
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MIS of Data Type Selection Buttons Controller(\mref{Controller17})}  
-
-\subsection{Module}
-DataTypeSelectionButtonsController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-
-\subsection{Syntax}
-
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-displayDataTypeSel &&&\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-isActive: Boolean
-
-\subsubsection{Environment Variables}
-Mouse
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent displayDataTypeSel():
-\begin{itemize}
-\item transition: isActive $\mathit{:= \neg}$ isActive
-\item output: None
-\item exception: None
-\end{itemize}
-
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{MIS of Save Button Controller(\mref{Controller18})}  
-
-\subsection{Module}
-
-SaveButtonController
-
-\subsection{Uses}
-UnityEngine.UI\\
-UnityEngine.SceneManagement\\
-\mref{Controller2}
-
-\subsection{Syntax}
-\subsubsection{Exported Constants}
-None
-\subsubsection{Exported Access Programs}
-
-\begin{center}
-\begin{tabular}{| l | l | l | p{5cm}|}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-onClick & mouse click &  &  \\
-\hline
-Start &&&\\
-\hline
-Update &&&\\
-\hline
-Save &originalData &&\\
-\hline
-&updatedData&&\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Semantics}
-
-\subsubsection{State Variables}
-originalData: float\\
-updatedData: float
-\subsubsection{Environment Variables}
-None
-\subsubsection{Assumptions}
-None
-\subsubsection{Access Routine Semantics}
-
-\noindent Start():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Update():
-\begin{itemize}
-\item transition: None
-\item output: None
-\item exception: None
-\end{itemize}
-
-\noindent Save():
-\begin{itemize}
-\item transition: originalData := updatedData
-\item output: None
-\item exception: None
-\end{itemize}
-
-
-\subsubsection{Local Functions}
-None
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 
 \bibliographystyle {plainnat}
 \bibliography {References}
-
-\newpage
-
-\section{Appendix} \label{Appendix}
 
 \end{document}
